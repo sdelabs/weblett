@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
     <title>LETT Webinterface</title>
 	<link rel="stylesheet" href="WebLETT.css">
-
+	<script src = "test.js"></script>
   </head>
 
   <!--script src="https://cdn.jsdelivr.net/npm/chart.js"></script-->
@@ -40,9 +40,9 @@
 		<td colspan="2">
 		  sensor
 		  <input type="radio" id="sensor100" name="sensor" value="s100" >
-		   <label for="s100">100kg</label>
+		   <label for="sensor100">100kg</label>
 		  <input type="radio" id="sensor500" name="sensor" value="s500">
-		   <label for="s500">500kg</label>
+		   <label for="sensor500">500kg</label>
 </td>
 	</tr><tr>
 	  <td colspan = "1">testtype</td>
@@ -124,14 +124,16 @@
 
 	</div>
 
-	<div class="test">
+	<!--div class="test">
     <figure >
       <input id="led-dimmer" type="range" min="0" max="255" value="0" />
       <figcaption><label for="led-dimmer">LED dimmer<br /><small><span>0</span> % brightness</small></label></figcaption>
     </figure>
-</div>
-	<script src="test.js"></script>
-    	<script src="WebLETT.js"></script>
-	<script src="WebLETTChart.js"></script>
-</body>
+	</div-->
+	
+    <script src="test.js"></script>
+    <script src="WebLETT.js"></script>
+	<script src="WebLETTchart.js"></script>
+
+  </body>
 </html>

@@ -1,6 +1,6 @@
 		// from original file - for testing purpuses
-		const ledDimmer = document.getElementById('led-dimmer');
-		const ledDimmerValue = document.querySelector('label span');
+		//const ledDimmer = document.getElementById('led-dimmer');
+		//const ledDimmerValue = document.querySelector('label span');
 		const connectButton = document.getElementById('connect-button');
 		const startButton = document.getElementById('start-button');
 		const upButton = document.getElementById('up-button');
@@ -44,18 +44,14 @@
 		"Force Overload" ];
 
 		var dataList = []
-		var dataPoint = {
-		  timestamp: 0,
-		  position: 0.0,
-		  force: 0.0,
-		  resistance: 0.0,
-		  temperature: 0.0
-		};
+		var dataPoint = []
 
 		speedSlider.addEventListener('input', (event) => {
 			//console.log('speed event', event.target.value)
 			testSpeed = parseInt(event.target.value)
 			speedText.innerText = 'speed: ' + testSpeed
+			//console.log("cookie testSpeed", testSpeed)
+			//setCookie("testSpeed", testSpeed)
         });		
 
 		targetSlider.addEventListener('input', (event) => {
@@ -275,6 +271,8 @@
 			} else {
 				sendToLETT('C\n');
 				testRunning = false;
+				upButton.disabled = true;
+				downButton.disabled = true;
 				startButton.innerHTML = "START";
 			}
 		}
@@ -288,14 +286,10 @@
 			writer.write(bytes);
 			writer.releaseLock();
 		}
-		var a
-		// code by chatgpt
-		function addDataPoint(dp) {
-			console.log('dataPoint', dp)
-			dataList.push(dp)
-			console.log('dataList', dataList)
-		}
 
+		function addDataPoint(dp) {
+			dataList.push([].concat(dp))
+		}
 
 		function saveDatasetToCSV() {
 		  // Prompt the user for a filename
@@ -367,6 +361,12 @@
 			if (debug) console.log('line:', line)
 			document.getElementById("info").innerHTML=line
 			var data = line.split(';')
+			const posTim = 0
+			const posPos = 1
+			const posFor = 2
+			const posRes = 3
+			const posTem = 4
+			const posNum = 5
 			for (i = 0; i<data.length; i++) {
 				//console.log(data[i]);
 				
@@ -374,7 +374,7 @@
 				if (data[i].startsWith('p')) { // position
 					//console.log('p', data[i].split('p'))
 					pos = parseFloat(data[i].split('p')[1])
-					dataPoint['position'] = pos
+					dataPoint[posPos] = pos
 					document.getElementById("pos").innerHTML=pos
 					myChart.config.data.datasets[0].data[samples%100].x=pos
 				}
@@ -382,7 +382,7 @@
 				if (data[i].startsWith('f')) { // force
 					if (debug) console.log('f', data[i].split('f'))
 					force = parseFloat(data[i].split('f')[1])
-					dataPoint['force'] = force
+					dataPoint[posFor] = force
 					document.getElementById("frc").innerHTML=force
 					myChart.config.data.datasets[0].data[samples%100].y=force
 				}
@@ -390,7 +390,7 @@
 				if (data[i].startsWith('t')) { // timestamp
 					//console.log('t', data[i].split('t'))
 					LETTtime = parseFloat(data[i].split('t')[1])
-					dataPoint['timestamp'] = LETTtime
+					dataPoint[posTim] = LETTtime
 					if (testRunning) { //data.push("frc", force) }
 						document.getElementById("tim").innerHTML=LETTtime-startTime
 					}
@@ -398,24 +398,24 @@
 
 				if (data[i].startsWith('r')) { // resistance
 					//console.log('f', data[i].split('f'));
-					r = parseFloat(data[i].split('r')[1]);
-					dataPoint['resistance'] = r
+					res = parseFloat(data[i].split('r')[1]);
+					dataPoint[posRes] = res
 					document.getElementById('resLabel').hidden=false;
-					document.getElementById("res").innerHTML=r;
+					document.getElementById("res").innerHTML=res;
 				}
 
 				if (data[i].startsWith('k')) { // k-type temperature
 					//console.log('f', data[i].split('f'));
-					k = parseFloat(data[i].split('k')[1]);
-					dataPoint['temperature'] = k
-					document.getElementById("tmp").innerHTML=k;
+					temp = parseFloat(data[i].split('k')[1]);
+					dataPoint[posTem] = tem
+					document.getElementById("tmp").innerHTML=tem;
 				}
 				
-				if (data[i].startsWith('n')) { // k-type temperature
+				if (data[i].startsWith('n')) { // sample number
 					//console.log('f', data[i].split('f'));
-					n = parseFloat(data[i].split('n')[1]);
-					dataPoint['number'] = n
-					document.getElementById("cycl").innerHTML=n;
+					num = parseFloat(data[i].split('n')[1]);
+					dataPoint['number'] = num
+					document.getElementById("cycl").innerHTML=num;
 				}
 				
 				//if (data[i].startsWith('V')) { // LETT number
@@ -477,15 +477,15 @@
 					testEndReason = parseInt(data[i].split('C')[1]);
 					showMessage('test finished:' + testEndReasons[testEndReason], 'limeGreen');
 					saveDatasetToCSV()
+					upButton.disabled = false;
+					downButton.disabled = false;
 					startButton.innerHTML = "START";
 				}
 
 			}		
-			if (testRunning && samples<5) {
+			if (testRunning) {
 				// showData()
-				//addDataPoint(dataPoint) // add record to testData
-				dataList.push(dataPoint)
-				console.log('datalist', dataList)
+				addDataPoint(dataPoint) // add record to testData
 				plotData(dataPoint)	// update plot.
 				myChart.update() //
 			}
