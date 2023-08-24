@@ -5,6 +5,7 @@
 		const startButton = document.getElementById('start-button');
 		const upButton = document.getElementById('up-button');
 		const downButton = document.getElementById('down-button');
+		const testButton = document.getElementById('test-button');
 		const speedSlider = document.getElementById('speed-slide');
 		const targetSlider = document.getElementById('target-slide');
 		const forceSlider = document.getElementById('force-slide');
@@ -225,13 +226,18 @@
 		function toggleDebug() {
 			showMessage('debug', 'orange');
 			debug = !debug
-			if (debug) showMessage('debug on', 'orange'); else showMessage('debug off', 'orange');
-			
+			if (debug) {
+				showMessage('debug on', 'orange'); 
+				testButton.disabled = false;
+			} else {
+				showMessage('debug off', 'orange');
+				testButton.disabled = true;
+			}
 		}
 
-	
 		function startStop() {
 			console.log("start/stop pressed");
+			startButton..style.background='#100000'
 			if (!testRunning) {
 				startEnabled = true; // the tests will disable if conditions are not met.
 				checkTestType();
