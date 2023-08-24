@@ -230,7 +230,7 @@
 				showMessage('debug on', 'orange'); 
 				testButton.disabled = false;
 			} else {
-				showMessage('debug off', 'orange');
+				showMessage('debug off', 'lightgreen');
 				testButton.disabled = true;
 			}
 		}
