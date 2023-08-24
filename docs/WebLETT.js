@@ -237,7 +237,7 @@
 
 		function startStop() {
 			console.log("start/stop pressed");
-			startButton..style.background='#100000'
+			startButton.style.background='lightred'
 			if (!testRunning) {
 				startEnabled = true; // the tests will disable if conditions are not met.
 				checkTestType();
