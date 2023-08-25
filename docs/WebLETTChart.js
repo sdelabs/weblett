@@ -5,21 +5,23 @@
 			{
 				label: "Force",
 				showLine: true,
-				borderColor: '#FF6384',
+				borderColor: '#d45087', // #FF6384',
 				fill: false,
 				data: []
 			},
 			{
 				label: "Resistance",
 				showLine: true,
-				borderColor: '#36A2EB',
+				hidden: true,
+				borderColor: '#665191', //'#36A2EB',
 				fill: false,
 				data: []
 			},
 			{
 				label: "Temperature",
 				showLine: true,
-				borderColor: '#45B1DF',
+				hidden: true,
+				borderColor: '#003f5c', //'lightBlue',
 				fill: false,
 				data: [{x:7, y:6}, {x:15, y:16}]
 			}
