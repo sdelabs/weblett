@@ -18,6 +18,13 @@
 		const subtestTypeRelax = 32;
 		const subtestTypeCreep = 64;
 		const subtestTypeCyclic = 128;
+		// positions of datamembers in results
+		const posTim = 0
+		const posPos = 1
+		const posFor = 2
+		const posRes = 3
+		const posTem = 4
+		const posNum = 5
 	
 		var debug = false
 		var LETTnumber
@@ -368,12 +375,6 @@
 			if (debug) console.log('line:', line)
 			document.getElementById("info").innerHTML=line
 			var data = line.split(';')
-			const posTim = 0
-			const posPos = 1
-			const posFor = 2
-			const posRes = 3
-			const posTem = 4
-			const posNum = 5
 			for (i = 0; i<data.length; i++) {
 				//console.log(data[i]);
 				
@@ -383,7 +384,7 @@
 					pos = parseFloat(data[i].split('p')[1])
 					dataPoint[posPos] = pos
 					document.getElementById("pos").innerHTML=pos
-					myChart.config.data.datasets[0].data[samples%100].x=pos
+					//myChart.config.data.datasets[0].data[samples%100].x=pos
 				}
 
 				if (data[i].startsWith('f')) { // force
@@ -391,7 +392,7 @@
 					force = parseFloat(data[i].split('f')[1])
 					dataPoint[posFor] = force
 					document.getElementById("frc").innerHTML=force
-					myChart.config.data.datasets[0].data[samples%100].y=force
+					//myChart.config.data.datasets[0].data[samples%100].y=force
 				}
 
 				if (data[i].startsWith('t')) { // timestamp
@@ -494,12 +495,17 @@
 				// showData()
 				addDataPoint(dataPoint) // add record to testData
 				plotData(dataPoint)	// update plot.
-				myChart.update() //
+				// myChart.update() // now in plotData
 			}
 		}
 
 
-	function plotData(r) {
+	function plotData(p) {
+		console.log('plotData', p);
+		myChart.config.data.datasets[0].data.push({x: p[posTim], y:p[posFor]}) // F
+		myChart.config.data.datasets[1].data.push({x: p[posTim], y:p[posPos]}) // R
+		myChart.config.data.datasets[2].data.push({x: p[posTim], y:p[posFor]-10}) // K
+		myChart.update()
 	}
 
 	// Serial stuff

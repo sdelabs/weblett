@@ -1,130 +1,34 @@
 		var myChart = new Chart(document.getElementById("myChart"), {
 		type: 'scatter',
 		data: {
-		  datasets: [{
-			 label: "Test",
-			 showLine: true,
-			 borderColor: '#FF6384',
-			 fill: false,
-			 data: [
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0},
-				{x: 0, y: 0}
-				]},
-			{label: "Test2",
-			 showLine: true,
-			 borderColor: '#36A2EB',
-			 fill: false,
-			 data: [
-				 {x: 1, y: 1},
-				 {x: 1, y: 4},
-				 {x: 4, y: 4},
-				 {x: 4, y: 1}
-			 ],
-		  }]
+			datasets: [
+			{
+				label: "Force",
+				showLine: true,
+				borderColor: '#FF6384',
+				fill: false,
+				data: []
+			},
+			{
+				label: "Resistance",
+				showLine: true,
+				borderColor: '#36A2EB',
+				fill: false,
+				data: []
+			},
+			{
+				label: "Temperature",
+				showLine: true,
+				borderColor: '#45B1DF',
+				fill: false,
+				data: [{x:7, y:6}, {x:15, y:16}]
+			}
+			]
 		},
 		options: {
 		  responsive: true,
+
+/*
 		  scales: {
 			xAxes: [{
 				scaleLabel: {
@@ -139,5 +43,23 @@
 				}
 			}]
 		  }
+*/
+		  scales: {
+			xAxes: [{
+				//type: 'linear', 
+				scaleLabel: {
+					display: true,
+					labelString: 'extension',
+				}
+			}],
+			yAxes: [{
+				//type: 'linear', 
+				scaleLabel: {
+					display: true,
+					labelString: 'force'
+				}
+			}]
+		  }
+
 	      }
 		});
