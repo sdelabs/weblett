@@ -18,6 +18,7 @@ function testClicked() {
 
 // https://www.w3schools.com/js/js_cookies.asp
 function saveParameterCookies() {
+	console.log('save cookies')
 	setCookie("LETTtest", testType)
 	setCookie("LETTsubtest", subtestType)
 	setCookie("LETTspeed", testSpeed)
@@ -27,11 +28,14 @@ function saveParameterCookies() {
 }
 
 function getParameterCookies() {
+	console.log('get cookies')
 	testType  = getCookie("LETTtest")
+	console.log('LETTtest', testType)
 	if (testType==testTypeTensile) document.getElementById('tensile').checked = true
 	if (testType==testTypeCompression) document.getElementById('compression').checked = true
 
 	subtestType  = getCookie("LETTsubtest")
+	console.log('LETTsubtest', subtestType)
 	if (subtestType == subtestTypeFail) document.getElementById('fail').checked = true
 	if (subtestType == subtestTypeRelax) document.getElementById('relax').checked = true
 	if (subtestType == subtestTypeCreep) document.getElementById('creep').checked = true
