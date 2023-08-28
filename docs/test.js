@@ -53,7 +53,7 @@ function getParameterCookies() {
 		forceSlider.value = testForce
 		forceText.innerText = 'force: ' + testForce
 	}
-	testTarget = getCookie("LETTtarger")
+	testTarget = getCookie("LETTtarget")
 	if (testTarget != "") {
 		console.log('target', testTarget)
 		targetSlider.value = testTarget
