@@ -12,7 +12,6 @@ var ds = [[]]
 
 function testClicked() {
 	console.log('test clicked')
-
 	getParameterCookies()
 }
 
@@ -43,32 +42,32 @@ function getParameterCookies() {
 
 	testSpeed  = getCookie("LETTspeed")
 	if (testSpeed != "") {
-		console.log('speed|', testSpeed, '|')
+		//console.log('speed|', testSpeed, '|')
 		speedSlider.value = testSpeed
 		speedText.innerText = 'speed: ' + testSpeed
 	}
 	testForce  = getCookie("LETTforce")
 	if (testForce != "") {
-		console.log('force', testForce)
+		//console.log('force', testForce)
 		forceSlider.value = testForce
 		forceText.innerText = 'force: ' + testForce
 	}
 	testTarget = getCookie("LETTtarget")
 	if (testTarget != "") {
-		console.log('target', testTarget)
+		//console.log('target', testTarget)
 		targetSlider.value = testTarget
 		speedText.innerText = 'target: ' + testTarget
 	}
 	testCycles = getCookie("LETTcycles")
 	if (testCycles != "") {
-		console.log('cycles', testCycles)
+		//console.log('cycles', testCycles)
 		cyclesSlider.value = testCycles
 		cyclesText.innerText = 'cycles: ' + testCycles
 	}
 }
 
 function setCookie(cname, cvalue, exdays) {
-	console.log('setCookie', cname, cvalue)
+	if (debug) console.log('setCookie', cname, cvalue)
 	const d = new Date();
 	d.setTime(d.getTime() + (exdays*24*60*60*1000));
 	let expires = "expires="+ d.toUTCString();
@@ -76,10 +75,10 @@ function setCookie(cname, cvalue, exdays) {
 }
 
 function getCookie(cname) {
-	//console.log('getCookie', cname)
+	if (debug) console.log('getCookie', cname)
 	let name = cname + "=";
 	let decodedCookie = decodeURIComponent(document.cookie);
-	if (debug) console.log('ck', decodedCookie)
+	if (debug) console.log('cookiestring:', decodedCookie)
 	let ca = decodedCookie.split(';');
 	for(let i = 0; i <ca.length; i++) {
 		let c = ca[i];
