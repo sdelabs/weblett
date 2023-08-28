@@ -6,6 +6,8 @@
 		const upButton = document.getElementById('up-button');
 		const downButton = document.getElementById('down-button');
 		const testButton = document.getElementById('test-button');
+		const saveButton = document.getElementById('save-button');
+		const clearButton = document.getElementById('clear-button');
 		const speedSlider = document.getElementById('speed-slide');
 		const targetSlider = document.getElementById('target-slide');
 		const forceSlider = document.getElementById('force-slide');
@@ -34,6 +36,7 @@
 		var LETTtime = -1
 		var starTime = -1
 		var testRunning = false
+		var unsavedData = false
 		var samples = 0
 		var testSpeed = -1, testForce = -1, testTarget = -1, testCycles = -1
 		var sensorType
@@ -109,7 +112,6 @@
 		}
 
 		function checkTestType() {
-			// test-type
 			testType = 0;
 			if (document.getElementById('tensile').checked) {
 				console.log('tensile');
@@ -194,6 +196,17 @@
 			}
 		}
 		
+		function checkUnsavedData() {
+			if (unsavedData) {
+				startEnabled = false;
+				errorMessage = 'ERROR: there is unsaved data, press clear to erase';
+				clearButton.disabled = false
+				return true
+			} else {
+				return false
+			}
+		}
+		
 		function makeStartString() {
 			// speed, force, target position, cycles if applicable.
 			LETTString = "";
@@ -254,6 +267,7 @@
 				checkTestTarget();
 				checkTestCycles();
 				makeStartString();
+				checkUnsavedData();
 				if (!startEnabled) {
 					console.log('no start');
 					showMessage(errorMessage, "red");
@@ -264,10 +278,11 @@
 					if (subtestType==subtestTypeCyclic) {
 						document.getElementById('cycLabel').hidden=false;
 					}
+					clearData()
 					testRunning = true;
 					startTime = LETTtime;
 					startButton.innerHTML = "STOP";
-					startButton.style.backgroundColor = 'LightGreen'
+					startButton.style.backgroundColor = 'LightRed'
 					upButton.disabled = true;
 					downButton.disabled = true;
 					//
@@ -305,7 +320,7 @@
 			dataList.push([].concat(dp))
 		}
 
-		function saveDatasetToCSV() {
+		function saveData() {
 		  // Prompt the user for a filename
 		  var filename = prompt("Please enter a filename", "dataset.csv");
 
@@ -338,10 +353,20 @@
 			  document.body.appendChild(link);
 			  link.click();
 			  document.body.removeChild(link);
+			  unsavedData = false
 			}
 		  }
 		}
 
+		function clearData(override = false) {
+			if (checkUnsavedData() & !override) return
+			myChart.config.data.datasets[0].data = [] // Force
+			myChart.config.data.datasets[1].data = [] // Resistance
+			myChart.config.data.datasets[2].data = [] // Temperature
+			myChart.update()
+			clearButton.disabled = true
+			unsavedData = false
+		}
 
 		function selectDataPoints(dataList, param1Index, param2Index) {
 		var selectedData = [];
@@ -484,15 +509,16 @@
 					testRunning = false;
 					testEndReason = parseInt(data[i].split('C')[1]);
 					showMessage('test finished:' + testEndReasons[testEndReason], 'limeGreen');
-					saveDatasetToCSV()
 					upButton.disabled = false;
 					downButton.disabled = false;
 					startButton.innerHTML = "START";
+					saveButton.disabled = false
 				}
 
 			}		
 			if (testRunning) {
 				// showData()
+				unsavedData = true
 				addDataPoint(dataPoint) // add record to testData
 				plotData(dataPoint)	// update plot.
 				// myChart.update() // now in plotData

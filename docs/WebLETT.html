@@ -10,7 +10,10 @@
 
   <!--script src="https://cdn.jsdelivr.net/npm/chart.js"></script-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-
+  
+  <!-- https://www.chartjs.org/docs/latest/ -->
+  <!--script src="https://cdn.jsdelivr.net/npm/chart.js"></script-->
+  
   <body>
     <h1>WebLETT 2023.5</h1>
 	<h2 style="background-color:powderblue;">Very Experimental version!</h2>
@@ -21,7 +24,7 @@
 
 	<div style="overflow:auto">
 
-	<table border="0" bordercolor="Gainsboro" class="main">
+	<table border="1" bordercolor="Gainsboro" class="main">
 	<tr>
 		<td><button id="connect-button" type="button" onclick=getReader()>🔌 CONNECT</button></td>
 		<td><button id="start-button" type="button" onclick=startStop() disabled>START</button></td>
@@ -36,7 +39,7 @@
 		<td><div id="swver">&nbsp;</div></td>
 		<td><div id="4pts">&nbsp;</div></td>
 		<td><div id="ktype">&nbsp;</div></td>
-		<td><div id="s">xxx</div></td>
+		<td><button id="clear-button" type="button" onclick=clearData(true) disabled>CLEAR</button></td>
 		<td colspan="2">
 		  sensor
 		  <input type="radio" id="sensor100" name="sensor" value="s100" >
