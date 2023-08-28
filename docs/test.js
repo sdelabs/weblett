@@ -56,7 +56,7 @@ function getParameterCookies() {
 	if (testTarget != "") {
 		//console.log('target', testTarget)
 		targetSlider.value = testTarget
-		speedText.innerText = 'target: ' + testTarget
+		targetText.innerText = 'target: ' + testTarget
 	}
 	testCycles = getCookie("LETTcycles")
 	if (testCycles != "") {
