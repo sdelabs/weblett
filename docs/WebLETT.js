@@ -17,8 +17,8 @@
 		const testTypeCompression = 02;
 		const testTypeData = 8;
 		const subtestTypeFail = 16;
-		const subtestTypeRelax = 32;
-		const subtestTypeCreep = 64;
+		const subtestTypeRelax = 64;
+		const subtestTypeCreep = 32;
 		const subtestTypeCyclic = 128;
 		// positions of datamembers in results
 		const posTim = 0
