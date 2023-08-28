@@ -11,7 +11,7 @@
 		const speedSlider = document.getElementById('speed-slide');
 		const targetSlider = document.getElementById('target-slide');
 		const forceSlider = document.getElementById('force-slide');
-		const cycleSlider = document.getElementById('cycle-slide');
+		const cyclesSlider = document.getElementById('cycle-slide');
 		const statusText = document.getElementById('status-text');
 		const testTypeTensile = 01;
 		const testTypeCompression = 02;
@@ -77,7 +77,7 @@
 			forceText.innerText = 'force: ' + testForce;
         });		
 
-		cycleSlider.addEventListener('input', (event) => {
+		cyclesSlider.addEventListener('input', (event) => {
 			//console.log('cycle event', event.target.value)
 			testCycles = Math.floor(Math.exp(parseInt(event.target.value)/100))
 			cyclesText.innerText = 'cycles: ' + testCycles;
@@ -87,28 +87,28 @@
 			speedSlider.disabled = false;
 			targetSlider.disabled = true;
 			forceSlider.disabled = true;
-			cycleSlider.disabled = true;
+			cyclesSlider.disabled = true;
 		}
 
 		function creepClicked() {
 			speedSlider.disabled = false;
 			targetSlider.disabled = true;
 			forceSlider.disabled = false;
-			cycleSlider.disabled = true;
+			cyclesSlider.disabled = true;
 		}
 
 		function relaxClicked() {
 			speedSlider.disabled = false;
 			targetSlider.disabled = false;
 			forceSlider.disabled = true;
-			cycleSlider.disabled = true;
+			cyclesSlider.disabled = true;
 		}
 
 		function cyclicClicked() {
 			speedSlider.disabled = false;
 			targetSlider.disabled = false;
 			forceSlider.disabled = true;
-			cycleSlider.disabled = false;
+			cyclesSlider.disabled = false;
 		}
 
 		function checkTestType() {
@@ -285,6 +285,8 @@
 					startButton.style.backgroundColor = 'LightRed'
 					upButton.disabled = true;
 					downButton.disabled = true;
+					
+					saveParameterCookies()
 					//
 					console.log('LETTString', LETTString);
 					sendToLETT(LETTString);
