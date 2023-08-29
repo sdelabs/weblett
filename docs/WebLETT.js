@@ -27,6 +27,13 @@
 		const posRes = 3
 		const posTem = 4
 		const posNum = 5
+
+		// background colors
+		const good = 'limeGreen'
+		const goodWarning = 'lightGreen'
+		const neutral = 'LightGray'
+		const badWarning = 'lightSalmon'
+		const bad = 'red'
 	
 		var debug = false
 		var LETTnumber
@@ -216,6 +223,7 @@
 			LETTString += "G" + testTarget.toString();
 			LETTString += "N" + testCycles.toString();
 			LETTString += "I\n";
+			// print this always - errorchecking
 			console.log('LETTString:', LETTString);
 		}
 
@@ -226,31 +234,30 @@
 		}
 	
 		function gripperUp() {
-			showMessage('Gripper Up', 'lime');
+			showMessage('Gripper Up', goodWarning);
 			sendToLETT('A');
 			LETTmoving = true;
 		}
 
 		function gripperDown() {
-			showMessage('Gripper Down', 'lime');
+			showMessage('Gripper Down', goodWarning);
 			sendToLETT('B');
 			LETTmoving = true;
 		}
 
 		function gripperStop() {
-			showMessage('', 'white');
+			showMessage('', neutral);
 			sendToLETT('C');
 			LETTmoving = false;
 		}
 
 		function toggleDebug() {
-			showMessage('debug', 'orange');
 			debug = !debug
 			if (debug) {
-				showMessage('debug on', 'orange'); 
+				showMessage('debug on', badWarning); 
 				testButton.disabled = false;
 			} else {
-				showMessage('debug off', 'lightgreen');
+				showMessage('debug off', goodWarning);
 				testButton.disabled = true;
 			}
 		}
@@ -270,10 +277,10 @@
 				checkUnsavedData();
 				if (!startEnabled) {
 					console.log('no start');
-					showMessage(errorMessage, "red");
+					showMessage(errorMessage, badWarning);
 					return;
 				} else {
-					showMessage('test running', 'lightGreen');
+					showMessage('test running', goodWarning);
 					document.getElementById('smplLabel').hidden=false;
 					if (subtestType==subtestTypeCyclic) {
 						document.getElementById('cycLabel').hidden=false;
@@ -449,7 +456,7 @@
 				if (data[i].startsWith('n')) { // sample number
 					//console.log('f', data[i].split('f'));
 					num = parseFloat(data[i].split('n')[1]);
-					dataPoint['number'] = num
+					dataPoint[posNum] = num
 					document.getElementById("cycl").innerHTML=num;
 				}
 				
@@ -510,7 +517,7 @@
 				if (data[i].startsWith('C')) { // End of test
 					testRunning = false;
 					testEndReason = parseInt(data[i].split('C')[1]);
-					showMessage('test finished:' + testEndReasons[testEndReason], 'limeGreen');
+					showMessage('test finished:' + testEndReasons[testEndReason], goodWarning);
 					upButton.disabled = false;
 					downButton.disabled = false;
 					startButton.innerHTML = "START";
@@ -581,7 +588,7 @@
 
 		port.addEventListener('disconnect', (event) => {
 			console.log('port: lost connection');
-			showMessage('port disconnected!', 'red')
+			showMessage('port disconnected!', bad)
 		});
 
 		// opening the port causes a reset of Arduino. 
@@ -591,13 +598,12 @@
 			sendToLETT('P\n')
 			console.log('request version info')
 			sendToLETT('V\n')
-			console.log('Done so far')
 		}, 2500)
 
 
 		navigator.serial.addEventListener('connect', (e) => {
 			console.log('(re)connected')
-			showMessage('port (re)connected, you must start over!', 'orange')
+			showMessage('port (re)connected, you must start over!', badWarning)
 			setTimeout(function () {
 				location.reload()
 			}, 5000)
@@ -606,7 +612,7 @@
 
 		navigator.serial.addEventListener('disconnect', (e) => {
 			console.log('navigator: disconnected')
-			showMessage('port disconnected!', 'red')
+			showMessage('port disconnected!', bad)
 		});
 	
 
