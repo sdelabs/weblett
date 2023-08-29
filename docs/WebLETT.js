@@ -569,11 +569,6 @@
 		
 	//console.log('document.querySelector');
         document.querySelector('input').disabled = false;
-        //connectButton.innerText = '🔌 Disconnect';
-        connectButton.disabled = true;
-        startButton.disabled = false;
-        upButton.disabled = false;
-        downButton.disabled = false;
 
 	port.addEventListener('disconnect', (event) => {
 		console.log('port: lost connection');
@@ -587,6 +582,11 @@
 		sendToLETT('P\n')
 		console.log('request version info')
 		sendToLETT('V\n')
+	        //connectButton.innerText = '🔌 Disconnect';
+        	connectButton.disabled = true;
+        	startButton.disabled = false;
+        	upButton.disabled = false;
+        	downButton.disabled = false;
 	}, 2500)
 
 
