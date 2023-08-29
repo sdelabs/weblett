@@ -286,6 +286,7 @@
 						document.getElementById('cycLabel').hidden=false;
 					}
 					clearData()
+					dataPoint = []
 					testRunning = true;
 					startTime = LETTtime;
 					startButton.innerHTML = "STOP";
@@ -369,6 +370,7 @@
 			unsavedData = false
 		}
 
+/* chatgpt examples
 		function selectDataPoints(dataList, param1Index, param2Index) {
 		var selectedData = [];
 
@@ -395,7 +397,7 @@
 
 		  return selectedData;
 		}
-
+*/ 
 
 		function processIncoming(line) {
 			if (debug) console.log('line:', line)
@@ -425,7 +427,7 @@
 					//console.log('t', data[i].split('t'))
 					LETTtime = parseFloat(data[i].split('t')[1])
 					dataPoint[posTim] = LETTtime
-					if (testRunning) { //data.push("frc", force) }
+					if (testRunning) {
 						document.getElementById("tim").innerHTML=LETTtime-startTime
 					}
 				}
