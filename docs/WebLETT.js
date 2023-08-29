@@ -442,8 +442,8 @@
 				if (data[i].startsWith('k')) { // k-type temperature
 					//console.log('f', data[i].split('f'));
 					temp = parseFloat(data[i].split('k')[1]);
-					dataPoint[posTem] = tem
-					document.getElementById("tmp").innerHTML=tem;
+					dataPoint[posTem] = temp
+					document.getElementById("tmp").innerHTML=temp;
 				}
 				
 				if (data[i].startsWith('n')) { // sample number
