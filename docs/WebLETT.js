@@ -276,7 +276,7 @@
 				makeStartString();
 				checkUnsavedData();
 				if (!startEnabled) {
-					console.log('no start');
+					//console.log('no start');
 					showMessage(errorMessage, badWarning);
 					return;
 				} else {
@@ -292,19 +292,11 @@
 					startButton.style.backgroundColor = 'LightRed'
 					upButton.disabled = true;
 					downButton.disabled = true;
-					
 					saveParameterCookies()
 					//
 					console.log('LETTString', LETTString);
 					sendToLETT(LETTString);
 				
-					//enc = new TextEncoder();
-					//const bytes = enc.encode('PT129S200G10N4I'); //P\n');
-					//var bytes = enc.encode(LETTString);
-					//console.log('bytes', bytes);
-					//const writer = port.writable.getWriter();
-					//writer.write(bytes);
-					//writer.releaseLock();
 				}
 			} else {
 				sendToLETT('C\n');
