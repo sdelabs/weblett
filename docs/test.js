@@ -11,8 +11,7 @@ var da = [0,0,0,0]
 var ds = [[]]
 
 function testClicked() {
-	console.log('test clicked')
-
+	console.log('test clicked: test unload')
 
 	window.addEventListener("beforeunload", function (e) {
     		var confirmationMessage = 'It looks like you have been editing something. '
