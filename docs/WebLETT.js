@@ -529,7 +529,7 @@
 
 
 	function plotData(p) {
-		console.log('plotData', p);
+		if (debug) console.log('plotData', p);
 		myChart.config.data.datasets[0].data.push({x: p[posTim], y:p[posFor]}) // F
 		myChart.config.data.datasets[1].data.push({x: p[posTim], y:p[posPos]}) // R
 		myChart.config.data.datasets[2].data.push({x: p[posTim], y:p[posFor]-10}) // K
