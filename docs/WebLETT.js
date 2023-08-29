@@ -311,7 +311,7 @@
 			enc = new TextEncoder();
 			console.log('LETTString', str);
 			var bytes = enc.encode(str);
-			console.log('bytes', bytes);
+			//console.log('bytes', bytes);
 			const writer = port.writable.getWriter();
 			writer.write(bytes);
 			writer.releaseLock();
@@ -565,7 +565,7 @@
 	  .pipeThrough(new TextDecoderStream())
 	  .pipeTo(appendStream);	
 		
-	console.log('document.querySelector');
+	//console.log('document.querySelector');
         document.querySelector('input').disabled = false;
         //connectButton.innerText = '🔌 Disconnect';
         connectButton.disabled = true;
@@ -583,8 +583,8 @@
 	setTimeout(function () {
 		if (debug) console.log('Timer expired')
 		sendToLETT('P\n')
-			console.log('request version info')
-			sendToLETT('V\n')
+		console.log('request version info')
+		sendToLETT('V\n')
 	}, 2500)
 
 
