@@ -365,7 +365,7 @@
 			myChart.config.data.datasets[0].data = [] // Force
 			myChart.config.data.datasets[1].data = [] // Resistance
 			myChart.config.data.datasets[2].data = [] // Temperature
-			myChart.update()
+			myChart.update('none')
 			clearButton.disabled = true
 			unsavedData = false
 		}
