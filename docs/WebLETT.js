@@ -544,19 +544,16 @@
 	}
 
 	// Serial stuff
-	  var lineBuffer = '';
-      async function getReader() {
-		console.log('getReader');
-       port = await navigator.serial.requestPort({});
-        await port.open({ baudRate: 38400 });
-		console.log('port is open');
-		// *** from webSerial2
-
+	var lineBuffer = '';
+	async function getReader() {
+		//console.log('getReader');
+		port = await navigator.serial.requestPort({});
+		await port.open({ baudRate: 38400 });
+		//console.log('port is open');
 		const appendStream = new WritableStream({
 			write(chunk) {
 			if (debug) console.log('chunk:', chunk);
 			lineBuffer += chunk;
-
 			var lines = lineBuffer.split('\n');				
 			while (lines.length > 1) {
 				// TODO: move the processing part to a function
@@ -564,21 +561,19 @@
 					samples +=1;
 					document.getElementById("smpl").innerHTML=samples;
 				}
-			   var line = lines.shift();
-			   processIncoming(line);
+				var line = lines.shift();
+				processIncoming(line);
 			}
-			
 			lineBuffer = lines.pop();
-		  }
+			}
 		});
 		
-		console.log('port.readable');
-		port.readable
-		  .pipeThrough(new TextDecoderStream())
-		  .pipeTo(appendStream);	
-		// ***
+	// console.log('port.readable');
+	port.readable
+	  .pipeThrough(new TextDecoderStream())
+	  .pipeTo(appendStream);	
 		
-		console.log('document.querySelector');
+	console.log('document.querySelector');
         document.querySelector('input').disabled = false;
         //connectButton.innerText = '🔌 Disconnect';
         connectButton.disabled = true;
@@ -586,52 +581,33 @@
         upButton.disabled = false;
         downButton.disabled = false;
 
-		port.addEventListener('disconnect', (event) => {
-			console.log('port: lost connection');
-			showMessage('port disconnected!', bad)
-		});
+	port.addEventListener('disconnect', (event) => {
+		console.log('port: lost connection');
+		showMessage('port disconnected!', bad)
+	});
 
-		// opening the port causes a reset of Arduino. 
-		// Wait for it to initialize and turn on printing.
-		setTimeout(function () {
-			console.log('Timer expired')
-			sendToLETT('P\n')
+	// opening the port causes a reset of Arduino. 
+	// Wait for it to initialize and turn on printing.
+	setTimeout(function () {
+		if (debug) console.log('Timer expired')
+		sendToLETT('P\n')
 			console.log('request version info')
 			sendToLETT('V\n')
-		}, 2500)
+	}, 2500)
 
 
-		navigator.serial.addEventListener('connect', (e) => {
-			console.log('(re)connected')
-			showMessage('port (re)connected, you must start over!', badWarning)
-			setTimeout(function () {
-				location.reload()
-			}, 5000)
-		});
+	navigator.serial.addEventListener('connect', (e) => {
+		console.log('(re)connected')
+		showMessage('port (re)connected, you must start over!', badWarning)
+		setTimeout(function () {
+			location.reload()
+		}, 5000)
+	});
 
 
-		navigator.serial.addEventListener('disconnect', (e) => {
-			console.log('navigator: disconnected')
-			showMessage('port disconnected!', bad)
-		});
-	
-
-		/*
-		ledDimmer.disabled = false;
-        ledDimmer.addEventListener('input', (event) => {
-		  console.log('input event') // never called?
-          if (port && port.writable) {
-            const value = parseInt(event.target.value)
-            const bytes = new Uint8Array([value])
-            const writer = port.writable.getWriter()
-            writer.write(bytes)
-            //writer.releaseLock();
-          }
-        });
+	navigator.serial.addEventListener('disconnect', (e) => {
+		console.log('navigator: disconnected')
+		showMessage('port disconnected!', bad)
+	});			
 		
-		ledDimmer.addEventListener('disconnect', (event) => {
-			console.log('lost connection');
-		});
-		*/
-		
-      }
+}
