@@ -13,7 +13,7 @@ var ds = [[]]
 function testClicked() {
 	console.log('test clicked: test borderwith')
 
-	getElementById("table").style.borderWidth = "0px";
+	document.getElementById("table").style.borderWidth = "0px";
 	
 	// window.addEventListener("beforeunload", function (e) {
 	// 	if (unsavedData) {
