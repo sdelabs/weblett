@@ -576,3 +576,17 @@ async function getReader() {
 	});			
 		
 }
+
+console.log('load eventlistener')
+window.addEventListener("beforeunload", function (e) {
+	console.log('unloadevent')
+	if (unsavedData) {
+		var confirmationMessage = 'It looks like you have been editing something. '
+			    + 'If you leave before saving, your changes will be lost.';
+
+		(e || window.event).returnValue = confirmationMessage; //Gecko + IE
+		return confirmationMessage; //Gecko + Webkit, Safari, Chrome etc.
+	} else {
+		return
+	}
+});
