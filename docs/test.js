@@ -13,15 +13,17 @@ var ds = [[]]
 function testClicked() {
 	console.log('test clicked: test unload v2')
 
-	window.addEventListener("beforeunload", function (e) {
-		if (unsavedData) {
-    			var confirmationMessage = 'It looks like you have been editing something. '
-                	            + 'If you leave before saving, your changes will be lost.';
+	getElementById("table").style.borderWidth = "0px";
+	
+	// window.addEventListener("beforeunload", function (e) {
+	// 	if (unsavedData) {
+ //    			var confirmationMessage = 'It looks like you have been editing something. '
+ //                	            + 'If you leave before saving, your changes will be lost.';
 
-		    	(e || window.event).returnValue = confirmationMessage; //Gecko + IE
-    			return confirmationMessage; //Gecko + Webkit, Safari, Chrome etc.
-		} else {
-			return
-		}
-	});
+	// 	    	(e || window.event).returnValue = confirmationMessage; //Gecko + IE
+ //    			return confirmationMessage; //Gecko + Webkit, Safari, Chrome etc.
+	// 	} else {
+	// 		return
+	// 	}
+	// });
 }
