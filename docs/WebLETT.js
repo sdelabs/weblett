@@ -288,7 +288,7 @@ function startStop() {
 			clearData()
 			dataPoint = []
 			testRunning = true;
-			startTime = LETTtime;
+			//startTime = LETTtime;
 			startButton.innerHTML = "STOP";
 			startButton.style.backgroundColor = 'LightRed'
 			upButton.disabled = true;
@@ -400,7 +400,7 @@ function processIncoming(line) {
 			LETTtime = parseFloat(data[i].split('t')[1])
 			dataPoint[posTim] = LETTtime
 			if (testRunning) {
-				document.getElementById("tim").innerHTML=LETTtime-startTime
+				document.getElementById("tim").innerHTML=LETTtime
 			}
 		}
 
