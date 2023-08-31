@@ -11,7 +11,7 @@ var da = [0,0,0,0]
 var ds = [[]]
 
 function testClicked() {
-	console.log('test clicked: test unload')
+	console.log('test clicked: test unload v2')
 
 	window.addEventListener("beforeunload", function (e) {
 		if (unsavedData) {
