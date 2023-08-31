@@ -13,8 +13,7 @@ var ds = [[]]
 function testClicked() {
 	console.log('test clicked: test borderwith')
 
-	document.getElementById("table").style.borderWidth = "0px";
-	
+	document.getElementById("tableID").style.borderColor="white";	
 	// window.addEventListener("beforeunload", function (e) {
 	// 	if (unsavedData) {
  //    			var confirmationMessage = 'It looks like you have been editing something. '
