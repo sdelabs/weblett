@@ -590,3 +590,4 @@ window.addEventListener("beforeunload", function (e) {
 		return
 	}
 });
+console.log('WebLETT.js loaded');
