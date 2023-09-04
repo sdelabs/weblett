@@ -90,9 +90,9 @@ async function onDisconnected() {
 }
 
 function getData(event) {
-	console.log('getData', event)
+	//console.log('getData', event)
 	console.log('getData target value', event.target.value)
 	var string = dec.decode(event.target.value);
 	console.log('string', string)
-	handleIncoming(string)
+	processIncoming(string)
 }
