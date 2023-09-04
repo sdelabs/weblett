@@ -68,7 +68,7 @@ async function connectDeviceAndCacheCharacteristics() {
 	//});
 
 	incomingCharacteristic = await service.getCharacteristic(receiveCharacteristicName);
-	incomingCharacteristic.addEventListener('characteristicvaluechanged', getData);
+	incomingCharacteristic.addEventListener('characteristicvaluechanged', btGetData);
 	await incomingCharacteristic.startNotifications(); // otherwise nothing happens...
 	timeStarted = Date.now();
 
@@ -88,7 +88,7 @@ async function onDisconnected() {
 	}
 }
 
-function getData(event) {
+function btGetData(event) {
 	console.log('getData target value', event.target.value)
 	var string = dec.decode(event.target.value);
 	if (debug) console.log('getData string', string)
@@ -102,4 +102,4 @@ function btSendData(string) {
 	outgoingCharacteristic.writeValue(message);
 }
 
-console.log(1635)
+console.log(1640) // some kind of version number 
