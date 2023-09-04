@@ -82,7 +82,7 @@ async function connectDeviceAndCacheCharacteristics() {
 	}
 	// outgoingCharacteristic.writeValue(message);
 
-	r = await btSendData("V")
+	r = await btSendData("V1558")
 	r = await btSendData("T3;S10;I;\r\n")
 	//
 	
