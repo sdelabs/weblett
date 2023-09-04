@@ -76,7 +76,7 @@ async function connectDeviceAndCacheCharacteristics() {
 	outgoingCharacteristic = await service.getCharacteristic(sendCharacteristicName);
 
 	//TODO: testing only.
-	btSendData("P;\r\n")
+	// btSendData("P;\r\n")
 }
 
 async function onDisconnected() {
@@ -89,7 +89,7 @@ async function onDisconnected() {
 }
 
 function getData(event) {
-	//if (debug) console.log('getData target value', event.target.value)
+	console.log('getData target value', event.target.value)
 	var string = dec.decode(event.target.value);
 	if (debug) console.log('getData string', string)
 	processIncoming(string)
@@ -102,4 +102,4 @@ function btSendData(string) {
 	outgoingCharacteristic.writeValue(message);
 }
 
-console.log(1627)
+console.log(1635)
