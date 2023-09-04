@@ -95,7 +95,9 @@ function btGetData(event) {
 	if (debug) console.log('getData string', string)
 	processIncoming(string)
 	count +=1
-	btSendData(count.toString())
+	if (count%2) {
+		btSendData(count.toString())
+	}
 }
 
 // don't async send (unless you can check if the previous action has finished)
