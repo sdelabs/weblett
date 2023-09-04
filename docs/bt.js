@@ -82,7 +82,7 @@ async function connectDeviceAndCacheCharacteristics() {
 	}
 	// outgoingCharacteristic.writeValue(message);
 
-	r = await btSendData("V1605")
+	r = await btSendData("V1612")
 	r = await btSendData("T3;S10;I;\r\n")
 	//
 	
@@ -114,3 +114,5 @@ function btSendData(string) {
     		console.error(`Could not write: ${error}`);
   	}
 }
+
+console.log(1612)
