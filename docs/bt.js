@@ -95,7 +95,7 @@ function btGetData(event) {
 	if (debug) console.log('getData string', string)
 	processIncoming(string)
 	count +=1
-	btSendData(count.toString)
+	btSendData(count.toString())
 }
 
 // don't async send (unless you can check if the previous action has finished)
@@ -105,4 +105,4 @@ function btSendData(string) {
 	outgoingCharacteristic.writeValue(message);
 }
 
-console.log(1641) // some kind of version number 
+console.log(1645) // some kind of version number 
