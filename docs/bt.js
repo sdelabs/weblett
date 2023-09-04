@@ -111,5 +111,7 @@ async function btSendData(string) {
 	response = await outgoingCharacteristic.writeValue(message);
 	if (!response.ok) {
 		console.log('*** some error')
+	} else {
+		console.log('*** response ok')
 	}
 }
