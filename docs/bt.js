@@ -45,16 +45,16 @@ async function connectDeviceAndCacheCharacteristics() {
 	const server = await bluetoothDevice.gatt.connect();
 	console.log('server:', server.device.name);
 
-// document.getElementById("deviceID").innerHTML = server.device.name;
+	// document.getElementById("deviceID").innerHTML = server.device.name;
 	serviceName = '0000ffe0-0000-1000-8000-00805f9b34fb';
 	characteristicName = '0000ffe1-0000-1000-8000-00805f9b34fb'
 
 console.log('Getting Service...', serviceName);
-	document.getElementById("serviceID").innerHTML = serviceName+"<br>"+characteristicName;
+	// document.getElementById("serviceID").innerHTML = serviceName+"<br>"+characteristicName;
 	const service = await server.getPrimaryService(serviceName);
 	if (debug) console.log('Getting Incoming Characteristic...', characteristicName);
 
-//*** not neccesary, for debug
+	//*** not neccesary, for debug
 	console.log("listCharacteristics");
 	listCharacteristics = await service.getCharacteristics();
 	console.log(listCharacteristics);
