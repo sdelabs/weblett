@@ -104,8 +104,9 @@ function getData(event) {
 	processIncoming(string)
 }
 
-async function btSendData(string) {
-	console.log('btSend', string)
+// don't async send (unless you can check if the previous action has finished)
+function btSendData(string) {
+	console.log('btSendData', string)
 	message = enc.encode(string);
 	outgoingCharacteristic.writeValue(message);
 }
