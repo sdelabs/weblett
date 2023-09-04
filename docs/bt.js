@@ -107,4 +107,4 @@ function btSendData(string) {
 	outgoingCharacteristic.writeValue(message);
 }
 
-console.log(1645) // some kind of version number 
+console.log(1666) // some kind of version number 
