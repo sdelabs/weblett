@@ -76,16 +76,7 @@ async function connectDeviceAndCacheCharacteristics() {
 	outgoingCharacteristic = await service.getCharacteristic(sendCharacteristicName);
 
 	//TODO: testing only.
-	message = enc.encode("test");
-	if (debug) {
-		console.log('write test message');
-	}
-	// outgoingCharacteristic.writeValue(message);
-
-	r = await btSendData("V1612")
-	r = await btSendData("T3;S10;I;\r\n")
-	//
-	
+	btSendData("P;1616")
 }
 
 async function onDisconnected() {
@@ -108,11 +99,7 @@ function getData(event) {
 function btSendData(string) {
 	console.log('btSendData', string)
 	message = enc.encode(string);
-	try {
-		outgoingCharacteristic.writeValue(message);
-	} catch (error) {
-    		console.error(`Could not write: ${error}`);
-  	}
+	outgoingCharacteristic.writeValue(message);
 }
 
-console.log(1612)
+console.log(1616)
