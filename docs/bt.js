@@ -102,4 +102,4 @@ function btSendData(string) {
 	outgoingCharacteristic.writeValue(message);
 }
 
-console.log(1616)
+console.log(1627)
