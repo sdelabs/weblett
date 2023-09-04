@@ -1,6 +1,8 @@
 var bluetoothDevice;
 var incomingCharacteristic;
 var outgoingCharacteristic = null;
+var enc = new TextEncoder(); // need arraybuffer to send data 
+var dec = new TextDecoder(); // need arraybuffer to receive data 
 
 
 async function listBLE() {
@@ -90,4 +92,7 @@ async function onDisconnected() {
 function getData(event) {
 	console.log('getData', event)
 	console.log('getData target value', event.target.value)
+	var string = dec.decode(event.target.value);
+	consoke.log('string', string)
+	handleIncoming(string)
 }
