@@ -76,11 +76,11 @@ async function connectDeviceAndCacheCharacteristics() {
 	outgoingCharacteristic = await service.getCharacteristic(sendCharacteristicName);
 
 	//TODO: testing only.
-	message = enc.encode("test 1555");
+	message = enc.encode("test 1556");
 	if (debug) {
 		console.log('write test message');
 	}
-	outgoingCharacteristic.writeValue(message);
+	// outgoingCharacteristic.writeValue(message);
 
 	r = await btSendData("V")
 	r = await btSendData("T3;S10;I;\r\n")
