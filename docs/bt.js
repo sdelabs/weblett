@@ -81,3 +81,11 @@ console.log('Getting Service...', serviceName);
 	}
 }
 
+async function onDisconnected() {
+	console.log('> Bluetooth Device disconnected');
+	try {
+		await connectDeviceAndCacheCharacteristics()
+	} catch(error) {
+		console.log('*** Argh! (onDisconnect) ' + error);
+	}
+}
