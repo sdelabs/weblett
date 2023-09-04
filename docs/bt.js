@@ -82,7 +82,7 @@ async function connectDeviceAndCacheCharacteristics() {
 	}
 	// outgoingCharacteristic.writeValue(message);
 
-	r = await btSendData("V1603")
+	r = await btSendData("V1605")
 	r = await btSendData("T3;S10;I;\r\n")
 	//
 	
@@ -105,7 +105,7 @@ function getData(event) {
 }
 
 // don't async send (unless you can check if the previous action has finished)
-async function btSendData(string) {
+function btSendData(string) {
 	console.log('btSendData', string)
 	message = enc.encode(string);
 	try {
