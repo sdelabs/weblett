@@ -80,10 +80,8 @@ async function connectDeviceAndCacheCharacteristics() {
 	}
 	outgoingCharacteristic.writeValue(message);
 
-	message = enc.encode("V");
-	outgoingCharacteristic.writeValue(message);
-	message = enc.encode("T3;S10;I;\r\n");
-	outgoingCharacteristic.writeValue(message);
+	btSendData("V")
+	btSendData("T3;S10;I;\r\n")
 }
 
 async function onDisconnected() {
