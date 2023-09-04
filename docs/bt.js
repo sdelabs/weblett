@@ -93,6 +93,6 @@ function getData(event) {
 	console.log('getData', event)
 	console.log('getData target value', event.target.value)
 	var string = dec.decode(event.target.value);
-	consoke.log('string', string)
+	console.log('string', string)
 	handleIncoming(string)
 }
