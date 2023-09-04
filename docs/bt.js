@@ -109,12 +109,7 @@ async function btSendData(string) {
 	console.log('btSendData', string)
 	message = enc.encode(string);
 	try {
-		response = await outgoingCharacteristic.writeValue(message);
-		if (!response.ok) {
-			console.log('*** some error')
-		} else {
-			console.log('*** response ok')
-		}
+		outgoingCharacteristic.writeValue(message);
 	} catch (error) {
     		console.error(`Could not write: ${error}`);
   	}
