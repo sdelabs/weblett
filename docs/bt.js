@@ -96,3 +96,9 @@ function getData(event) {
 	console.log('string', string)
 	processIncoming(string)
 }
+
+async function btSendData(string) {
+	console.log('btSend', string)
+	message = enc.encode(string);
+	outgoingCharacteristic.writeValue(message);
+}
