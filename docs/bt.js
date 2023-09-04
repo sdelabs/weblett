@@ -1,9 +1,13 @@
 var bluetoothDevice;
 var incomingCharacteristic;
 var outgoingCharacteristic = null;
+// device dependend characteristic names
+const serviceName = '0000ffe0-0000-1000-8000-00805f9b34fb';
+const receiveCharacteristicName = '0000ffe1-0000-1000-8000-00805f9b34fb'
+const sendCharacteristicName = '0000ffe1-0000-1000-8000-00805f9b34fb'
+
 var enc = new TextEncoder(); // need arraybuffer to send data 
 var dec = new TextDecoder(); // need arraybuffer to receive data 
-
 
 async function listBLE() {
 	console.log("listBLE");
@@ -48,31 +52,28 @@ async function connectDeviceAndCacheCharacteristics() {
 	console.log('server:', server.device.name);
 
 	// document.getElementById("deviceID").innerHTML = server.device.name;
-	serviceName = '0000ffe0-0000-1000-8000-00805f9b34fb';
-	characteristicName = '0000ffe1-0000-1000-8000-00805f9b34fb'
 
-console.log('Getting Service...', serviceName);
+	console.log('Getting Service...', serviceName);
 	// document.getElementById("serviceID").innerHTML = serviceName+"<br>"+characteristicName;
 	const service = await server.getPrimaryService(serviceName);
 	if (debug) console.log('Getting Incoming Characteristic...', characteristicName);
 
 	//*** not neccesary, for debug
-	console.log("listCharacteristics");
-	listCharacteristics = await service.getCharacteristics();
-	console.log(listCharacteristics);
+	//console.log("listCharacteristics");
+	//listCharacteristics = await service.getCharacteristics();
+	//console.log(listCharacteristics);
 
-	listCharacteristics.forEach(e => {
-		console.log(e.properties.write, e.properties.read, e.properties.notify);			
-	});
-//***
+	//listCharacteristics.forEach(e => {
+	//	console.log(e.properties.write, e.properties.read, e.properties.notify);			
+	//});
 
-	incomingCharacteristic = await service.getCharacteristic(characteristicName);
+	incomingCharacteristic = await service.getCharacteristic(receiveCharacteristicName);
 	incomingCharacteristic.addEventListener('characteristicvaluechanged', getData);
 	await incomingCharacteristic.startNotifications(); // otherwise nothing happens...
 	timeStarted = Date.now();
 
 	console.log('Getting outgoing Characteristic...');
-	outgoingCharacteristic = await service.getCharacteristic('0000ffe1-0000-1000-8000-00805f9b34fb');
+	outgoingCharacteristic = await service.getCharacteristic(sendCharacteristicName);
 	message = enc.encode("test");
 	if (debug) {
 		console.log('write test message');
