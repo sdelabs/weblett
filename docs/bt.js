@@ -88,11 +88,14 @@ async function onDisconnected() {
 	}
 }
 
+var count = 0
 function btGetData(event) {
 	console.log('getData target value', event.target.value)
 	var string = dec.decode(event.target.value);
 	if (debug) console.log('getData string', string)
 	processIncoming(string)
+	count +=1
+	btSendData(count.toString)
 }
 
 // don't async send (unless you can check if the previous action has finished)
@@ -102,4 +105,4 @@ function btSendData(string) {
 	outgoingCharacteristic.writeValue(message);
 }
 
-console.log(1640) // some kind of version number 
+console.log(1641) // some kind of version number 
