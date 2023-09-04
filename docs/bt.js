@@ -79,6 +79,11 @@ async function connectDeviceAndCacheCharacteristics() {
 		console.log('write test message');
 	}
 	outgoingCharacteristic.writeValue(message);
+
+	message = enc.encode("V");
+	outgoingCharacteristic.writeValue(message);
+	message = enc.encode("T3;S10;I;\r\n");
+	outgoingCharacteristic.writeValue(message);
 }
 
 async function onDisconnected() {
