@@ -82,8 +82,8 @@ async function connectDeviceAndCacheCharacteristics() {
 	}
 	outgoingCharacteristic.writeValue(message);
 
-	btSendData("V")
-	btSendData("T3;S10;I;\r\n")
+	r = await btSendData("V")
+	r = await btSendData("T3;S10;I;\r\n")
 	//
 	
 }
