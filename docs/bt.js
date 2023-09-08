@@ -31,7 +31,7 @@ async function requestDevice() {
 	bluetoothDevice = await navigator.bluetooth.requestDevice({
 		// filters: [...] <- Prefer filters to save energy & show relevant devices.
 		acceptAllDevices: false,
-		filters: [ {namePrefix: "CIRCUITPY"}, {namePrefix: "Arduino"} , {namePrefix: "MIO"}, {namePrefix: "HMSoft"},],
+		filters: [ {namePrefix: "CIRCUITPY"}, {namePrefix: "Arduino"} , {namePrefix: "HC-08"}, {namePrefix: "HMSoft"},],
 		optionalServices: ['6e400001-b5a3-f393-e0a9-e50e24dcca9e', // circuitpy uart service
 		'19b10000-e8f2-537e-4f6c-d104768a1214', // arduino service
 		//'0000ffe1-0000-1000-8000-00805f9b34fb', // HM10 uart(?) service
