@@ -106,9 +106,9 @@ function waitAfterConnect() {
 	if (debug) console.log('waitAfterConnect')
 	setTimeout(function () {
 		if (debug) console.log('BT Timer expired')
-		btSendData('P\n')
-		console.log('request version info')
-		btSendData('V\n')
+		btSendData('P;V;\n')
+		//console.log('request version info')
+		//btSendData('V\n')
 	        //connectButton.innerText = '🔌 Disconnect';
         	connectButton.disabled = true;
         	startButton.disabled = false;
@@ -125,4 +125,4 @@ function btSendData(string) {
 	outgoingCharacteristic.writeValue(message);
 }
 
-console.log(1745) // some kind of version number 
+console.log(1746) // some kind of version number 
