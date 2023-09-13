@@ -76,7 +76,8 @@ async function connectDeviceAndCacheCharacteristics() {
 	outgoingCharacteristic = await service.getCharacteristic(sendCharacteristicName);
 
 	//TODO: testing only.
-	// btSendData("P;\r\n")
+	console.log('btSend P;')
+	btSendData("P;\r\n")
 }
 
 async function onDisconnected() {
