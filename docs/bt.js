@@ -103,7 +103,7 @@ function btReceiveData(event) {
 
 // don't async send (unless you can check if the previous action has finished)
 function btSendData(string) {
-	id (debug) console.log('btSendData', string)
+	if (debug) console.log('btSendData', string)
 	message = enc.encode(string);
 	outgoingCharacteristic.writeValue(message);
 }
