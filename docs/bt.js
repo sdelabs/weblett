@@ -75,6 +75,7 @@ async function connectDeviceAndCacheCharacteristics() {
 	console.log('Getting outgoing Characteristic...');
 	outgoingCharacteristic = await service.getCharacteristic(sendCharacteristicName);
 
+	waitAfterConnect()
 	//TODO: testing only.
 	//console.log('btSend P;')
 	//btSendData("P;\r\n")
@@ -100,6 +101,22 @@ function btReceiveData(event) {
 	//	btSendData(count.toString())
 	//}
 }
+
+function waitAfterConnect() {
+	if (debug) console.log('waitAfterConnect')
+	setTimeout(function () {
+		if (debug) console.log('BT Timer expired')
+		sendToLETT('P\n')
+		console.log('request version info')
+		sendToLETT('V\n')
+	        //connectButton.innerText = '🔌 Disconnect';
+        	connectButton.disabled = true;
+        	startButton.disabled = false;
+        	upButton.disabled = false;
+        	downButton.disabled = false;
+	}, 2500)
+}
+
 
 // don't async send (unless you can check if the previous action has finished)
 function btSendData(string) {
