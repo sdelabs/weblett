@@ -11,7 +11,8 @@ var da = [0,0,0,0]
 var ds = [[]]
 
 function testClicked() {
-	console.log('test clicked: test borderwith')
+	console.log('test clicked: test send P')
+	btSendData("P;\r\n")
 
 	document.getElementById("tableID").style.borderColor="white";	
 	// window.addEventListener("beforeunload", function (e) {
