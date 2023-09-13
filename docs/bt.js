@@ -91,7 +91,7 @@ async function onDisconnected() {
 
 var count = 0
 function btReceiveData(event) {
-	//console.log('btGetData target value', event.target.value)
+	if (debug) console.log('btReceiveData target value', event.target.value)
 	var string = dec.decode(event.target.value);
 	console.log('btGetData', string)
 	processIncoming(string)
@@ -103,7 +103,7 @@ function btReceiveData(event) {
 
 // don't async send (unless you can check if the previous action has finished)
 function btSendData(string) {
-	console.log('btSendData', string)
+	id (debug) console.log('btSendData', string)
 	message = enc.encode(string);
 	outgoingCharacteristic.writeValue(message);
 }
