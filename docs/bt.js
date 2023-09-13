@@ -56,7 +56,7 @@ async function connectDeviceAndCacheCharacteristics() {
 	console.log('Getting Service...', serviceName);
 	// document.getElementById("serviceID").innerHTML = serviceName+"<br>"+characteristicName;
 	const service = await server.getPrimaryService(serviceName);
-	if (debug) console.log('Getting Incoming Characteristic...', characteristicName);
+	if (debug) console.log('Getting Incoming Characteristic...', receiveCharacteristicName);
 
 	//*** not neccesary, for debug
 	//console.log("listCharacteristics");
