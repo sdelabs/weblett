@@ -106,7 +106,7 @@ function waitAfterConnect() {
 	if (debug) console.log('waitAfterConnect')
 	setTimeout(function () {
 		if (debug) console.log('BT Timer expired')
-		sendToLETT('P\n')
+		btSendToLETT('P\n')
 		console.log('request version info')
 		btSendToLETT('V\n')
 	        //connectButton.innerText = '🔌 Disconnect';
