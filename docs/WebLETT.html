@@ -13,6 +13,11 @@
   <!-- https://www.chartjs.org/docs/latest/ -->
   <!--script src="https://cdn.jsdelivr.net/npm/chart.js"></script-->
 
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+
   </head>
   
   <body>
@@ -25,7 +30,7 @@
 
 	<div style="overflow:auto">
 
-	<table border="1" bordercolor="Gainsboro" class="main" id="tableID">
+	<table class="main" id="tableID">
 	<tr>
 		<td style="width:25px" rowspan="8">&nbsp;</td>
 		<td><button id="connect-button" type="button" onclick=getReader()>🔌 CONNECT</button></td>
