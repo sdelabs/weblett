@@ -27,7 +27,7 @@
 
 	<table border="1" bordercolor="Gainsboro" class="main" id="tableID">
 	<tr>
-		<td width="25" rowspan="8">&nbsp;</td>
+		<td style="width:25" rowspan="8">&nbsp;</td>
 		<td><button id="connect-button" type="button" onclick=getReader()>🔌 CONNECT</button></td>
 		<td><button id="start-button" type="button" onclick=startStop() disabled>START</button></td>
 		<!--td><button id="stop-button" type="button" onclick=stopTest() disabled>STOP</button></td-->
@@ -75,7 +75,7 @@
 		<input type="radio" id="cyclic" name="test_sub" value="cyclic" onclick="cyclicClicked()" >
 		 <label for="cyclic">cyclic</label>
 	</td>
-	<td align="right">
+	<td style="text-align:right">
 		<div id="speedText">speed</div>
 		<div id="targetText">target</div>
 		<div id="forceText">force</div>
@@ -92,27 +92,27 @@
 	</td>
 	</tr>
 	<tr> <!--bgcolor="lightgrey" -->
-		<td align="right"><div>position</div></td>
-		<td align="left"><div id="pos"><b>&nbsp;</b></div></td>
+		<td style="text-align:right"><div>position</div></td>
+		<td style="text-align:left"><div id="pos"><b>&nbsp;</b></div></td>
 
-		<td align="right"><div id="cycLabel" hidden>cycle</div></td>
-		<td align="left"><div id="cycl"><b>&nbsp;</b></div></td>
+		<td style="text-align:right"><div id="cycLabel" hidden>cycle</div></td>
+		<td style="text-align:left"><div id="cycl"><b>&nbsp;</b></div></td>
 
-		<td align="right"><div id="resLabel" hidden>resistance</div></td>
-		<td align="left"><div id="res"><b>&nbsp;</b></div></td>
+		<td style="text-align:right"><div id="resLabel" hidden>resistance</div></td>
+		<td style="text-align:left"><div id="res"><b>&nbsp;</b></div></td>
 
-		<td align="right"><div>timestamp</div></td>
+		<td style="text-align:right"><div>timestamp</div></td>
 
 	</tr>
 	<tr align="right">
-		<td align="right"><div>force</div></td>
-		<td align="left"><div id="frc"><b>&nbsp;</b></div></td>
+		<td style="text-align:right"><div>force</div></td>
+		<td style="text-align:left"><div id="frc"><b>&nbsp;</b></div></td>
 
-		<td align="right" id="smplLabel" hidden>sample</td>
-		<td align="left"><div id="smpl"><b>&nbsp;</b></div></td>
+		<td style="text-align:right" id="smplLabel" hidden>sample</td>
+		<td style="text-align:left"><div id="smpl"><b>&nbsp;</b></div></td>
 
-		<td align="right"><div id="tmpLabel" hidden>temperature</div></td>
-		<td align="left"><div id="tmp"><b>&nbsp;</b></div></td>
+		<td style="text-align:right"><div id="tmpLabel" hidden>temperature</div></td>
+		<td style="text-align:left"><div id="tmp"><b>&nbsp;</b></div></td>
 
 		<td><div id="tim"><b>&nbsp;</b>b></div></td>
 
