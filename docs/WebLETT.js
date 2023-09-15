@@ -50,6 +50,8 @@ var sensorType
 var testValid = false
 var LETTString
 var LETTmoving = false
+var BLEconnected = false
+var USBconnected = false
 
 const testEndReasons = [
 "Undefined", 
@@ -309,6 +311,14 @@ function startStop() {
 }
 
 function sendToLETT(str) {
+	if (BLEconnected) {
+		sendBLE(str)
+	} else {
+		sendSerial(str)
+	}
+}
+
+function sendSerial(str) {
 	enc = new TextEncoder();
 	console.log('LETTString', str);
 	var bytes = enc.encode(str);
@@ -558,6 +568,7 @@ async function getReader() {
         	startButton.disabled = false;
         	upButton.disabled = false;
         	downButton.disabled = false;
+		USBconnected = true;
 	}, 2500)
 
 
