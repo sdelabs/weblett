@@ -68,7 +68,7 @@ async function connectDeviceAndCacheCharacteristics() {
 	//});
 
 	incomingCharacteristic = await service.getCharacteristic(receiveCharacteristicName);
-	incomingCharacteristic.addEventListener('characteristicvaluechanged', btReceiveData);
+	incomingCharacteristic.addEventListener('characteristicvaluechanged', btReceive);
 	await incomingCharacteristic.startNotifications(); // otherwise nothing happens...
 	timeStarted = Date.now();
 
@@ -93,10 +93,10 @@ async function onDisconnected() {
 }
 
 //var count = 0
-function btReceiveData(event) {
-	if (debug) console.log('btReceiveData target value', event.target.value)
+function btReceive(event) {
+	//if (debug) console.log('btReceive target value', event.target.value)
 	var string = dec.decode(event.target.value);
-	console.log('btGetData', string)
+	if (debug) console.log('btReceive', string)
 
 	lineBuffer += string;
 	var lines = lineBuffer.split('\n');				
