@@ -97,7 +97,20 @@ function btReceiveData(event) {
 	if (debug) console.log('btReceiveData target value', event.target.value)
 	var string = dec.decode(event.target.value);
 	console.log('btGetData', string)
-	processIncoming(string)
+
+	lineBuffer += chunk;
+	var lines = lineBuffer.split('\n');				
+	while (lines.length > 1) {
+		if (testRunning) {
+			samples +=1;
+			document.getElementById("smpl").innerHTML=samples;
+		}
+		var line = lines.shift();
+		processIncoming(line);
+	}
+	lineBuffer = lines.pop();
+	
+	//processIncoming(string)
 	//count +=1
 	//if (count%2) {
 	//	btSendData(count.toString())
