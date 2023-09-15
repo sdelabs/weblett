@@ -76,7 +76,7 @@ async function connectDeviceAndCacheCharacteristics() {
 	outgoingCharacteristic = await service.getCharacteristic(sendCharacteristicName);
 
 	waitAfterConnect()
-	bleConnected = true;
+	BLEconnected = true;
 
 	//for testing only.
 	//console.log('btSend P;')
