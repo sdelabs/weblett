@@ -317,7 +317,7 @@ function sendToLETT(str) {
 
 function sendSerial(str) {
 	enc = new TextEncoder();
-	console.log('LETTString', str);
+	console.log('sendSerial', str);
 	var bytes = enc.encode(str);
 	//console.log('bytes', bytes);
 	const writer = port.writable.getWriter();
