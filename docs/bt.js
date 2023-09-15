@@ -98,7 +98,7 @@ function btReceiveData(event) {
 	var string = dec.decode(event.target.value);
 	console.log('btGetData', string)
 
-	lineBuffer += chunk;
+	lineBuffer += string;
 	var lines = lineBuffer.split('\n');				
 	while (lines.length > 1) {
 		if (testRunning) {
