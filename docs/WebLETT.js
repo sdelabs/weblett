@@ -311,11 +311,8 @@ function startStop() {
 }
 
 function sendToLETT(str) {
-	if (BLEconnected) {
-		sendBLE(str)
-	} else {
-		sendSerial(str)
-	}
+	if (BLEconnected) sendBLE(str)
+	if (USBconnected) sendSerial(str)
 }
 
 function sendSerial(str) {
