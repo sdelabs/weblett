@@ -10,7 +10,7 @@ function saveParameterCookies() {
 }
 
 function getParameterCookies() {
-	if (debug) console.log('get cookies')
+	if (true) console.log('get cookies')
 	testType  = getCookie("LETTtest")
 	// console.log('LETTtest', testType)
 	if (testType==testTypeTensile) document.getElementById('tensile').checked = true
