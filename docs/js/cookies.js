@@ -1,6 +1,7 @@
 // https://www.w3schools.com/js/js_cookies.asp
 function saveParameterCookies() {
 	if (debug) console.log('save cookies')
+	console.log("LETTtest", testType)
 	setCookie("LETTtest", testType)
 	setCookie("LETTsubtest", subtestType)
 	setCookie("LETTspeed", testSpeed)
