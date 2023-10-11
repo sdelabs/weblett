@@ -557,6 +557,7 @@ async function getReader() {
 	// Wait for it to initialize and turn on printing.
 	setTimeout(function () {
 		if (debug) console.log('Timer expired')
+		USBconnected = true;
 		sendToLETT('P\n')
 		console.log('request version info')
 		sendToLETT('V\n')
@@ -565,7 +566,6 @@ async function getReader() {
         	startButton.disabled = false;
         	upButton.disabled = false;
         	downButton.disabled = false;
-		USBconnected = true;
 	}, 3500)
 
 
