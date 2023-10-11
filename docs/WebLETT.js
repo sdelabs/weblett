@@ -566,7 +566,7 @@ async function getReader() {
         	upButton.disabled = false;
         	downButton.disabled = false;
 		USBconnected = true;
-	}, 2500)
+	}, 3500)
 
 
 	navigator.serial.addEventListener('connect', (e) => {
