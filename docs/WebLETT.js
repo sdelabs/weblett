@@ -295,6 +295,7 @@ function startStop() {
 			startButton.style.backgroundColor = 'LightRed'
 			upButton.disabled = true;
 			downButton.disabled = true;
+			console.log('save cookies')
 			saveParameterCookies()
 			//
 			console.log('LETTString', LETTString);
