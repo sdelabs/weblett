@@ -4,6 +4,7 @@ var myChart = new Chart(document.getElementById("myChart"), {
 		datasets: [{
 			label: "Force vs Time",
 			showLine: true,
+			hidden: true,
 			borderColor: '#d45087', // #FF6384',
 			fill: false,
 			data: []
@@ -18,7 +19,6 @@ var myChart = new Chart(document.getElementById("myChart"), {
 			label: "Force vs Extension",
 			//label: "Temperature",
 			showLine: true,
-			hidden: true,
 			borderColor: '#003f5c', //'lightBlue',
 			fill: false,
 			data: [{x:7, y:6}, {x:15, y:16}]
