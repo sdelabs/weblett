@@ -381,6 +381,7 @@ function clearData(override = false) {
 
 function processIncoming(line) {
 	if (debug) console.log('line:', line)
+	document.getElementById("info").style.color = 'lightGrey'
 	document.getElementById("info").innerHTML=line
 	var data = line.split(';')
 	for (i = 0; i<data.length; i++) {
