@@ -139,15 +139,15 @@ function cyclicClicked() {
 function checkTestType() {
 	testType = 0;
 	if (document.getElementById('tensile').checked) {
-		console.log('tensile');
+		// console.log('tensile');
 		testType = testTypeTensile;
 	} 
 	if (document.getElementById('compression').checked) {
-		console.log('compression');
+		// console.log('compression');
 		testType = testTypeCompression;
 	}
 	if (document.getElementById('data').checked) {
-		console.log('data');
+		// console.log('data');
 		testType = testTypeData;
 	}
 	if (testType == 0) startEnabled = false;
@@ -155,19 +155,19 @@ function checkTestType() {
 	// test sub-type
 	subtestType = 0;
 	if (document.getElementById('fail').checked) {
-		console.log('fail');
+		// console.log('fail');
 		subtestType = subtestTypeFail;
 	}
 	if (document.getElementById('creep').checked) {
-		console.log('creep');
+		// console.log('creep');
 		subtestType = subtestTypeCreep;
 	}
 	if (document.getElementById('relax').checked) {
-		console.log('relax');
+		// console.log('relax');
 		subtestType = subtestTypeRelax;
 	}
 	if (document.getElementById('cyclic').checked) {
-		console.log('cyclic');
+		// console.log('cyclic');
 		subtestType = subtestTypeCyclic;
 	}
 	if (subtestType == 0) startEnabled = false;
@@ -184,7 +184,7 @@ function checkSensorType() {
 }
 
 function checkTestSpeed() {
-	console.log('speed', testSpeed);
+	// console.log('speed', testSpeed);
 	if (testSpeed<0 || testSpeed >256) {
 		startEnabled = false;
 		errorMessage = 'ERROR: speed not set';
@@ -206,7 +206,7 @@ function checkTestForce() {
 
 function checkTestTarget() {
 	if (subtestType != subtestTypeRelax && subtestType != subtestTypeCyclic) return;
-	console.log('goto', testTarget);
+	// console.log('goto', testTarget);
 	if (testTarget<0 || testTarget>100) {
 		startEnabled = false; 
 		errorMessage = 'ERROR: target position not in range!';
@@ -313,7 +313,7 @@ function startStop() {
 			startButton.style.backgroundColor = 'LightRed'
 			upButton.disabled = true;
 			downButton.disabled = true;
-			console.log('save cookies')
+			//console.log('save cookies')
 			saveParameterCookies()
 			//
 			console.log('LETTString', LETTString);
@@ -336,7 +336,7 @@ function sendToLETT(str) {
 
 function sendSerial(str) {
 	enc = new TextEncoder();
-	console.log('sendSerial', str);
+	if (debug) console.log('sendSerial', str);
 	var bytes = enc.encode(str);
 	//console.log('bytes', bytes);
 	const writer = port.writable.getWriter();
@@ -357,7 +357,7 @@ function saveData() {
 
   // Iterate over the dataset and append each row to the CSV content
   dataList.forEach(function(data) {
-	console.log('data', data)
+	if (debug) console.log('data', data)
 	var row = Object.values(data).join(",") // Join the values with commas
 	csvContent += row + "\n"
   })
@@ -455,7 +455,7 @@ function processIncoming(line) {
 		
 		//if (data[i].startsWith('V')) { // LETT number
 		if (data[i].indexOf('V') != -1) { // LETT number
-			console.log('V', data[i].split('V')[1]);
+			if(debug) console.log('V', data[i].split('V')[1]);
 			n = parseInt(data[i].split('V')[1]);
 			document.getElementById("num").innerHTML="LETT " + n;
 		}				
