@@ -98,7 +98,5 @@ function clearAllCookies() {
 
 
 // and read existing cookies
-document.cookie = 'LETTSpeed=-1; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-document.cookie = 'LETTspeed=-1; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-document.cookie = 'testSpeed=-1; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+document.cookie = 'a=-1; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 getParameterCookies()
