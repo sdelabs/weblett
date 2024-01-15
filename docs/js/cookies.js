@@ -1,7 +1,7 @@
 // https://www.w3schools.com/js/js_cookies.asp
 
 function saveParameterCookies() {
-	if (debug) console.log('save cookies')
+	if (true) console.log('save cookies')
 	setCookie("LETTtest", testType)
 	setCookie("LETTsubtest", subtestType)
 	setCookie("LETTspeed", testSpeed)
@@ -53,7 +53,7 @@ function getParameterCookies() {
 }
 
 function setCookie(cname, cvalue, exdays) {
-	if (debug) console.log('setCookie', cname, cvalue)
+	if (true) console.log('setCookie', cname, cvalue)
 	const d = new Date()
 	d.setTime(d.getTime() + (exdays*24*60*60*1000))
 	let expires = "expires="+ d.toUTCString()
