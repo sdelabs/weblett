@@ -1,7 +1,7 @@
 // https://www.w3schools.com/js/js_cookies.asp
 
 function saveParameterCookies() {
-	if (true) console.log('save cookies')
+	if (debug) console.log('save cookies')
 	setCookie("LETTtest", testType)
 	setCookie("LETTsubtest", subtestType)
 	setCookie("LETTspeed", testSpeed)
@@ -11,7 +11,7 @@ function saveParameterCookies() {
 }
 
 function getParameterCookies() {
-	if (true) console.log('get cookies')
+	if (debug) console.log('get cookies')
 	testType  = getCookie("LETTtest")
 	if (testType == "") testType = testTypeTensile 
 	if (debug) console.log('LETTtest', testType)
@@ -61,7 +61,7 @@ function setCookie(cname, cvalue, exdays) {
 }
 
 function getCookie(cname) {
-	if (debug) console.log('getCookie:', cname)
+	if (true) console.log('getCookie:', cname)
 	let name = cname + "="
 	let decodedCookie = decodeURIComponent(document.cookie)
 	let ca = decodedCookie.split(';')
@@ -71,6 +71,7 @@ function getCookie(cname) {
 			c = c.substring(1)
 		}
 		if (c.indexOf(name) == 0) {
+			console.log('name')
 			return c.substring(name.length, c.length)
 		}
 	}
