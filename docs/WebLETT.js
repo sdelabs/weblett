@@ -13,13 +13,13 @@ const targetSlider = document.getElementById('target-slide');
 const forceSlider = document.getElementById('force-slide');
 const cyclesSlider = document.getElementById('cycle-slide');
 const statusText = document.getElementById('status-text');
-const testTypeTensile = 01;
-const testTypeCompression = 02;
-const testTypeData = 8;
-const subtestTypeFail = 16;
-const subtestTypeRelax = 64;
-const subtestTypeCreep = 32;
-const subtestTypeCyclic = 128;
+const testTypeTensile = 01; // bit 0
+const testTypeCompression = 02; // bit 1
+const testTypeData = 8; // bit 3
+const subtestTypeFail = 16; // bit 4
+const subtestTypeCreep = 32; // bit 5
+const subtestTypeRelax = 64; // bit 6
+const subtestTypeCyclic = 128; // bit 7
 // positions of datamembers in results
 const posTim = 0
 const posPos = 1
@@ -271,10 +271,12 @@ function startStop() {
 		startEnabled = true; // the tests will disable if conditions are not met.
 		checkTestType();
 		checkSensorType();
-		checkTestSpeed();
-		checkTestForce();
-		checkTestTarget();
-		checkTestCycles();
+		if (testType != testTypeData) {
+			checkTestSpeed();
+			checkTestForce();
+			checkTestTarget();
+			checkTestCycles();
+		}
 		makeStartString();
 		checkUnsavedData();
 		if (!startEnabled) {
