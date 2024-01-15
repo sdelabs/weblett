@@ -93,14 +93,14 @@ cyclesSlider.addEventListener('input', (event) => {
 });		
 		
 function failClicked() {
-	speedSlider.disabled = false;
-	speedText.disabled = false;
-	targetSlider.disabled = true;
-	targetText.disabled = true;
-	forceSlider.disabled = true;
-	forceText.disabled = true;
-	cyclesSlider.disabled = true;
-	cyclesText.disabled = true;
+	speedSlider.disabled = false
+	speedText.style.color = "grey"
+	targetSlider.disabled = true
+	targetText.style.color = "grey"
+	forceSlider.disabled = true
+	forceText.style.color = "grey"
+	cyclesSlider.disabled = true
+	cyclesText.style.color = "grey"
 }
 
 function creepClicked() {
