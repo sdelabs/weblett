@@ -2,7 +2,6 @@
 
 function saveParameterCookies() {
 	if (debug) console.log('save cookies')
-	console.log("LETTtest", testType)
 	setCookie("LETTtest", testType)
 	setCookie("LETTsubtest", subtestType)
 	setCookie("LETTspeed", testSpeed)
@@ -55,16 +54,16 @@ function getParameterCookies() {
 
 function setCookie(cname, cvalue, exdays) {
 	if (debug) console.log('setCookie', cname, cvalue)
-	const d = new Date();
-	d.setTime(d.getTime() + (exdays*24*60*60*1000));
-	let expires = "expires="+ d.toUTCString();
-	document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+	const d = new Date()
+	d.setTime(d.getTime() + (exdays*24*60*60*1000))
+	let expires = "expires="+ d.toUTCString()
+	document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/"
 }
 
 function getCookie(cname) {
 	if (debug) console.log('getCookie:', cname)
-	let name = cname + "=";
-	let decodedCookie = decodeURIComponent(document.cookie);
+	let name = cname + "="
+	let decodedCookie = decodeURIComponent(document.cookie)
 	let ca = decodedCookie.split(';')
 	for(let i = 0; i <ca.length; i++) {
 		let c = ca[i];
@@ -73,10 +72,10 @@ function getCookie(cname) {
 		}
 		console.log(c, c.indexOf(name))
 		if (c.indexOf(name) == 0) {
-			return c.substring(name.length, c.length);
+			return c.substring(name.length, c.length)
 		}
 	}
-	return "";
+	return ""
 }
 
 // for testing purposes it's convenient to clear all cookies
@@ -100,4 +99,3 @@ function clearAllCookies() {
 
 // and read existing cookies
 getParameterCookies()
-//clearAllCookies();
