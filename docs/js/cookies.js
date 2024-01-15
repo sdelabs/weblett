@@ -1,6 +1,4 @@
 debug = true
-console.log('testSpeed voor:', testSpeed);
-console.log('speedSlider:', speedSlider);
 
 // https://www.w3schools.com/js/js_cookies.asp
 function saveParameterCookies() {
@@ -39,6 +37,8 @@ function getParameterCookies() {
 		speedText.innerText = 'speed: ' + testSpeed
 	}
 	if (debug) console.log('speed=', testSpeed, '|')
+console.log('testSpeed na:', testSpeed);
+console.log('speedSlider na:', speedSlider);
 
 	testForce  = getCookie("LETTforce")
 	if (testForce != "") {
