@@ -586,6 +586,7 @@ async function getReader() {
         	startButton.disabled = false;
         	upButton.disabled = false;
         	downButton.disabled = false;
+		showMessage('LETT connected, have fun!', good)
 	}, 3500)
 
 
