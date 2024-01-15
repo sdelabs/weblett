@@ -79,6 +79,7 @@ function getCookie(cname) {
 			c = c.substring(1)
 			console.log('c', c)
 		}
+		console.log(c, name)
 		if (c.indexOf(name) == 0) {
 			console.log('c', c, ', found' , name, ' return', c.substring(name.length, c.length)) 
 			return c.substring(name.length, c.length);
