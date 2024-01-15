@@ -94,34 +94,46 @@ cyclesSlider.addEventListener('input', (event) => {
 		
 function failClicked() {
 	speedSlider.disabled = false
-	speedText.style.color = "grey"
+	speedText.style.color = "black"
 	targetSlider.disabled = true
-	targetText.style.color = "grey"
+	targetText.style.color = "lightgrey"
 	forceSlider.disabled = true
-	forceText.style.color = "grey"
+	forceText.style.color = "lightgrey"
 	cyclesSlider.disabled = true
-	cyclesText.style.color = "grey"
+	cyclesText.style.color = "lightgrey"
 }
 
 function creepClicked() {
 	speedSlider.disabled = false;
+	speedText.style.color = "black"
 	targetSlider.disabled = true;
+	targetText.style.color = "lightgrey"
 	forceSlider.disabled = false;
+	forceText.style.color = "black"
 	cyclesSlider.disabled = true;
+	cyclesText.style.color = "lightgrey"
 }
 
 function relaxClicked() {
 	speedSlider.disabled = false;
+	speedText.style.color = "black"
 	targetSlider.disabled = false;
+	targetText.style.color = "black"
 	forceSlider.disabled = true;
+	forceText.style.color = "lightgrey"
 	cyclesSlider.disabled = true;
+	cyclesText.style.color = "lightgrey"
 }
 
 function cyclicClicked() {
 	speedSlider.disabled = false;
+	speedText.style.color = "black"
 	targetSlider.disabled = false;
+	targetText.style.color = "black"
 	forceSlider.disabled = true;
+	forceText.style.color = "lightgrey"
 	cyclesSlider.disabled = false;
+	cyclesText.style.color = "black"
 }
 
 function checkTestType() {
