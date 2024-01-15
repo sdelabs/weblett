@@ -70,7 +70,6 @@ function getCookie(cname) {
 		while (c.charAt(0) == ' ') {
 			c = c.substring(1)
 		}
-		console.log(c, c.indexOf(name))
 		if (c.indexOf(name) == 0) {
 			return c.substring(name.length, c.length)
 		}
