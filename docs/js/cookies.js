@@ -1,4 +1,6 @@
 debug = true
+console.log('testSpeed voor:', testSpeed);
+
 // https://www.w3schools.com/js/js_cookies.asp
 function saveParameterCookies() {
 	if (debug) console.log('save cookies')
