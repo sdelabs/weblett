@@ -94,9 +94,13 @@ cyclesSlider.addEventListener('input', (event) => {
 		
 function failClicked() {
 	speedSlider.disabled = false;
+	speedText.disabled = false;
 	targetSlider.disabled = true;
+	targetText.disabled = true;
 	forceSlider.disabled = true;
+	forceText.disabled = true;
 	cyclesSlider.disabled = true;
+	cyclesText.disabled = true;
 }
 
 function creepClicked() {
