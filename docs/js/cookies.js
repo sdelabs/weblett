@@ -27,6 +27,7 @@ function getParameterCookies() {
 	if (subtestType == subtestTypeCyclic) document.getElementById('cyclic').checked = true
 
 	testSpeed  = getCookie("LETTspeed")
+	testSpeed  = getCookie("testSpeed")
 	if (testSpeed != "") {
 		if (debug) console.log('speed|', testSpeed, '|')
 		speedSlider.value = testSpeed
