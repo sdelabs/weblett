@@ -110,4 +110,4 @@ function clearAllCookies() {
 
 // and read existing cookies
 getParameterCookies()
-// clearAllCookies();
+clearAllCookies();
