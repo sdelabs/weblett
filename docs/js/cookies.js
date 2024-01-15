@@ -73,7 +73,7 @@ function getCookie(cname) {
 	let name = cname + "=";
 	let decodedCookie = decodeURIComponent(document.cookie);
 	if (debug) console.log('cookiestring:', decodedCookie)
-	let ca = decodedCookie.split
+	let ca = decodedCookie.split(';')
 	if (debug) console.log('splitcookie', ca)	
 	for(let i = 0; i <ca.length; i++) {
 		let c = ca[i];
