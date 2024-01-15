@@ -82,6 +82,7 @@ function getCookie(cname) {
 			c = c.substring(1);
 		}
 		if (c.indexOf(name) == 0) {
+			console.log('found' , name, ' return', c.split('=')(1)) 
 			return c.substring(name.length, c.length);
 		}
 	}
