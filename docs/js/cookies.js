@@ -69,7 +69,7 @@ function setCookie(cname, cvalue, exdays) {
 }
 
 function getCookie(cname) {
-	if (debug) console.log('getCookie:', cname, ', cookiestring:', decodedCookie)
+	if (debug) console.log('getCookie:', cname, ')
 	let name = cname + "=";
 	let decodedCookie = decodeURIComponent(document.cookie);
 	let ca = decodedCookie.split(';')
