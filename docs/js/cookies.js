@@ -15,43 +15,43 @@ function saveParameterCookies() {
 function getParameterCookies() {
 	if (true) console.log('get cookies')
 	testType  = getCookie("LETTtest")
-	console.log('LETTtest', testType)
+	if (testType == "") testType = testTypeTensile 
+	if (debug) console.log('LETTtest', testType)
 	if (testType==testTypeTensile) document.getElementById('tensile').checked = true
 	if (testType==testTypeCompression) document.getElementById('compression').checked = true
 
 	subtestType  = getCookie("LETTsubtest")
-	// console.log('LETTsubtest', subtestType)
+	if (subtestType == "") subtestType = subtestTypeFail 
+	if (debug) console.log('LETTsubtest', subtestType)
 	if (subtestType == subtestTypeFail) document.getElementById('fail').checked = true
 	if (subtestType == subtestTypeRelax) document.getElementById('relax').checked = true
 	if (subtestType == subtestTypeCreep) document.getElementById('creep').checked = true
 	if (subtestType == subtestTypeCyclic) document.getElementById('cyclic').checked = true
 
 	testSpeed  = getCookie("LETTspeed")
-	if (testSpeed == "") {
-		testSpeed = 15
-	} 
-	if (debug) console.log('speed=', testSpeed, '|')
+	if (testSpeed == "") testSpeed = 15
+	if (debug) console.log('speed=', testSpeed)
 	speedSlider.value = testSpeed
 	speedText.innerText = 'speed: ' + testSpeed
 
 	testForce  = getCookie("LETTforce")
-	if (testForce != "") {
-		//console.log('force', testForce)
-		forceSlider.value = testForce
-		forceText.innerText = 'force: ' + testForce
-	}
+	if (testForce == "") testForce = 10
+	if (debug) console.log('force', testForce)
+	forceSlider.value = testForce
+	forceText.innerText = 'force: ' + testForce
+	
 	testTarget = getCookie("LETTtarget")
-	if (testTarget != "") {
-		//console.log('target', testTarget)
-		targetSlider.value = testTarget
-		targetText.innerText = 'target: ' + testTarget
-	}
+	if (testTarget == "") testTarget = 10
+	if (debug) console.log('target', testTarget)
+	targetSlider.value = testTarget
+	targetText.innerText = 'target: ' + testTarget
+	
 	testCycles = getCookie("LETTcycles")
-	if (testCycles != "") {
-		//console.log('cycles', testCycles)
-		cyclesSlider.value = testCycles
-		cyclesText.innerText = 'cycles: ' + testCycles
-	}
+	if (testCycles == "") testCycles = 8
+	if (debug) console.log('cycles', testCycles)
+	cyclesSlider.value = testCycles
+	cyclesText.innerText = 'cycles: ' + testCycles
+	
 }
 
 function setCookie(cname, cvalue, exdays) {
