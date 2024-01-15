@@ -76,11 +76,11 @@
 	<td colspan = "2">  
 		<input type="radio" id="fail" name="test_sub" value="fail" onclick="failClicked()" title="stop on specimen fail">
 		 <label for="fail">fail</label><br>
-		<input type="radio" id="relax" name="test_sub" value="relax" onclick="relaxClicked()" >
+		<input type="radio" id="relax" name="test_sub" value="relax" onclick="relaxClicked()"  title="move to position, monitor change in force (relaxation)">
 		 <label for="relax">relax</label><br>
-		<input type="radio" id="creep" name="test_sub" value="creep" onclick="creepClicked()" >
+		<input type="radio" id="creep" name="test_sub" value="creep" onclick="creepClicked()"  title="move to force, keep force constant, monitor movement (creep)">
 		 <label for="creep">creep</label><br>  
-		<input type="radio" id="cyclic" name="test_sub" value="cyclic" onclick="cyclicClicked()" >
+		<input type="radio" id="cyclic" name="test_sub" value="cyclic" onclick="cyclicClicked()"  title="cyclic test: repeat motion N times">
 		 <label for="cyclic">cyclic</label>
 	</td>
 	<td style="text-align:right">
