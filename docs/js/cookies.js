@@ -27,19 +27,12 @@ function getParameterCookies() {
 	if (subtestType == subtestTypeCyclic) document.getElementById('cyclic').checked = true
 
 	testSpeed  = getCookie("LETTspeed")
-	testSpeed  = getCookie("testSpeed")
-	if (testSpeed != "") {
-		if (debug) console.log('speed|', testSpeed, '|')
-		speedSlider.value = testSpeed
-		speedText.innerText = 'speed: ' + testSpeed
-	} else {
-		testSPeed = 15
-		speedSlider.value = testSPeed
-		speedText.innerText = 'speed: ' + testSpeed
-	}
+	if (testSpeed == "") {
+		testSpeed = 15
+	} 
 	if (debug) console.log('speed=', testSpeed, '|')
-console.log('testSpeed na:', testSpeed);
-console.log('speedSlider na:', speedSlider);
+	speedSlider.value = testSpeed
+	speedText.innerText = 'speed: ' + testSpeed
 
 	testForce  = getCookie("LETTforce")
 	if (testForce != "") {
@@ -78,11 +71,9 @@ function getCookie(cname) {
 		let c = ca[i];
 		while (c.charAt(0) == ' ') {
 			c = c.substring(1)
-			console.log('c', c)
 		}
 		console.log(c, c.indexOf(name))
 		if (c.indexOf(name) == 0) {
-			console.log('c', c, ', found' , name, ' return', c.substring(name.length, c.length)) 
 			return c.substring(name.length, c.length);
 		}
 	}
@@ -110,4 +101,4 @@ function clearAllCookies() {
 
 // and read existing cookies
 getParameterCookies()
-clearAllCookies();
+//clearAllCookies();
