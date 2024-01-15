@@ -53,7 +53,7 @@ function getParameterCookies() {
 }
 
 function setCookie(cname, cvalue, exdays) {
-	if (true) console.log('setCookie', cname, cvalue)
+	if (debug) console.log('setCookie', cname, cvalue)
 	const d = new Date()
 	d.setTime(d.getTime() + (exdays*24*60*60*1000))
 	let expires = "expires="+ d.toUTCString()
@@ -61,7 +61,7 @@ function setCookie(cname, cvalue, exdays) {
 }
 
 function getCookie(cname) {
-	if (true) console.log('getCookie:', cname)
+	if (debug) console.log('getCookie:', cname)
 	let name = cname + "="
 	let decodedCookie = decodeURIComponent(document.cookie)
 	let ca = decodedCookie.split(';')
