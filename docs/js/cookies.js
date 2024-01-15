@@ -35,7 +35,7 @@ function getParameterCookies() {
 		speedSlider.value = testSPeed
 		speedText.innerText = 'speed: ' + testSpeed
 	}
-	if (debug) console.log('speed|', testSpeed, '|')
+	if (debug) console.log('speed=', testSpeed, '|')
 
 	testForce  = getCookie("LETTforce")
 	if (testForce != "") {
