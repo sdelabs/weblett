@@ -26,10 +26,16 @@ function getParameterCookies() {
 
 	testSpeed  = getCookie("LETTspeed")
 	if (testSpeed != "") {
-		//console.log('speed|', testSpeed, '|')
+		if (debug) console.log('speed|', testSpeed, '|')
 		speedSlider.value = testSpeed
 		speedText.innerText = 'speed: ' + testSpeed
+	} else {
+		testSPeed = 15
+		speedSlider.value = testSPeed
+		speedText.innerText = 'speed: ' + testSpeed
 	}
+	if (debug) console.log('speed|', testSpeed, '|')
+
 	testForce  = getCookie("LETTforce")
 	if (testForce != "") {
 		//console.log('force', testForce)
@@ -96,5 +102,5 @@ function clearAllCookies() {
 
 
 // and read existing cookies
-// getParameterCookies()
-clearAllCookies();
+getParameterCookies()
+// clearAllCookies();
