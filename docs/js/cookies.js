@@ -76,5 +76,25 @@ function getCookie(cname) {
 	return "";
 }
 
+// for testing purposes it's convenient to clear all cookies
+function clearAllCookies() {
+	console.log('cleared cookies');
+	document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+	/* 
+ 	setCookie("LETTtest", testType)
+	setCookie("LETTsubtest", subtestType)
+	setCookie("LETTspeed", testSpeed)
+	setCookie("LETTforce", testForce)
+	setCookie("LETTtarget", testTarget)
+	setCookie("LETTcycles", testCycles)	
+ 	*/
+	document.cookie = 'LETTspeed=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+	document.cookie = 'LETTforce=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+	document.cookie = 'LETTtarget=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+	document.cookie = 'LETTcycles=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
+
+
 // and read existing cookies
-getParameterCookies()
+// getParameterCookies()
+clearAllCookies();
