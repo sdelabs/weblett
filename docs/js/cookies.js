@@ -1,5 +1,6 @@
 debug = true
 console.log('testSpeed voor:', testSpeed);
+console.log('speedSlider:', speedSlider);
 
 // https://www.w3schools.com/js/js_cookies.asp
 function saveParameterCookies() {
