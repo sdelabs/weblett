@@ -26,13 +26,13 @@ var myChart = new Chart(document.getElementById("myChart"), {
 	},
 	options: {
 		responsive: true,
-		scales: {
+/*		scales: {
 			xAxes: [{
-			type: 'linear', 
-			//scaleLabel: {
-			//	display: true,
-			//	labelString: 'displacement [mm]',
-			//}
+			// type: 'linear', 
+			scaleLabel: {
+				display: true,
+				labelString: 'displacement [mm]',
+			}
 			}],
 			yAxes: [{
 			//type: 'linear', 
@@ -43,4 +43,35 @@ var myChart = new Chart(document.getElementById("myChart"), {
 			}]
 		}
 	}
-});
+ */
+		scales: {
+    		x: {
+      			//type: 'time',
+      			type: 'linear',
+      			display: true,
+      			title: {
+        			display: true,
+        			text: 'displacement'
+      			},
+      		ticks: {
+        		major: {
+          		enabled: true
+        		},
+        	color: (context) => context.tick && context.tick.major && '#FF0000',
+        	font: function(context) {
+          	if (context.tick && context.tick.major) {
+            		return {
+              			weight: 'bold'
+            		};
+          	}
+        	}
+      		}
+    		},
+    		y: {
+      			display: true,
+      			title: {
+        		display: true,
+        			text: 'value'
+      			}
+    		}
+	});
