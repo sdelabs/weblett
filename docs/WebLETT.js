@@ -240,6 +240,7 @@ function makeStartString() {
 	LETTString += "F" + testForce.toString();
 	LETTString += "G" + testTarget.toString();
 	LETTString += "N" + testCycles.toString();
+	LETTString += "L" + testSensor.toString();
 	LETTString += "I\n";
 	// print this always - errorchecking
 	console.log('LETTString:', LETTString);
