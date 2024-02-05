@@ -51,28 +51,29 @@ var myChart = new Chart(document.getElementById("myChart"), {
       			display: true,
       			title: {
         			display: true,
-        			text: 'displacement'
+        			text: 'displacement [mm]'
       			},
-      		ticks: {
-        		major: {
-          		enabled: true
-        		},
-        	color: (context) => context.tick && context.tick.major && '#FF0000',
-        	font: function(context) {
-          	if (context.tick && context.tick.major) {
-            		return {
-              			weight: 'bold'
-            		};
-          	}
-        	}
-      		}
+	      		ticks: {
+	        		major: {
+	          			enabled: true
+	        		},
+		        	color: (context) => context.tick && context.tick.major && '#FF0000',
+		        	font: function(context) {
+			          	if (context.tick && context.tick.major) {
+			            		return {
+			              			weight: 'bold'
+			            		};
+			          	}
+			        }
+	      		}
     		},
     		y: {
       			display: true,
       			title: {
         		display: true,
-        			text: 'value'
+        			text: 'force [N]'
       			}
     		}
-		}
-	}});
+		} // scales
+	}
+});
