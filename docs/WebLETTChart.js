@@ -28,11 +28,11 @@ var myChart = new Chart(document.getElementById("myChart"), {
 		responsive: true,
 		scales: {
 			xAxes: [{
-			//type: 'linear', 
-			scaleLabel: {
-				display: true,
-				labelString: 'displacement [mm]',
-			}
+			type: 'linear', 
+			//scaleLabel: {
+			//	display: true,
+			//	labelString: 'displacement [mm]',
+			//}
 			}],
 			yAxes: [{
 			//type: 'linear', 
