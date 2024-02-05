@@ -31,14 +31,14 @@ var myChart = new Chart(document.getElementById("myChart"), {
 			//type: 'linear', 
 			scaleLabel: {
 				display: true,
-				labelString: 'extension',
+				labelString: 'displacement [mm]',
 			}
 			}],
 			yAxes: [{
 			//type: 'linear', 
 			scaleLabel: {
 				display: true,
-				labelString: 'force'
+				labelString: 'force [N]'
 			}
 			}]
 		}
