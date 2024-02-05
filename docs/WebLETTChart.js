@@ -2,6 +2,12 @@ var myChart = new Chart(document.getElementById("myChart"), {
 	type: 'scatter',
 	data: {
 		datasets: [{
+			label: "Force vs Extension",
+			showLine: true,
+			borderColor: '#003f5c', //'lightBlue',
+			fill: false,
+			data: [{x:7, y:6}, {x:15, y:16}]
+		}, {
 			label: "Force vs Time",
 			showLine: true,
 			hidden: true,
@@ -9,21 +15,14 @@ var myChart = new Chart(document.getElementById("myChart"), {
 			fill: false,
 			data: []
 		}, {
-			label: "Resistance",
-			display: false,
+			label: "Resistance (only on some LETTs",
+			//label: "Temperature",
 			showLine: true,
 			hidden: true,
 			borderColor: '#665191', //'#36A2EB',
 			fill: false,
 			data: []
-		}, {
-			label: "Force vs Extension",
-			//label: "Temperature",
-			showLine: true,
-			borderColor: '#003f5c', //'lightBlue',
-			fill: false,
-			data: [{x:7, y:6}, {x:15, y:16}]
-		}]
+		} ]
 	},
 	options: {
 		responsive: true,
@@ -42,11 +41,6 @@ var myChart = new Chart(document.getElementById("myChart"), {
 				labelString: 'force'
 			}
 			}]
-		}, 
-		plugins: {
-    			legend: {
-      			display: false
-    			}
-  		}
+		}
 	}
 });
