@@ -10,6 +10,7 @@ var myChart = new Chart(document.getElementById("myChart"), {
 			data: []
 		}, {
 			label: "Resistance",
+			display: false,
 			showLine: true,
 			hidden: true,
 			borderColor: '#665191', //'#36A2EB',
@@ -41,6 +42,11 @@ var myChart = new Chart(document.getElementById("myChart"), {
 				labelString: 'force'
 			}
 			}]
-		}
+		}, 
+		plugins: {
+    			legend: {
+      			display: false
+    			}
+  		}
 	}
 });
