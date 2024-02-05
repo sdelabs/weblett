@@ -15,7 +15,7 @@ var myChart = new Chart(document.getElementById("myChart"), {
 			fill: false,
 			data: []
 		}, {
-			label: "Resistance\n (only on some LETTs)",
+			label: ["Resistance", "(only on some LETTs)"],
 			//label: "Temperature",
 			showLine: true,
 			hidden: true,
