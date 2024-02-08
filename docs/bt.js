@@ -13,8 +13,13 @@ async function listBLE() {
 	console.log("listBLE");
 	myDeviceName = "foobar";
 	try {
+		let options = {
+			filters: [
+    				{ namePrefix: "Prefix" },
+  			],
+		}
 		if (!bluetoothDevice) {
-			await requestDevice();
+			await requestDevice(optione);
 		}
 		console.log('Connect Device ...');
 		await connectDeviceAndCacheCharacteristics();
