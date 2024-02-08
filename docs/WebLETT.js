@@ -68,6 +68,7 @@ const testEndReasons = [
 
 var dataList = []
 var dataPoint = []
+var testData = []
 
 speedSlider.addEventListener('input', (event) => {
 	//console.log('speed event', event.target.value)
@@ -383,7 +384,7 @@ function saveData() {
 					
 	Started 1 Feb 2022 16:16		Final state: Finished normally		
 */
-	testData = []
+	//testData = []
 	testData[1] = ",LETT2020 Version XXXX " // + SoftwareVersion
 	testData[2] = ""
  	testData[3] = ",Test parameters"
@@ -403,6 +404,7 @@ function saveData() {
 
   // Iterate over the dataset and append each row to the CSV content
   testDataLinecount = 0
+  console.log(' testData' , testData, ' length' , testData.length)
   dataList.forEach(function(data) {
 	if (debug) console.log('data', data)
 	var row = Object.values(data).join(",") // Join the values with commas
