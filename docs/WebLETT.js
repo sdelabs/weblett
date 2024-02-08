@@ -392,7 +392,8 @@ function saveData() {
 	testData[6] = ",Force limit: " + testForce + ", Displacement: " + testTarget + ", Cycles: ", testCycles
 	testData[7] = ""
  	testData[8] = ",Started: " + testStarted + ", Final state: " + testEndReasons[testEndReason]
-	
+
+	console.log(' testData' , testData, ' length' , testData.length)
 	
   // Prompt the user for a filename
   var filename = prompt("Please enter a filename", "dataset.csv");
