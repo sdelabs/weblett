@@ -38,6 +38,7 @@ const bad = 'red'
 var debug = false
 var LETTnumber
 var testType = 0
+var testTypeText = ""
 var subtestType = 0
 var LETTnumber
 var LETTtime = -1
@@ -46,6 +47,7 @@ var testRunning = false
 var unsavedData = false
 var samples = 0
 var testSpeed = -1, testForce = -1, testTarget = -1, testCycles = -1
+var testStarted = ""
 var sensorType
 var testValid = false
 var LETTString
@@ -53,6 +55,7 @@ var LETTmoving = false
 var BLEconnected = false
 var USBconnected = false
 
+var testEndReason = 0
 const testEndReasons = [
 "Undefined", 
 "Finished normally", 
@@ -154,14 +157,17 @@ function checkTestType() {
 	if (document.getElementById('tensile').checked) {
 		// console.log('tensile');
 		testType = testTypeTensile;
+		testTypeText = "Tensile"
 	} 
 	if (document.getElementById('compression').checked) {
 		// console.log('compression');
 		testType = testTypeCompression;
+		testTypeText = "Compression"
 	}
 	if (document.getElementById('data').checked) {
 		// console.log('data');
 		testType = testTypeData;
+		testTypeText = "Data"
 	}
 	if (testType == 0) startEnabled = false;
 
@@ -170,18 +176,22 @@ function checkTestType() {
 	if (document.getElementById('fail').checked) {
 		// console.log('fail');
 		subtestType = subtestTypeFail;
+		testTypeText += " (Fail)"
 	}
 	if (document.getElementById('creep').checked) {
 		// console.log('creep');
 		subtestType = subtestTypeCreep;
+		testTypeText += " (Creep)"
 	}
 	if (document.getElementById('relax').checked) {
 		// console.log('relax');
 		subtestType = subtestTypeRelax;
+		testTypeText += " (Relax)"
 	}
 	if (document.getElementById('cyclic').checked) {
 		// console.log('cyclic');
 		subtestType = subtestTypeCyclic;
+		testTypeText += " (Cyclic)"
 	}
 	if (subtestType == 0) startEnabled = false;
 	if (!startEnabled) errorMessage = "ERROR: check (sub)test type!";
@@ -314,6 +324,7 @@ function startStop() {
 			return;
 		} else {
 			showMessage('test running', goodWarning);
+			testStarted = Date().toLocaleString()
 			document.getElementById('smplLabel').hidden=false;
 			if (subtestType==subtestTypeCyclic) {
 				document.getElementById('cycLabel').hidden=false;
@@ -362,6 +373,27 @@ function addDataPoint(dp) {
 }
 
 function saveData() {
+/* 	assemble testdata
+	LETT2020 version February 2021 maintained by Adrie Kooijman				
+					
+	Test parameters				
+	LETT number: 5		Sensor: 100 kg		
+	Test type: cyclic		Speed: 5 mm/min		
+	Force limit: 0		Distance: 1		Cycles: 4
+					
+	Started 1 Feb 2022 16:16		Final state: Finished normally		
+*/
+	testData = []
+	testData[1] = ",LETT2020 Version XXXX " // + SoftwareVersion
+	testData[2] = ""
+ 	testData[3] = ",Test parameters"
+	testData[4] = ",LETT number: " + LETTnumber + ", Sensor: " + sensorType + "kg"
+	testData[5] = ",Test type: " + testTypeText + ", Speed: " + testSpeed
+	testData[6] = ",Force limit: " + testForce + ", Displacement: " + testTarget + ", Cycles: ", testCycles
+	testData[7] = ""
+ 	testData[8] = ",Started: " + testStartTimestamp + ", Final state: " + testEndReasons[testEndReason]
+	
+	
   // Prompt the user for a filename
   var filename = prompt("Please enter a filename", "dataset.csv");
 
@@ -369,10 +401,17 @@ function saveData() {
   var csvContent = "Time,Extension,Force,Resistance,Temperature\n";
 
   // Iterate over the dataset and append each row to the CSV content
+  testDataLinecount = 0
   dataList.forEach(function(data) {
 	if (debug) console.log('data', data)
 	var row = Object.values(data).join(",") // Join the values with commas
-	csvContent += row + "\n"
+	if (testDataLinecount < testData.length) {
+		testInfo = testData[testDataLinecount]
+		csvContent += row + "\n"
+		testDataLinecount += 1
+	} else {
+		csvContent += row + "\n"
+	}
   })
 
   // Create a blob with the CSV content
