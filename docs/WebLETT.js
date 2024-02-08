@@ -384,15 +384,14 @@ function saveData() {
 					
 	Started 1 Feb 2022 16:16		Final state: Finished normally		
 */
-	//testData = []
-	testData[1] = ",LETT2020 Version XXXX " // + SoftwareVersion
+	testData[1] = ",,LETT2020 Version XXXX " // + SoftwareVersion
 	testData[2] = ""
- 	testData[3] = ",Test parameters"
-	testData[4] = ",LETT number: " + LETTnumber + ", Sensor: " + sensorType + "kg"
-	testData[5] = ",Test type: " + testTypeText + ", Speed: " + testSpeed
-	testData[6] = ",Force limit: " + testForce + ", Displacement: " + testTarget + ", Cycles: ", testCycles
+ 	testData[3] = ",,Test parameters"
+	testData[4] = ",,LETT number: " + LETTnumber + ", Sensor: " + sensorType + "kg"
+	testData[5] = ",,Test type: " + testTypeText + ", Speed: " + testSpeed
+	testData[6] = ",,Force limit: " + testForce + ", Displacement: " + testTarget + ", Cycles: ", testCycles
 	testData[7] = ""
- 	testData[8] = ",Started: " + testStarted + ", Final state: " + testEndReasons[testEndReason]
+ 	testData[8] = ",,Started: " + testStarted + ", Final state: " + testEndReasons[testEndReason]
 
 	console.log(' testData' , testData, ' length' , testData.length)
 	
@@ -409,8 +408,7 @@ function saveData() {
 	if (debug) console.log('data', data)
 	var row = Object.values(data).join(",") // Join the values with commas
 	if (testDataLinecount < testData.length) {
-		testInfo = testData[testDataLinecount]
-		csvContent += row + "\n"
+		csvContent += row + testData[testDataLinecount] + "\n"
 		testDataLinecount += 1
 	} else {
 		csvContent += row + "\n"
