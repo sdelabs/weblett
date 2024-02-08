@@ -15,7 +15,7 @@ async function listBLE() {
 	try {
 		let options = {
 			filters: [
-    				{ namePrefix: "Prefix" },
+    				{ namePrefix: "Arduino" },
   			],
 		}
 		if (!bluetoothDevice) {
