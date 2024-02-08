@@ -139,11 +139,11 @@ function cyclicClicked() {
 function sensorClicked(s) {
 	if (s == '100') {
 		sensorType = 100
-		LETTString = 'L100;'
+		LETTString = 'L100\n'
 	}
 	if (s == '500') {
 		sensorType = 500
-		LETTString = 'L100;'
+		LETTString = 'L500\n'
 	}
 	console.log('LETTString =' , LETTString)
 	sendToLETT(LETTString)
@@ -253,7 +253,6 @@ function makeStartString() {
 	LETTString += "F" + testForce.toString();
 	LETTString += "G" + testTarget.toString();
 	LETTString += "N" + testCycles.toString();
-	LETTString += "L" + sensorType.toString();
 	LETTString += "I\n";
 	// print this always - errorchecking
 	console.log('LETTString:', LETTString);
