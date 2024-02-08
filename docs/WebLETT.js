@@ -391,7 +391,7 @@ function saveData() {
 	testData[5] = ",Test type: " + testTypeText + ", Speed: " + testSpeed
 	testData[6] = ",Force limit: " + testForce + ", Displacement: " + testTarget + ", Cycles: ", testCycles
 	testData[7] = ""
- 	testData[8] = ",Started: " + testStartTimestamp + ", Final state: " + testEndReasons[testEndReason]
+ 	testData[8] = ",Started: " + testStarted + ", Final state: " + testEndReasons[testEndReason]
 	
 	
   // Prompt the user for a filename
