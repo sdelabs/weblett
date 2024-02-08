@@ -136,6 +136,19 @@ function cyclicClicked() {
 	cyclesText.style.color = "black"
 }
 
+function sensorClicked(s) {
+	if (s == '100') {
+		sensorType = 100
+		LETTString = 'L100;'
+	}
+	if (s == '500') {
+		sensorType = 500
+		LETTString = 'L100;'
+	}
+	console.log('LETTString =' , LETTString)
+	sendToLETT(LETTString)
+}
+
 function checkTestType() {
 	testType = 0;
 	if (document.getElementById('tensile').checked) {
