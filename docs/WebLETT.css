@@ -33,4 +33,14 @@
   background: #04AA6D;
   cursor: pointer;
 }
+
+
+/* Style the header */
+.header {
+  background-color: #f1f1f1;
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+}
+
 </style>
