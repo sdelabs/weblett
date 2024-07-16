@@ -50,13 +50,18 @@
   height: 300px; /* Should be removed. Only for demonstration */
 }
 
-/* Left column */
-.column.left {
-  width:50%;
+/* Left, right column */
+.column.side {
+  width:25%;
+}
+
+/* right column */
+.column.right {
+  width:25%;
 }
 
 /* Middle column */
-.column.right {
+.column.middle {
   width: 50%;
 }
 
@@ -76,7 +81,7 @@
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
 @media (max-width: 600px) {
-  .column.left, .column.right {
+  .column.side, .column.middle {
     width: 100%;
   }
 
