@@ -49,24 +49,21 @@
 
 /* Create three unequal columns that floats next to each other */
 .column {
+  display: inline-block;
   float: left;
   padding: 10px;
-  height: 300px; /* Should be removed. Only for demonstration */
+  /* height: 300px; /* Should be removed. Only for demonstration */
 }
 
 /* Left, right column */
-.column.side {
+.column.left {
   width:50%;
 }
 
 /* right column */
 .column.right {
   width:25%;
-}
-
-/* Middle column */
-.column.middle {
-  width: 50%;
+  min-height: 300px;
 }
 
 /* Clear floats after the columns */
