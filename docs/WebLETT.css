@@ -1,8 +1,4 @@
 <style>
-* {
-  box-sizing: border-box;
-}
-
 .slidecontainer {
   width: 100%; /* Width of the outside container */
 }
@@ -38,6 +34,9 @@
   cursor: pointer;
 }
 
+* {
+  box-sizing: border-box;
+}
 
 /* Style the header */
 .header {
@@ -47,30 +46,30 @@
   /* font-size: 35px; */
 }
 
-/* Create three unequal columns that floats next to each other */
+/* Container for flexboxes */
+.row {
+  display: -webkit-flex;
+  display: flex;
+}
+
+/* Create columns that floats next to each other */
 .column {
-  display: inline-block;
-  float: left;
   padding: 10px;
-  /* height: 300px; /* Should be removed. Only for demonstration */
+  height: 300px; /* Should be removed. Only for demonstration */
 }
 
-/* Left, right column */
-.column.left {
-  width:50%;
+/* Controlbox */
+.column.control {
+   -webkit-flex: 1;
+   -ms-flex: 1;
+   flex: 1;
 }
 
-/* right column */
-.column.right {
-  width:50%;
-  min-height: 300px;
-}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
+/* Graph */
+.column.graph {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
 }
 
 /* Style the footer */
@@ -85,6 +84,6 @@
   .column.side, .column.middle {
     width: 100%;
   }
-
+}
 
 </style>
