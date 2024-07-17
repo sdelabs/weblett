@@ -42,37 +42,31 @@
 	<!--table class="main" id="tableID" -->
 	<table id="tableID">
 	<tr>
-		<td style="width:25px" rowspan="8">&nbsp;</td>
+		<!--td style="width:25px" rowspan="8">&nbsp;</td-->
 		<td><button id="connect-button" type="button" onclick=getReader()>🔌 CONNECT</button></td>
-		<td><button id="bt-button" type="button" onclick=listBLE() disabled>BLE</button></td>
 		<td><button id="debug-button" type="button" onclick=toggleDebug() disabled>DEBUG</button></td>
-		<td><button id="reset-button" type="button" onclick=reset() disabled>RESET</button></td>
 		<td><button id="clear-button" type="button" onclick=clearData(true) disabled>CLEAR</button></td>
 
+		<!--td><button id="bt-button" type="button" onclick=listBLE() disabled>BLE</button></td>
+		<td><button id="reset-button" type="button" onclick=reset() disabled>RESET</button></td-->
+		<td>&nbsp;</td>
 	</tr><tr>
 		<td><div id="num">LETT</div></td>
 		<td><div id="swver">&nbsp;</div></td>
 		<td><div id="4pts">&nbsp;</div></td>
 		<td><div id="ktype">&nbsp;</div></td>
-
 	</tr><tr>
 
-		<td colspan="2">
+		<td colspan="3">
 			sensor
 			<input type="radio" id="sensor100" name="sensor" value="s100" onclick="sensorClicked(100)" >
 			<label for="sensor100">100kg</label>
 			<input type="radio" id="sensor500" name="sensor" value="s500" onclick="sensorClicked(500)">
 		   	<label for="sensor500">500kg</label>
 		</td>
-		
+		<td>&nbsp;</td>
 	</tr><tr>
-		
 	  <td colspan = "1">testtype</td>
-	  <td colspan = "1">subtest</td>
-	  <td>&nbsp;</td>
-
-		
-	</tr><tr>
 	<td colspan = "1">
 		<input type="radio" id="tensile" name="test-type" value="tensile" >
 		 <label for="tensile">tensile</label><br>
@@ -82,6 +76,8 @@
 		 <label for="data">data collect</label><br>
 		***&nbsp;
 	</td>
+
+	  <td colspan = "1">subtest</td>
 	<td colspan = "2">  
 		<input type="radio" id="fail" name="test_sub" value="fail" onclick="failClicked()" title="stop on specimen fail">
 		 <label for="fail">fail</label><br>
@@ -126,35 +122,35 @@
 		<td style="text-align:right"><div>position</div></td>
 		<td style="text-align:left; font-weight:bold"><div id="pos">&nbsp;</div></td>
 
-		<td style="text-align:right"><div id="cycLabel" hidden>cycle</div></td>
-		<td style="text-align:left; font-weight:bold"><div id="cycl">&nbsp;</div></td>
-
-		<td style="text-align:right"><div id="resLabel" hidden>resistance</div></td>
-		<td style="text-align:left; font-weight:bold"><div id="res">&nbsp;</div></td>
-
-		<td style="text-align:right"><div>timestamp</div></td>
-
-	</tr>
-	<tr>
 		<td style="text-align:right"><div>force</div></td>
 		<td style="text-align:left; font-weight:bold"><div id="frc">&nbsp;</div></td>
 
-		<td style="text-align:right" id="smplLabel" hidden><div>sample</div></td>
-		<td style="text-align:left; font-weight:bold"><div id="smpl">&nbsp;</div></td>
+	</tr><tr> <!--bgcolor="lightgrey" -->
 
 		<td style="text-align:right"><div id="tmpLabel" hidden>temperature</div></td>
 		<td style="text-align:left; font-weight:bold"><div id="tmp">&nbsp;</div></td>
 
+		<td style="text-align:right"><div id="resLabel" hidden>resistance</div></td>
+		<td style="text-align:left; font-weight:bold"><div id="res">&nbsp;</div></td>
+
+	</tr><tr> <!--bgcolor="lightgrey" -->
+
+		<td style="text-align:right"><div>timestamp</div></td>
 		<td><div id="tim"><b>&nbsp;</b></div></td>
 
-	</tr>
-	
-	<tr>
-		<td>incoming</td><td colspan="6"><div id="info"></div></td>
-	</tr>
+		<td style="text-align:right"><div id="cycLabel" hidden>cycle</div></td>
+		<td style="text-align:left; font-weight:bold"><div id="cycl">&nbsp;</div></td>
 
-	<tr>
-		<td>status</td><td colspan="6"><div id="status-text"></div></td>
+	</tr><tr>
+
+		<td style="text-align:right" id="smplLabel" hidden><div>sample</div></td>
+		<td style="text-align:left; font-weight:bold"><div id="smpl">&nbsp;</div></td>
+
+	
+	</tr><tr>
+		<td>incoming</td><td colspan="5"><div id="info"></div></td>
+	</tr><tr>
+		<td>status</td><td colspan="5"><div id="status-text"></div></td>
 	</tr>
 
 	</table>
