@@ -44,20 +44,19 @@
 	<tr>
 		<td style="width:25px" rowspan="8">&nbsp;</td>
 		<td><button id="connect-button" type="button" onclick=getReader()>🔌 CONNECT</button></td>
-		<td><button id="start-button" type="button" onclick=startStop() disabled>START</button></td>
-		<!--td><button id="stop-button" type="button" onclick=stopTest() disabled>STOP</button></td-->
-		<td><button id="up-button" type="button" onmousedown=gripperUp() onmouseup="gripperStop()" disabled>UP</button></td>
-		<td><button id="down-button" type="button" onmousedown=gripperDown() onmouseup="gripperStop()" disabled>DOWN</button></td>
-		<td><button id="save-button" type="button" onclick=saveData() disabled>SAVE</button></td>
-		<td><button id="debug-button" type="button" onclick=toggleDebug() disabled>DEBUG</button>
-			<button id="bt-button" type="button" onclick=listBLE() disabled>BLE</button></td>
-		<td><button id="test-button" type="button" onclick=testClicked() disabled>TEST</button></td>
+		<td><button id="bt-button" type="button" onclick=listBLE() disabled>BLE</button></td>
+		<td><button id="debug-button" type="button" onclick=toggleDebug() disabled>DEBUG</button></td>
+		<td><button id="reset-button" type="button" onclick=reset() disabled>RESET</button></td>
+		<td><button id="clear-button" type="button" onclick=clearData(true) disabled>CLEAR</button></td>
+
 	</tr><tr>
 		<td><div id="num">LETT</div></td>
 		<td><div id="swver">&nbsp;</div></td>
 		<td><div id="4pts">&nbsp;</div></td>
 		<td><div id="ktype">&nbsp;</div></td>
-		<td><button id="clear-button" type="button" onclick=clearData(true) disabled>CLEAR</button></td>
+
+	</tr><tr>
+
 		<td colspan="2">
 			sensor
 			<input type="radio" id="sensor100" name="sensor" value="s100" onclick="sensorClicked(100)" >
@@ -65,12 +64,14 @@
 			<input type="radio" id="sensor500" name="sensor" value="s500" onclick="sensorClicked(500)">
 		   	<label for="sensor500">500kg</label>
 		</td>
+		
 	</tr><tr>
+		
 	  <td colspan = "1">testtype</td>
-	  <td colspan = "2">subtest</td>
+	  <td colspan = "1">subtest</td>
 	  <td>&nbsp;</td>
-	  <td colspan = "2">settings</td>
-	  <td>&nbsp;</td>
+
+		
 	</tr><tr>
 	<td colspan = "1">
 		<input type="radio" id="tensile" name="test-type" value="tensile" >
@@ -91,6 +92,12 @@
 		<input type="radio" id="cyclic" name="test_sub" value="cyclic" onclick="cyclicClicked()"  title="cyclic test: repeat motion N times">
 		 <label for="cyclic">cyclic</label>
 	</td>
+
+	</tr><tr>
+	<td colspan = "2">settings</td>
+	<td>&nbsp;</td>
+	</tr><tr>
+
 	<td style="text-align:right">
 		<div id="speedText">speed</div>
 		<div id="targetText">target</div>
@@ -106,8 +113,16 @@
 	    <input id="cycle-slide"  type="range" min="1" max="1000" value="1"  class="slider" title="Number of cycles in cyclic test">
 	</div>
 	</td>
-	</tr>
-	<tr> <!--bgcolor="lightgrey" -->
+	</tr><tr>
+		
+		<td><button id="start-button" type="button" onclick=startStop() disabled>START</button></td>
+		<!--td><button id="stop-button" type="button" onclick=stopTest() disabled>STOP</button></td-->
+		<td><button id="up-button" type="button" onmousedown=gripperUp() onmouseup="gripperStop()" disabled>UP</button></td>
+		<td><button id="down-button" type="button" onmousedown=gripperDown() onmouseup="gripperStop()" disabled>DOWN</button></td>
+		<td><button id="save-button" type="button" onclick=saveData() disabled>SAVE</button></td>
+		<td><button id="test-button" type="button" onclick=testClicked() disabled>TEST</button></td>
+		
+	</tr><tr> <!--bgcolor="lightgrey" -->
 		<td style="text-align:right"><div>position</div></td>
 		<td style="text-align:left; font-weight:bold"><div id="pos">&nbsp;</div></td>
 
