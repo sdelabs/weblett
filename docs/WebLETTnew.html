@@ -66,8 +66,8 @@
 		</td>
 		<td>&nbsp;</td>
 	</tr><tr>
-	  <td colspan = "1" style="vertical-align:top">testtype</td>
-	<td colspan = "1">
+	<td style="text-align:right;vertical-align:top">testtype</td>
+	<td>
 		<input type="radio" id="tensile" name="test-type" value="tensile" >
 		 <label for="tensile">tensile</label><br>
 		<input type="radio" id="compression" name="test-type" value="compression">
@@ -77,8 +77,8 @@
 		&nbsp;
 	</td>
 
-	  <td colspan = "1">subtest</td>
-	<td colspan = "2">  
+	<td style="text-align:right;vertical-align:top">subtest</td>
+	<td>  
 		<input type="radio" id="fail" name="test_sub" value="fail" onclick="failClicked()" title="stop on specimen fail">
 		 <label for="fail">fail</label><br>
 		<input type="radio" id="relax" name="test_sub" value="relax" onclick="relaxClicked()"  title="move to position, monitor change in force (relaxation)">
@@ -139,9 +139,9 @@
 		<td style="text-align:right"><div id="cycLabel" hidden>cycle</div></td>
 		<td style="text-align:left; font-weight:bold"><div id="cycl">&nbsp;</div></td>
 	</tr><tr>
-		<td>incoming</td><td colspan="4"><div id="info"></div></td>
+		<td>incoming</td><td colspan="3"><div id="info"></div></td>
 	</tr><tr>
-		<td>status</td><td colspan="4"><div id="status-text"></div></td>
+		<td>status</td><td colspan="3"><div id="status-text"></div></td>
 	</tr>
 
 	</table>
