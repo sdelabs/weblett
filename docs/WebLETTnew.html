@@ -1,1 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>LETT Webinterface</title>
+	<link rel="stylesheet" href="WebLETT.css">
+	<script src = "test.js"></script>
 
+  <!--script src="https://cdn.jsdelivr.net/npm/chart.js"></script-->
+  <!--script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script-->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+ 
+  <!-- https://www.chartjs.org/docs/latest/ -->
+  <!--script src="https://cdn.jsdelivr.net/npm/chart.js"></script-->
+  <style>
+  table, th, td {
+    border: 1px solid gainsboro;
+    border-collapse: collapse;
+  }
+
+  
+  h2 { margin: 0px; }
+  </style>
+  </head>
+ 
+  <body>
+    <div class="header">
+      <h1>WebLETT 2024.2</h1>
+      <div style="background-color:powderblue;"> 
+	<h2 >Beta version* (Feb 2024, Jul 2024)</h2>
+	<a href="Manual%20LETT%202024.pdf" target="_blank" rel="noopener">Find the manual here (pdf file)</a>
+      </div>
+    </div>
+    <noscript>
+      <p>I'm sorry! For this interface to work you have to enable JavaScript in your browser.</p>
+    </noscript>
+
+	<!-- div style="overflow:auto" -->
+    <div class="row">
+      <div class="column control" style="min-width:550px;width=600px">
+	<!--table class="main" id="tableID" -->
+	<table id="tableID">
+	<tr>
+		<td style="width:25px" rowspan="8">&nbsp;</td>
+		<td><button id="connect-button" type="button" onclick=getReader()>🔌 CONNECT</button></td>
+		<td><button id="start-button" type="button" onclick=startStop() disabled>START</button></td>
+		<!--td><button id="stop-button" type="button" onclick=stopTest() disabled>STOP</button></td-->
+		<td><button id="up-button" type="button" onmousedown=gripperUp() onmouseup="gripperStop()" disabled>UP</button></td>
+		<td><button id="down-button" type="button" onmousedown=gripperDown() onmouseup="gripperStop()" disabled>DOWN</button></td>
+		<td><button id="save-button" type="button" onclick=saveData() disabled>SAVE</button></td>
+		<td><button id="debug-button" type="button" onclick=toggleDebug() disabled>DEBUG</button>
+			<button id="bt-button" type="button" onclick=listBLE() disabled>BLE</button></td>
+		<td><button id="test-button" type="button" onclick=testClicked() disabled>TEST</button></td>
+	</tr><tr>
+		<td><div id="num">LETT</div></td>
+		<td><div id="swver">&nbsp;</div></td>
+		<td><div id="4pts">&nbsp;</div></td>
+		<td><div id="ktype">&nbsp;</div></td>
+		<td><button id="clear-button" type="button" onclick=clearData(true) disabled>CLEAR</button></td>
+		<td colspan="2">
+			sensor
+			<input type="radio" id="sensor100" name="sensor" value="s100" onclick="sensorClicked(100)" >
+			<label for="sensor100">100kg</label>
+			<input type="radio" id="sensor500" name="sensor" value="s500" onclick="sensorClicked(500)">
+		   	<label for="sensor500">500kg</label>
+		</td>
+	</tr><tr>
+	  <td colspan = "1">testtype</td>
+	  <td colspan = "2">subtest</td>
+	  <td>&nbsp;</td>
+	  <td colspan = "2">settings</td>
+	  <td>&nbsp;</td>
+	</tr><tr>
+	<td colspan = "1">
+		<input type="radio" id="tensile" name="test-type" value="tensile" >
+		 <label for="tensile">tensile</label><br>
+		<input type="radio" id="compression" name="test-type" value="compression">
+		 <label for="compression">compression</label><br>
+		<input type="radio" id="data" name="test-type" value="manual" disabled >
+		 <label for="data">data collect</label><br>
+		***&nbsp;
+	</td>
+	<td colspan = "2">  
+		<input type="radio" id="fail" name="test_sub" value="fail" onclick="failClicked()" title="stop on specimen fail">
+		 <label for="fail">fail</label><br>
+		<input type="radio" id="relax" name="test_sub" value="relax" onclick="relaxClicked()"  title="move to position, monitor change in force (relaxation)">
+		 <label for="relax">relax</label><br>
+		<input type="radio" id="creep" name="test_sub" value="creep" onclick="creepClicked()"  title="move to force, keep force constant, monitor movement (creep)">
+		 <label for="creep">creep</label><br>  
+		<input type="radio" id="cyclic" name="test_sub" value="cyclic" onclick="cyclicClicked()"  title="cyclic test: repeat motion N times">
+		 <label for="cyclic">cyclic</label>
+	</td>
+	<td style="text-align:right">
+		<div id="speedText">speed</div>
+		<div id="targetText">target</div>
+		<div id="forceText">force</div>
+		<div id="cyclesText">cycles</div>
+	</td>
+	
+	<td colspan="3">
+	<div class="slidecontainer">
+	    <input id="speed-slide"  type="range" min="1" max="255" value="10"  class="slider" title="Speed in mm/min"> <br>
+	    <input id="target-slide" type="range" min="1" max="100" value="50"  class="slider" title="Target position in mm"><br>
+	    <input id="force-slide"  type="range" min="1" max="370" value="100" class="slider" title="Target force in Newton"> <br>
+	    <input id="cycle-slide"  type="range" min="1" max="1000" value="1"  class="slider" title="Number of cycles in cyclic test">
+	</div>
+	</td>
+	</tr>
+	<tr> <!--bgcolor="lightgrey" -->
+		<td style="text-align:right"><div>position</div></td>
+		<td style="text-align:left; font-weight:bold"><div id="pos">&nbsp;</div></td>
+
+		<td style="text-align:right"><div id="cycLabel" hidden>cycle</div></td>
+		<td style="text-align:left; font-weight:bold"><div id="cycl">&nbsp;</div></td>
+
+		<td style="text-align:right"><div id="resLabel" hidden>resistance</div></td>
+		<td style="text-align:left; font-weight:bold"><div id="res">&nbsp;</div></td>
+
+		<td style="text-align:right"><div>timestamp</div></td>
+
+	</tr>
+	<tr>
+		<td style="text-align:right"><div>force</div></td>
+		<td style="text-align:left; font-weight:bold"><div id="frc">&nbsp;</div></td>
+
+		<td style="text-align:right" id="smplLabel" hidden><div>sample</div></td>
+		<td style="text-align:left; font-weight:bold"><div id="smpl">&nbsp;</div></td>
+
+		<td style="text-align:right"><div id="tmpLabel" hidden>temperature</div></td>
+		<td style="text-align:left; font-weight:bold"><div id="tmp">&nbsp;</div></td>
+
+		<td><div id="tim"><b>&nbsp;</b></div></td>
+
+	</tr>
+	
+	<tr>
+		<td>incoming</td><td colspan="6"><div id="info"></div></td>
+	</tr>
+
+	<tr>
+		<td>status</td><td colspan="6"><div id="status-text"></div></td>
+	</tr>
+
+	</table>
+     </div>
+	    
+     <div class="column graph">
+	<!--canvas id="myChart" style="width:100%;max-width:600px" class="plot"></canvas-->
+	<canvas id="myChart" class="plot" style="min-width:500px"></canvas>
+     </div>
+
+   </div>
+   <div class="footer">
+	<p><a href="Manual%20LETT%202024.pdf" target="_blank" rel="noopener">Find the manual here (pdf file)</a></p>
+	<p>This software is under developement and may still contain some bugs. 
+	There is also a Java version available, but that version requires you to have the 
+	Java runtime engine installed on your computer.</p>
+   </div>
+	<script src="test.js"></script>
+	<script src="WebLETT.js"></script>
+	<script src="WebLETTChart.js"></script>
+	<script src="js/cookies.js"></script>
+	<script src="bt.js"></script>
+  </body>
+</html>
