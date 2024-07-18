@@ -18,9 +18,14 @@
     border: 1px solid gainsboro;
     border-collapse: collapse;
   }
-
   
   h2 { margin: 0px; }
+
+  @media only screen and (max-width: 1026px) {
+  #fadeshow1 {
+    display: none;
+  }
+}
   </style>
   </head>
  
@@ -39,6 +44,11 @@
 	<!-- div style="overflow:auto" -->
     <div class="row">
       <div class="column control"> <!-- style="min-width:550px;width=600px"-->
+	<div id="fadeshow1">
+	<table>
+		<tr><td>blabla</td></tr>
+	</table>
+	</div>
 	<!--table class="main" id="tableID" -->
 	<table id="tableID">
 	<tr>
