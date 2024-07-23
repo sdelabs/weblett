@@ -64,19 +64,19 @@
 /* Style table1 */
 .table1 {
   grid-area: table1;
-  background-color:#aaa;
+  background-color:#e1e1e1;
 }
 
 /* Style table2 */
 .table2 {
   grid-area: table2;
-  background-color:#bbb;
+  background-color:#e8e8e8;
 }
 
 /* Style the graph */
 .graph {
   grid-area: graph;
-  background-color:#ccc;
+  background-color:#ffffff;
   height: 300px; /* Should be removed. Only for demonstration */
 }
 
