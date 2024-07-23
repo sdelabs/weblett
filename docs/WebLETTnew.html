@@ -26,6 +26,7 @@
   </head>
  
   <body>
+  <div class="grid-container">
     <div class="header">
       <h1>WebLETT 2024.2</h1>
       <div style="background-color:powderblue;"> 
@@ -33,13 +34,12 @@
 	<a href="Manual%20LETT%202024.pdf" target="_blank" rel="noopener">Find the manual here (pdf file)</a>
       </div>
     </div>
+	  
     <noscript>
       <p>I'm sorry! For this interface to work you have to enable JavaScript in your browser.</p>
     </noscript>
 
-    <!-- div style="overflow:auto" -->
-    <div class="row">
-      <div class="column control"> <!-- style="min-width:550px;width=600px"-->
+    <div class="table1">
 	<table id="tableOne">
 	<tr>
 		<!--td style="width:25px" rowspan="8">&nbsp;</td>
@@ -92,7 +92,9 @@
 
 	</tr>
 	</table>	
+    </div>
 
+    <div class="table1">
 	<table id="tableTwo">
 	<tr>
 	<td>settings</td>
@@ -151,18 +153,18 @@
 	</table>
      </div>
 	    
-     <div class="column graph">
+     <div class="graph">
 	<!--canvas id="myChart" style="width:100%;max-width:600px" class="plot"></canvas-->
 	<canvas id="myChart" class="plot" style="min-width:500px"></canvas>
      </div>
 
-   </div>
    <div class="footer">
 	<p><a href="Manual%20LETT%202024.pdf" target="_blank" rel="noopener">Find the manual here (pdf file)</a></p>
 	<p><sup>*</sup>The software is under developement and may still contain some bugs. 
 	There is also a (stable but not supported) Java version available, but that version requires you to have the 
 	Java runtime engine installed on your computer.</p>
    </div>
+  </div>
 	<script src="test.js"></script>
 	<script src="WebLETT.js"></script>
 	<script src="WebLETTChart.js"></script>
