@@ -118,14 +118,6 @@
 		<td class="td-dk">incoming</td><td class="td-lt" colspan="3"><div id="info"></div></td>
 	</tr><tr>
 		<td class="td-dk">status</td><td class="td-lt"colspan="3"><div id="status-text"></div></td>
-	</tr><tr>
-
-		<td><button id="start-button" type="button" onclick=startStop() disabled>START</button></td>
-		<!--td><button id="stop-button" type="button" onclick=stopTest() disabled>STOP</button></td-->
-		<td><button id="up-button" type="button" onmousedown=gripperUp() onmouseup="gripperStop()" disabled>UP</button></td>
-		<td><button id="down-button" type="button" onmousedown=gripperDown() onmouseup="gripperStop()" disabled>DOWN</button></td>
-		<td><button id="save-button" type="button" onclick=saveData() disabled>SAVE</button></td>
-		<!--td><button id="test-button" type="button" onclick=testClicked() disabled>TEST</button></td-->
 		
 	</tr><tr> <!--bgcolor="lightgrey" -->
 		<td style="text-align:right"><div>position</div></td>
@@ -147,6 +139,13 @@
 
 		<td style="text-align:right"><div id="cycLabel" hidden>cycle</div></td>
 		<td style="text-align:left; font-weight:bold"><div id="cycl">&nbsp;</div></td>
+	</tr><tr>
+		<td><button id="start-button" type="button" onclick=startStop() disabled>START</button></td>
+		<!--td><button id="stop-button" type="button" onclick=stopTest() disabled>STOP</button></td-->
+		<td><button id="up-button" type="button" onmousedown=gripperUp() onmouseup="gripperStop()" disabled>UP</button></td>
+		<td><button id="down-button" type="button" onmousedown=gripperDown() onmouseup="gripperStop()" disabled>DOWN</button></td>
+		<td><button id="save-button" type="button" onclick=saveData() disabled>SAVE</button></td>
+		<!--td><button id="test-button" type="button" onclick=testClicked() disabled>TEST</button></td-->
 	</tr>
 	</table>
      </div>
