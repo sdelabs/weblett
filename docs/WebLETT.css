@@ -33,16 +33,33 @@
   cursor: pointer;
 }
 
+/* W3schools color palettes - Sky Palettes */
+/* light background #cfe0e8 */
+
 .td-dk {
 	color:white; 
-	background-color:#00B8C8;
+	/* background-color:#00B8C8; */
+	background-color:#8d9db6;
 	text-align:right; 
 	vertical-align:top;
 }
 
 .td-lt {
 	color:black;
-	background-color:#00D8E8;
+	/* background-color:#00D8E8; */
+	background-color:#bccad6;
+}
+
+.tdi-dk {
+	color:white; 
+	background-color:#87bdd8;
+	text-align:right; 
+	vertical-align:top;
+}
+
+.tdi-lt {
+	color:black;
+	background-color:#b7d7e8;
 }
 
 
