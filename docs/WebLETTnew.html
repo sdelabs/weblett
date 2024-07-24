@@ -94,19 +94,19 @@
     <div class="table2">
 	<table id="tableTwo">
 	<tr>
-	<td>settings</td>
+	<td class="td-dk">settings</td>
 	<td colspan = "3">&nbsp;</td>
 	</tr><tr>
 
 	<!--td style="text-align:right"-->
-	<td class="td-dk">
+	<td class="td-lt">
 		<div id="speedText">speed</div>
 		<div id="targetText">target</div>
 		<div id="forceText">force</div>
 		<div id="cyclesText">cycles</div>
 	</td>
 	
-	<td colspan="3">
+	<td class="td-lt" colspan="3">
 	<div class="slidecontainer">
 	    <input id="speed-slide"  type="range" min="1" max="255" value="10"  class="slider" title="Speed in mm/min"> <br>
 	    <input id="target-slide" type="range" min="1" max="100" value="50"  class="slider" title="Target position in mm"><br>
@@ -115,9 +115,9 @@
 	</div>
 	</td>
 	</tr><tr>
-		<td class="td-dk">incoming</td><td colspan="3"><div id="info"></div></td>
+		<td class="td-dk">incoming</td><td class="td-lt" colspan="3"><div id="info"></div></td>
 	</tr><tr>
-		<td class="td-dk">status</td><td colspan="3"><div id="status-text"></div></td>
+		<td class="td-dk">status</td><td class="td-lt"colspan="3"><div id="status-text"></div></td>
 	</tr><tr>
 
 		<td><button id="start-button" type="button" onclick=startStop() disabled>START</button></td>
