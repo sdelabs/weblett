@@ -55,8 +55,8 @@
 		<td><div id="ktype">&nbsp;</div></td>
 	</tr><tr>
 
-		<td colspan="3">
-			sensor
+		<td class="td-dk">sensor</td>
+		<td class="td-lt" colspan="2">
 			<input type="radio" id="sensor100" name="sensor" value="s100" onclick="sensorClicked(100)" >
 			<label for="sensor100">100kg</label>
 			<input type="radio" id="sensor500" name="sensor" value="s500" onclick="sensorClicked(500)">
@@ -64,8 +64,8 @@
 		</td>
 		<td>&nbsp;</td>
 	</tr><tr>
-	<td style="text-align:right; vertical-align:top; color:white; background-color:#00B8C8" >testtype</td>
-	<td style="color:black; background-color:#00D8E8">
+	<td class="td-dk" >testtype</td>
+	<td class="td-lt">
 		<input type="radio" id="tensile" name="test-type" value="tensile" >
 		 <label for="tensile">tensile</label><br>
 		<input type="radio" id="compression" name="test-type" value="compression">
@@ -75,8 +75,8 @@
 		&nbsp;
 	</td>
 
-	<td style="text-align:right; vertical-align:top; color:white; background-color:turqoise">subtest</td>
-	<td style="color:black; background-color:paleturqoise">  
+	<td class="td-dk">subtest</td>
+	<td class="td-lt">  
 		<input type="radio" id="fail" name="test_sub" value="fail" onclick="failClicked()" title="stop on specimen fail">
 		 <label for="fail">fail</label><br>
 		<input type="radio" id="relax" name="test_sub" value="relax" onclick="relaxClicked()"  title="move to position, monitor change in force (relaxation)">
