@@ -78,13 +78,13 @@
 /* Style table1 */
 .table1 {
   grid-area: table1;
-  background-color:Turquoise;
+  background-color:LightCyan;
 }
 
 /* Style table2 */
 .table2 {
   grid-area: table2;
-  background-color:Turquoise;
+  background-color:LightCyan;
 }
 
 /* Style the graph */
