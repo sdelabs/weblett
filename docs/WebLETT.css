@@ -33,6 +33,20 @@
   cursor: pointer;
 }
 
+.td-dk {
+	color:white; 
+	background-color:#00B8C8;
+	text-align:right; 
+	vertical-align:top;
+}
+
+.td-lt {
+	color:black;
+	background-color:#00D8E8;
+}
+
+
+
 * {
   box-sizing: border-box;
 }
