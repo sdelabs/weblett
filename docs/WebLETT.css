@@ -115,7 +115,7 @@ button {
 .graph {
   grid-area: graph;
   background-color:#e1e1e1;
-  height: 300px; /* Should be removed. Only for demonstration */
+  /* height: 300px; /* Should be removed. Only for demonstration */
 }
 
 /* Style the footer */
