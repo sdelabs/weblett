@@ -44,9 +44,9 @@
 		<td colspan="2"><button id="connect-button" type="button" onclick=getReader()>🔌 CONNECT</button></td>
 		<td><button id="debug-button" type="button" onclick=toggleDebug() disabled>DEBUG</button></td>
 		<!--td><button id="test-button" type="button" onclick=testClicked() disabled>TEST</button></td-->
-		<!--td><button id="bt-button" type="button" onclick=listBLE() disabled>BLE</button></td>
+		<!--td><button id="bt-button" type="button" onclick=listBLE() disabled>BLE</button></td-->
 		<td><button id="reset-button" type="button" onclick=reset() disabled>RESET</button></td>
-		<td>&nbsp;</td-->
+		<!--td>&nbsp;</td-->
 	</tr><tr>
 		<td class="tdi-dk"><div id="num">LETT</div></td>
 		<td class="tdi-lt"><div id="swver">&nbsp;</div></td>
@@ -87,7 +87,7 @@
 	</tr><tr>
 		<td class="tdi-dk">incoming</td><td class="tdi-lt" colspan="3"><div id="info"></div></td>
 	</tr><tr>
-		<td class="tdi-dk">status</td><td class="tdi-lt"colspan="3"><div id="status-text"></div></td>
+		<td class="tdi-dk">status</td><td class="tdi-lt" colspan="3"><div id="status-text"></div></td>
 
 	</tr>
 	</table>	
@@ -97,10 +97,7 @@
 	<table id="tableTwo">
 	<tr>
 	<td class="td-dk">settings</td>
-	<!--td colspan = "3">&nbsp;</td>
-	</tr><tr-->
 
-	<!--td style="text-align:right"-->
 	<td class="td-lt" style="text-align:right">
 		<div id="speedText">speed</div>
 		<div id="targetText">target</div>
@@ -108,7 +105,7 @@
 		<div id="cyclesText">cycles</div>
 	</td>
 	
-	<td class="td-lt" colspan="3">
+	<td class="td-lt" colspan="2">
 	<div class="slidecontainer">
 	    <input id="speed-slide"  type="range" min="1" max="255" value="10"  class="slider" title="Speed in mm/min"> <br>
 	    <input id="target-slide" type="range" min="1" max="100" value="50"  class="slider" title="Target position in mm"><br>
@@ -147,13 +144,14 @@
 		</tr><tr>
 
 			<td class="tdi-dk"><div>timestamp</div></td>
-			<td class="tdi-lt" style="font-weight:bold"<div id="tim">&nbsp;</div></td>
+			<td class="tdi-lt" style="font-weight:bold"><div id="tim">&nbsp;</div></td>
 
 			<td class="tdi-dk" id="smplLabel" nohidden><div>sample</div></td>
 			<td class="tdi-lt" style="font-weight:bold"><div id="smpl">&nbsp;</div></td>
 	
 			<td class="tdi-dk"><div id="cycLabel" nohidden>cycle</div></td>
 			<td class="tdi-lt" style="font-weight:bold"><div id="cycl">&nbsp;</div></td>
+			<td class="tdi-lt" colspan="2">&nbsp;</td>
 		</tr>
 	  </table>
 	</div>
