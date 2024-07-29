@@ -94,11 +94,16 @@ button {
 } 
 
 .table1,
-.table2, 
+.table2 {
+  padding: 10px;
+  max-width:420px;
+  max-height:220px; 
+}
+ 
 .graph {
   padding: 10px;
-  max-width:620px;
-  max-height:360px; 
+  max-width:840px;
+  max-height:440px; 
 }
 
 /* Style table1 */
