@@ -22,7 +22,7 @@
   appearance: none;
   width: 12px;
   height: 12px;
-  background: #04AA6D;
+  background: red; /* #04AA6D; */
   cursor: pointer;
 }
 
@@ -121,7 +121,7 @@ button {
 /* Style the footer */
 .footer {
   grid-area: footer;
-  background-color: MediumGrey;
+  background-color: LightGrey;
   /* padding: 10px; */
   text-align: center;
 }
