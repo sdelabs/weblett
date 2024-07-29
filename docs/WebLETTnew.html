@@ -118,26 +118,6 @@
 	</div>
 	</td>
 		
-	</tr><tr> <!--bgcolor="lightgrey" -->
-		<td class="tdi-dk"><div>position</div></td>
-		<td class="tdi-lt" style="text-align:left; font-weight:bold"><div id="pos">&nbsp;</div></td>
-
-		<td class="tdi-dk"><div id="resLabel" hidden>resistance</div></td>
-		<td class="tdi-lt" style="font-weight:bold"><div id="res">&nbsp;</div></td>
-	</tr><tr> <!--bgcolor="lightgrey" -->
-		<td class="tdi-dk"><div>force</div></td>
-		<td class="tdi-lt" style="font-weight:bold"><div id="frc">&nbsp;</div></td>
-
-		<td class="tdi-dk"><div id="tmpLabel" hidden>temperature</div></td>
-		<td class="tdi-lt" style="font-weight:bold"><div id="tmp">&nbsp;</div></td>
-	</tr><tr> <!--bgcolor="lightgrey" -->
-		<!--td style="text-align:right"><div>timestamp</div></td>
-		<td><div id="tim"><b>&nbsp;</b></div></td-->
-		<td class="tdi-dk" id="smplLabel" hidden><div>sample</div></td>
-		<td class="tdi-lt" style="font-weight:bold"><div id="smpl">&nbsp;</div></td>
-
-		<td class="tdi-dk"><div id="cycLabel" hidden>cycle</div></td>
-		<td class="tdi-lt" style="font-weight:bold"><div id="cycl">&nbsp;</div></td>
 	</tr><tr>
 		<td><button id="start-button" type="button" onclick=startStop() disabled>START</button></td>
 		<!--td><button id="stop-button" type="button" onclick=stopTest() disabled>STOP</button></td-->
@@ -153,7 +133,31 @@
 	<!--canvas id="myChart" style="width:100%;max-width:600px" class="plot"></canvas-->
 	<canvas id="myChart" class="plot" style="min-width:500px"></canvas>
      </div>
-
+	<div>
+	  <table>
+		<tr>
+			<td class="tdi-dk"><div>position</div></td>
+			<td class="tdi-lt" style="text-align:left; font-weight:bold"><div id="pos">&nbsp;</div></td>
+	
+			<td class="tdi-dk"><div id="resLabel" nohidden>resistance</div></td>
+			<td class="tdi-lt" style="font-weight:bold"><div id="res">&nbsp;</div></td>
+		</tr><tr>
+			<td class="tdi-dk"><div>force</div></td>
+			<td class="tdi-lt" style="font-weight:bold"><div id="frc">&nbsp;</div></td>
+	
+			<td class="tdi-dk"><div id="tmpLabel" nohidden>temperature</div></td>
+			<td class="tdi-lt" style="font-weight:bold"><div id="tmp">&nbsp;</div></td>
+		</tr><tr>
+			<!--td style="text-align:right"><div>timestamp</div></td>
+			<td><div id="tim"><b>&nbsp;</b></div></td-->
+			<td class="tdi-dk" id="smplLabel" nohidden><div>sample</div></td>
+			<td class="tdi-lt" style="font-weight:bold"><div id="smpl">&nbsp;</div></td>
+	
+			<td class="tdi-dk"><div id="cycLabel" nohidden>cycle</div></td>
+			<td class="tdi-lt" style="font-weight:bold"><div id="cycl">&nbsp;</div></td>
+		</tr>
+	  </table>
+	</div>
    <div class="footer">
 	<p><a href="Manual%20LETT%202024.pdf" target="_blank" rel="noopener">Find the manual here (pdf file)</a></p>
 	<p><sup>*</sup>The software is under developement and may still contain some bugs. 
