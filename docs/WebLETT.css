@@ -58,6 +58,7 @@
 }
 
 .tdi-lt {
+	min-width:105;
 	color:black;
 	background-color:#b7d7e8;
 }
