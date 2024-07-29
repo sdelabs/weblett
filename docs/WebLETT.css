@@ -112,19 +112,19 @@ button {
 /* Style table1 */
 .table1 {
   grid-area: table1;
-  background-color:LightCyan;
+  background-color:#daebe8;
 }
 
 /* Style table2 */
 .table2 {
   grid-area: table2;
-  background-color:LightCyan;
+  background-color:#daebe8;
 }
 
 /* Style the graph */
 .graph {
   grid-area: graph;
-  background-color:LightCyan;
+  background-color:#daebe8;
   /* height: 300px; /* Should be removed. Only for demonstration */
 }
 
