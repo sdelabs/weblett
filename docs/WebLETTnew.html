@@ -43,8 +43,7 @@
 	<tr>
 		<td colspan="2"><button id="connect-button" type="button" onclick=getReader()>🔌 CONNECT</button></td>
 		<td><button id="debug-button" type="button" onclick=toggleDebug() disabled>DEBUG</button></td>
-		<td><button id="clear-button" type="button" onclick=clearData(true) disabled>CLEAR</button></td>
-
+		<!--td><button id="test-button" type="button" onclick=testClicked() disabled>TEST</button></td-->
 		<!--td><button id="bt-button" type="button" onclick=listBLE() disabled>BLE</button></td>
 		<td><button id="reset-button" type="button" onclick=reset() disabled>RESET</button></td>
 		<td>&nbsp;</td-->
@@ -121,10 +120,10 @@
 	</tr><tr>
 		<td><button id="start-button" type="button" onclick=startStop() disabled>START</button></td>
 		<!--td><button id="stop-button" type="button" onclick=stopTest() disabled>STOP</button></td-->
-		<td style="align:right"><button id="up-button" type="button" onmousedown=gripperUp() onmouseup="gripperStop()" disabled>UP</button></td>
-		<td><button id="down-button" type="button" onmousedown=gripperDown() onmouseup="gripperStop()" disabled>DOWN</button></td>
+		<td style="align:right"><button id="up-button" type="button" onmousedown=gripperUp() onmouseup="gripperStop()" disabled>UP</button>
+		    <button id="down-button" type="button" onmousedown=gripperDown() onmouseup="gripperStop()" disabled>DOWN</button></td>
 		<td><button id="save-button" type="button" onclick=saveData() disabled>SAVE</button></td>
-		<!--td><button id="test-button" type="button" onclick=testClicked() disabled>TEST</button></td-->
+		<td><button id="clear-button" type="button" onclick=clearData(true) disabled>CLEAR</button></td>
 	</tr>
 	</table>
      </div>
