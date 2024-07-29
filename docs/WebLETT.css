@@ -91,14 +91,14 @@ button {
     'table1 table2 graph graph graph graph' 
     'footer footer footer footer footer footer';
   grid-column-gap: 10px; /* - if you want gap between the columns */
-  max-width:1200;
-  max-height900:
 } 
 
 .table1,
 .table2, 
 .graph {
   padding: 10px;
+  max-width:620;
+  max-heigth:360; 
 }
 
 /* Style table1 */
