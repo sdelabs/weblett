@@ -45,6 +45,7 @@
 }
 
 .td-lt {
+	min-width:110;
 	color:black;
 	/* background-color:#00D8E8; */
 	background-color:#bccad6;
@@ -58,7 +59,6 @@
 }
 
 .tdi-lt {
-	min-width:105;
 	color:black;
 	background-color:#b7d7e8;
 }
