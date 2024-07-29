@@ -124,7 +124,7 @@ button {
 /* Style the graph */
 .graph {
   grid-area: graph;
-  background-color:#e1e1e1;
+  background-color:LightCyan;
   /* height: 300px; /* Should be removed. Only for demonstration */
 }
 
