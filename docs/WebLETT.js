@@ -73,7 +73,7 @@ var testData = []
 speedSlider.addEventListener('input', (event) => {
 	//console.log('speed event', event.target.value)
 	testSpeed = parseInt(event.target.value)
-	speedText.innerText = 'speed: ' + testSpeed
+	speedText.innerText = 'speed [mm/min]: ' + testSpeed
 	//console.log("cookie testSpeed", testSpeed)
 	//setCookie("testSpeed", testSpeed)
 });		
@@ -81,19 +81,19 @@ speedSlider.addEventListener('input', (event) => {
 targetSlider.addEventListener('input', (event) => {
 	//console.log('target event', event.target.value)
 	testTarget = parseInt(event.target.value)
-	targetText.innerText = 'target: ' + testTarget;
+	targetText.innerText = 'target pos. [mm]: ' + testTarget;
 });		
 
 forceSlider.addEventListener('input', (event) => {
 	//console.log('force event', event.target.value)
 	testForce = Math.floor(10 ** (parseInt(event.target.value)/100))
-	forceText.innerText = 'force: ' + testForce;
+	forceText.innerText = 'target force [N]: ' + testForce;
 });		
 
 cyclesSlider.addEventListener('input', (event) => {
 	//console.log('cycle event', event.target.value)
 	testCycles = Math.floor(Math.exp(parseInt(event.target.value)/100))
-	cyclesText.innerText = 'cycles: ' + testCycles;
+	cyclesText.innerText = 'cycles : ' + testCycles;
 });		
 		
 function failClicked() {
