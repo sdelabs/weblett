@@ -500,7 +500,7 @@ function processIncoming(line) {
 		}
 		
 		if (data[i].startsWith('n')) { // cycle number
-			console.log('n', data[i].split('n'));
+			console.log('n', data[i], data[i].split('n'));
 			num = parseFloat(data[i].split('n')[1]);
 			dataPoint[posNum] = num
 			document.getElementById("cycl").innerHTML=num;
