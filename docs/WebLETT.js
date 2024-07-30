@@ -325,10 +325,11 @@ function startStop() {
 			return;
 		} else {
 			showMessage('test running', goodWarning);
+			showMessage('subtestType', subtestTypeCyclic);
 			testStarted = Date().toLocaleString()
 			document.getElementById('smplLabel').hidden=false;
 			if (subtestType==subtestTypeCyclic) {
-				console.log('Cyclic Test'); 
+				console.log('**** Cyclic Test'); 
 				document.getElementById('cycLabel').hidden=false;
 				document.getElementById('cycl').hidden=false;
 			}
@@ -502,7 +503,7 @@ function processIncoming(line) {
 		}
 		
 		if (data[i].startsWith('n')) { // cycle number
-			console.log('n', data[i], data[i].split('n'));
+			// console.log('n', data[i], data[i].split('n'));
 			num = parseFloat(data[i].split('n')[1]);
 			dataPoint[posNum] = num
 			document.getElementById("cycl").innerHTML=num;
