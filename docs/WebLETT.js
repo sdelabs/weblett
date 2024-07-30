@@ -328,8 +328,9 @@ function startStop() {
 			testStarted = Date().toLocaleString()
 			document.getElementById('smplLabel').hidden=false;
 			if (subtestType==subtestTypeCyclic) {
-				document.getElementById('cycLabel').style.visibiliy='visible';
-				document.getElementById('cycl').style.visibiliy='visible';
+				console.log('**** visible')
+				document.getElementById('cycLabel').style.visibility='visible'
+				document.getElementById('cycl').style.visibility='visible'
 			}
 			clearData()
 			dataPoint = []
