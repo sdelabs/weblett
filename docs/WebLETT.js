@@ -499,8 +499,8 @@ function processIncoming(line) {
 			document.getElementById("tmp").innerHTML=temp;
 		}
 		
-		if (data[i].startsWith('n')) { // sample number
-			//console.log('f', data[i].split('f'));
+		if (data[i].startsWith('n')) { // cycle number
+			console.log('n', data[i].split('n'));
 			num = parseFloat(data[i].split('n')[1]);
 			dataPoint[posNum] = num
 			document.getElementById("cycl").innerHTML=num;
