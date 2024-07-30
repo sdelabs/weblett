@@ -73,7 +73,7 @@ var testData = []
 speedSlider.addEventListener('input', (event) => {
 	//console.log('speed event', event.target.value)
 	testSpeed = parseInt(event.target.value)
-	speedText.innerHTML = 'speed<font size="-3"> [mm/min]</font>:' + testSpeed
+	speedText.innerHTML = '<font size="-2">speed [mm/min]</font>:' + testSpeed
 	//console.log("cookie testSpeed", testSpeed)
 	//setCookie("testSpeed", testSpeed)
 });		
@@ -81,7 +81,7 @@ speedSlider.addEventListener('input', (event) => {
 targetSlider.addEventListener('input', (event) => {
 	//console.log('target event', event.target.value)
 	testTarget = parseInt(event.target.value)
-	targetText.innerHTML = 'target pos<font size="-3"> [mm]</font>:' + testTarget;
+	targetText.innerHTML = '<font size="-2">target pos [mm]</font>:' + testTarget;
 });		
 
 forceSlider.addEventListener('input', (event) => {
