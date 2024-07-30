@@ -2,7 +2,7 @@ var myChart = new Chart(document.getElementById("myChart"), {
 	type: 'scatter',
 	data: {
 		datasets: [{
-			label: "Force vs Extension",
+			label: "Force vs Displacement",
 			showLine: true,
 			borderColor: '#003f5c', //'lightBlue',
 			fill: false,
