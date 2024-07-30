@@ -325,13 +325,11 @@ function startStop() {
 			return;
 		} else {
 			showMessage('test running', goodWarning);
-			showMessage('subtestType', subtestTypeCyclic);
 			testStarted = Date().toLocaleString()
 			document.getElementById('smplLabel').hidden=false;
 			if (subtestType==subtestTypeCyclic) {
-				console.log('**** Cyclic Test'); 
-				document.getElementById('cycLabel').hidden=false;
-				document.getElementById('cycl').hidden=false;
+				document.getElementById('cycLabel').style.visibiliy='visible';
+				document.getElementById('cycl').style.visibiliy='visible';
 			}
 			clearData()
 			dataPoint = []
