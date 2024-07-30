@@ -328,7 +328,9 @@ function startStop() {
 			testStarted = Date().toLocaleString()
 			document.getElementById('smplLabel').hidden=false;
 			if (subtestType==subtestTypeCyclic) {
+				console.log('Cyclic Test'); 
 				document.getElementById('cycLabel').hidden=false;
+				document.getElementById('cycl').hidden=false;
 			}
 			clearData()
 			dataPoint = []
