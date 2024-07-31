@@ -326,7 +326,7 @@ function startStop() {
 		} else {
 			showMessage('test running', goodWarning);
 			testStarted = Date().toLocaleString()
-			document.getElementById('smplLabel').hidden=false;
+			document.getElementById('smplLabel').style.visibility='visible'
 			if (subtestType==subtestTypeCyclic) {
 				console.log('**** visible')
 				document.getElementById('cycLabel').style.visibility='visible'
@@ -500,7 +500,7 @@ function processIncoming(line) {
 			}
 			
 			dataPoint[posRes] = res
-			document.getElementById('resLabel').hidden=false;
+			document.getElementById('resLabel').style.visibility='visible'
 			document.getElementById("res").innerHTML=res;
 		}
 
@@ -564,11 +564,11 @@ function processIncoming(line) {
 			}
 			if (h &  4) {
 				document.getElementById("4pts").innerHTML="4Point";
-				document.getElementById("resLabel").hidden=false;
+				document.getElementById("resLabel").style.visibility='visible'
 			}
 			if (h & 16) {
 				document.getElementById("ktype").innerHTML="K-Type";
-				document.getElementById("tmpLabel").hidden=false;
+				document.getElementById("tmpLabel").style.visibility='visible'
 			}
 		}
 
