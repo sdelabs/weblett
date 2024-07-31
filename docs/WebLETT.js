@@ -73,7 +73,7 @@ var testData = []
 speedSlider.addEventListener('input', (event) => {
 	//console.log('speed event', event.target.value)
 	testSpeed = parseInt(event.target.value)
-	speedText.innerHTML = '<div style="font-size:0.8em">speed [mm/min]:' + testSpeed + '</div>'
+	speedText.innerText = 'speed [mm/min]:' + testSpeed
 	//console.log("cookie testSpeed", testSpeed)
 	//setCookie("testSpeed", testSpeed)
 });		
