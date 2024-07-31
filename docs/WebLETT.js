@@ -491,11 +491,12 @@ function processIncoming(line) {
 		if (data[i].startsWith('r')) { // resistance
 			//console.log('f', data[i].split('f'));
 			res = parseFloat(data[i].split('r')[1]);
-			if (res) > 1250000 {
+			if (res) < 1000 {
+				res = res.toFixed(2)
+			} else if (res) > 1250000 {
 				res = -1
-			} 
-			if (res) > 100 {
-				res = int(res)
+			} else {
+				res = res.toFixed(0)
 			}
 			
 			dataPoint[posRes] = res
