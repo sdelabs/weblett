@@ -30,25 +30,25 @@ function getParameterCookies() {
 	if (testSpeed == "") testSpeed = 15
 	if (debug) console.log('speed=', testSpeed)
 	speedSlider.value = testSpeed
-	speedText.innerText = 'speed: ' + testSpeed
+	speedText.innerText = testSpeed
 
 	testForce  = getCookie("LETTforce")
 	if (testForce == "") testForce = 10
 	if (debug) console.log('force', testForce)
 	forceSlider.value = testForce
-	forceText.innerText = 'force: ' + testForce
+	forceText.innerText = testForce
 	
 	testTarget = getCookie("LETTtarget")
 	if (testTarget == "") testTarget = 10
 	if (debug) console.log('target', testTarget)
 	targetSlider.value = testTarget
-	targetText.innerText = 'target: ' + testTarget
+	targetText.innerText = testTarget
 	
 	testCycles = getCookie("LETTcycles")
 	if (testCycles == "") testCycles = 8
 	if (debug) console.log('cycles', testCycles)
 	cyclesSlider.value = testCycles
-	cyclesText.innerText = 'cycles: ' + testCycles
+	cyclesText.innerText = testCycles
 	
 }
 
