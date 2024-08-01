@@ -22,7 +22,7 @@ function getParameterCookies() {
 	if (subtestType == "") subtestType = subtestTypeFail 
 	if (debug) console.log('LETTsubtest', subtestType)
 	if (subtestType == subtestTypeFail) { document.getElementById('fail').checked = true; failClicked() } 
-	if (subtestType == subtestTypeRelax) { document.getElementById('relax').checked = true; relacClicked() } 
+	if (subtestType == subtestTypeRelax) { document.getElementById('relax').checked = true; relaxClicked() } 
 	if (subtestType == subtestTypeCreep) { document.getElementById('creep').checked = true; creepClicked() }
 	if (subtestType == subtestTypeCyclic) { document.getElementById('cyclic').checked = true; cyclicClicked() }
 
