@@ -8,7 +8,6 @@ const downButton = document.getElementById('down-button');
 const testButton = document.getElementById('test-button');
 const saveButton = document.getElementById('save-button');
 const clearButton = document.getElementById('clear-button');
-const speedText = document.getElementById('speed-text');
 const speedSlider = document.getElementById('speed-slide');
 const targetSlider = document.getElementById('target-slide');
 const forceSlider = document.getElementById('force-slide');
