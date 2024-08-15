@@ -82,6 +82,7 @@ console.log(speedList.length)
 speedSlider.oninput = function() {
 	console.log(this.value, speedList[parseInt(this.value)])
 	speedText.innerText = speedList[parseInt(this.value)];
+	testSpeed  = speedList[parseInt(this.value)];
 }
 
 targetSlider.addEventListener('input', (event) => {
@@ -101,6 +102,13 @@ cyclesSlider.addEventListener('input', (event) => {
 	testCycles = Math.floor(Math.exp(parseInt(event.target.value)/100))
 	cyclesText.innerText = testCycles
 });		
+
+const cyclesList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 15, 16, 18, 20, 22, 25, 30, 35, 40, 45, 50, 60, 70, 75, 80, 90, 100, 110, 120, 125, 130, 140, 150, 160, 175, 180, 200, 220, 240, 250]
+console.log(cyclesList.length)
+cyclesSlider.oninput = function() {
+	console.log(this.value, cyclesList[parseInt(this.value)])
+	cyclesText.innerText = speedList[parseInt(this.value)];
+}
 		
 function failClicked() {
 	speedSlider.disabled = false
