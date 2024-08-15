@@ -5,6 +5,7 @@ function saveParameterCookies() {
 	setCookie("LETTtest", testType)
 	setCookie("LETTsubtest", subtestType)
 	setCookie("LETTspeed", testSpeed)
+	setCookie("LETTspeedIndex", testSpeedIndex)
 	setCookie("LETTforce", testForce)
 	setCookie("LETTtarget", testTarget)
 	setCookie("LETTcycles", testCycles)	
@@ -28,6 +29,7 @@ function getParameterCookies() {
 
 	testSpeed  = getCookie("LETTspeed")
 	if (testSpeed == "") testSpeed = 15
+	if (testSpeed > 40) testSpeed = 15
 	if (debug) console.log('speed=', testSpeed)
 	speedSlider.value = testSpeed
 	speedText.innerText = testSpeed
