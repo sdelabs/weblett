@@ -47,6 +47,7 @@ var testRunning = false
 var unsavedData = false
 var samples = 0
 var testSpeed = -1, testForce = -1, testTarget = -1, testCycles = -1
+var testSpeedIndex = -1, testCyclesIndex = -1
 var testStarted = ""
 var sensorType
 var testValid = false
@@ -80,9 +81,10 @@ const speedList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 15, 16, 18, 20, 22, 25
 console.log(speedList.length)
 
 speedSlider.oninput = function() {
-	console.log(this.value, speedList[parseInt(this.value)])
-	speedText.innerText = speedList[parseInt(this.value)];
-	testSpeed  = speedList[parseInt(this.value)];
+	testSpeedIndex = parseInt(this.value)
+	console.log(this.value, speedList[testSpeedIndex])
+	speedText.innerText = speedList[testSpeedIndex]
+	testSpeed  = speedList[testSpeedIndex]
 }
 
 targetSlider.addEventListener('input', (event) => {
@@ -107,9 +109,10 @@ cyclesSlider.addEventListener('input', (event) => {
 const cyclesList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 18, 20, 22, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 180, 200, 250, 500, 750, 1000]
 console.log(cyclesList.length)
 cyclesSlider.oninput = function() {
-	console.log(this.value, cyclesList[parseInt(this.value)])
-	cyclesText.innerText = cyclesList[parseInt(this.value)];
-	testCycles = cyclesList[parseInt(this.value)]
+	testCyclesIndex = parseInt(this.value)
+	console.log(this.value, cyclesList[testCyclesIndex])
+	cyclesText.innerText = cyclesList[testCyclesIndex]
+	testCycles = cyclesList[testCyclesIndex]
 }
 		
 function failClicked() {
