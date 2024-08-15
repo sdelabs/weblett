@@ -9,6 +9,7 @@ function saveParameterCookies() {
 	setCookie("LETTforce", testForce)
 	setCookie("LETTtarget", testTarget)
 	setCookie("LETTcycles", testCycles)	
+	setCookie("LETTcycles", testCyclesIndex)	
 }
 
 function getParameterCookies() {
