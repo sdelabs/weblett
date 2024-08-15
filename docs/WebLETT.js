@@ -97,17 +97,19 @@ forceSlider.addEventListener('input', (event) => {
 	forceText.innerText = testForce
 });		
 
+/*
 cyclesSlider.addEventListener('input', (event) => {
 	//console.log('cycle event', event.target.value)
 	testCycles = Math.floor(Math.exp(parseInt(event.target.value)/100))
 	cyclesText.innerText = testCycles
 });		
-
-const cyclesList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 15, 16, 18, 20, 22, 25, 30, 35, 40, 45, 50, 60, 70, 75, 80, 90, 100, 110, 120, 125, 130, 140, 150, 160, 175, 180, 200, 220, 240, 250]
+*/
+const cyclesList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 15, 16, 18, 20, 22, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 180, 200, 250, 500, 1000]
 console.log(cyclesList.length)
 cyclesSlider.oninput = function() {
 	console.log(this.value, cyclesList[parseInt(this.value)])
 	cyclesText.innerText = speedList[parseInt(this.value)];
+	testCycles = cyclesList[parseInt(this.value)]
 }
 		
 function failClicked() {
