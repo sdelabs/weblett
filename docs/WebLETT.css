@@ -36,7 +36,7 @@ h2 { margin: 0px; }
   cursor: pointer;
 }
 
-.slider::-webkit-slider-thumb:disabled {
+.slider:disabled::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   width: 12px;
