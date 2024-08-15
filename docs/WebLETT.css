@@ -36,6 +36,15 @@ h2 { margin: 0px; }
   cursor: pointer;
 }
 
+.slider::-webkit-slider-thumb:disabled {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  background: #bccad6; /* #04AA6D; */
+  cursor: pointer;
+}
+
 .slider::-moz-range-thumb {
   width: 12px;
   height: 12px;
