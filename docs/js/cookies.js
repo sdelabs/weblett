@@ -9,7 +9,7 @@ function saveParameterCookies() {
 	setCookie("LETTforce", testForce)
 	setCookie("LETTtarget", testTarget)
 	setCookie("LETTcycles", testCycles)	
-	setCookie("LETTcycles", testCyclesIndex)	
+	setCookie("LETTcyclesIndex", testCyclesIndex)	
 }
 
 function getParameterCookies() {
@@ -29,10 +29,11 @@ function getParameterCookies() {
 	if (subtestType == subtestTypeCyclic) { document.getElementById('cyclic').checked = true; cyclicClicked() }
 
 	testSpeed  = getCookie("LETTspeed")
+	testSpeedIndex  = getCookie("LETTspeedIndex")
 	if (testSpeed == "") testSpeed = 15
 	if (testSpeed > 40) testSpeed = 15
 	if (debug) console.log('speed=', testSpeed)
-	speedSlider.value = testSpeed
+	speedSlider.value = testSpeedIndex
 	speedText.innerText = testSpeed
 
 	testForce  = getCookie("LETTforce")
@@ -48,9 +49,10 @@ function getParameterCookies() {
 	targetText.innerText = testTarget
 	
 	testCycles = getCookie("LETTcycles")
+	testCyclesIndex = getCookie("LETTcyclesIndex")
 	if (testCycles == "") testCycles = 8
 	if (debug) console.log('cycles', testCycles)
-	cyclesSlider.value = testCycles
+	cyclesSlider.value = testCyclesIndex
 	cyclesText.innerText = testCycles
 	
 }
