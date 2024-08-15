@@ -69,13 +69,13 @@ const testEndReasons = [
 var dataList = []
 var dataPoint = []
 var testData = []
-
-speedSliderOLD.addEventListener('input', (event) => {
+/*
+speedSlider.addEventListener('input', (event) => {
 	//console.log('speed event', event.target.value)
 	testSpeed = parseInt(event.target.value)
 	speedText.innerText = testSpeed
 });		
-
+*/
 const speedList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 15, 16, 18, 20, 22, 25, 30, 35, 40, 45, 50, 60, 70, 75, 80, 90, 100, 110, 120, 125, 130, 140, 150, 160, 175, 180, 200, 220, 240, 250]
 console.log(speedList.length)
 
