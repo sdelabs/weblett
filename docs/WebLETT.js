@@ -81,7 +81,7 @@ console.log(speedList.length)
 
 speedSlider.oninput = function() {
 	console.log(this.value, speedList[parseInt(this.value)])
-	output.innerHTML = speedList[parseInt(this.value)];
+	speedText.innerText = speedList[parseInt(this.value)];
 }
 
 targetSlider.addEventListener('input', (event) => {
