@@ -616,7 +616,8 @@ function plotData(p) {
 	if (debug) console.log('plotData', p);
 	myChart.config.data.datasets[0].data.push({x: p[posPos], y:p[posFor]}) // Displacement vs Force
 	myChart.config.data.datasets[1].data.push({x: p[posTim], y:p[posFor]}) // Time vs Force
-	myChart.config.data.datasets[2].data.push({x: p[posTim], y:p[posPos]}) // Time vs Resistance
+	myChart.config.data.datasets[2].data.push({x: p[posPos], y:p[posRes]}) // Time vs Resistance
+	myChart.config.data.datasets[3].data.push({x: p[posTim], y:p[posRes]}) // Time vs Resistance
 	myChart.update()	
 }
 
