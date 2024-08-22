@@ -130,7 +130,17 @@
 	     <!--canvas id="myChart" style="width:100%;max-width:600px" class="plot"></canvas-->
 	<table>
 	<tr>
-	  <td colspan = "8"><canvas id="myChart" class="plot" style="min-width:600px"></canvas></td>
+	<td class="td-lt">
+		<div style="tdi-dk">X-Axis</div>
+		<label><input type="radio" id="frcRadio" name="Yaxis" value="Force [N]" onclick="rbAxisClicked()" checked>&nbsp;Force</label><br>
+		<label><input type="radio" id="resRadio" name="Yaxis" value="Resistance [Ω]" onclick="rbAxisClicked()" >&nbsp;Resistance</label><br>
+		<label><input type="radio" id="tempRadio" name="Yaxis" value="Temperature [°C]" onclick="rbAxisClicked()" >&nbsp;Temperature</label><br>
+
+		<div style="tdi-dk">Y-Axis</div>
+		<label><input type="radio" id="displaceRadio" name="Xaxis" value="Displacement [mm]" onclick="rbClicked()" checked>&nbsp;Displacement</label><br>
+		<label><input type="radio" id="timeRadio"  name="Xaxis" value="Time [s]" onclick="rbClicked()" >&nbsp;Time</label><br>
+		
+	</td><td colspan = "8"><canvas id="myChart" class="plot" style="min-width:600px"></canvas></td>
 	</tr><tr>
 			<td class="tdi-dk"><div>displacement [mm]</div></td>
 			<td class="tdi-lt" style="font-weight:bold;"><div id="pos">&nbsp;</div></td>
