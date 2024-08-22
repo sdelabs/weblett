@@ -15,13 +15,21 @@ var myChart = new Chart(document.getElementById("myChart"), {
 			fill: false,
 			data: [{x:17, y:56}, {x:25, y:66}]
 		}, {
-			label: ["Resistance", "(only on some LETTs)"],
+			label: ["Resistance vs Displacement", "(only on some LETTs)"],
 			//label: "Temperature",
 			showLine: true,
 			hidden: true,
 			borderColor: '#665191', //'#36A2EB',
 			fill: false,
 			data: [{x:1, y:2}, {x:3, y:4}]
+		}, {
+			label: ["Resistance vs Time", "(only on some LETTs)"],
+			//label: "Temperature",
+			showLine: true,
+			hidden: true,
+			borderColor: '#665191', //'#36A2EB',
+			fill: false,
+			data: [{x:1, y:20}, {x:5, y:10}]
 		} ]
 	},
 	options: {
