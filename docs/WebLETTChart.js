@@ -6,14 +6,14 @@ var myChart = new Chart(document.getElementById("myChart"), {
 			showLine: true,
 			borderColor: '#003f5c', //'lightBlue',
 			fill: false,
-			data: [{x:7, y:6}, {x:15, y:16}] // just for testing
+			data: [] //{x:7, y:6}, {x:15, y:16}] // just for testing
 		}, {
 			label: "Force vs Time",
 			showLine: true,
 			hidden: true,
 			borderColor: '#d45087', // #FF6384',
 			fill: false,
-			data: [{x:17, y:56}, {x:25, y:66}]
+			data: [] //{x:17, y:56}, {x:25, y:66}]
 		}, {
 			label: ["Resistance vs Displacement", "(only on some LETTs)"],
 			//label: "Temperature",
@@ -21,7 +21,7 @@ var myChart = new Chart(document.getElementById("myChart"), {
 			hidden: true,
 			borderColor: '#665191', //'#36A2EB',
 			fill: false,
-			data: [{x:1, y:2}, {x:3, y:4}]
+			data: [] //{x:1, y:2}, {x:3, y:4}]
 		}, {
 			label: ["Resistance vs Time", "(only on some LETTs)"],
 			//label: "Temperature",
@@ -29,7 +29,7 @@ var myChart = new Chart(document.getElementById("myChart"), {
 			hidden: true,
 			borderColor: '#665191', //'#36A2EB',
 			fill: false,
-			data: [{x:1, y:20}, {x:5, y:10}]
+			data: [] //{x:1, y:20}, {x:5, y:10}]
 		} ]
 	},
 	options: {
