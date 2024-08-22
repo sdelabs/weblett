@@ -6,14 +6,14 @@ var myChart = new Chart(document.getElementById("myChart"), {
 			showLine: true,
 			borderColor: '#003f5c', //'lightBlue',
 			fill: false,
-			data: [{x:7, y:6}, {x:15, y:16}]
+			data: [{x:7, y:6}, {x:15, y:16}] // just for testing
 		}, {
 			label: "Force vs Time",
 			showLine: true,
 			hidden: true,
 			borderColor: '#d45087', // #FF6384',
 			fill: false,
-			data: []
+			data: [{x:17, y:56}, {x:25, y:66}]
 		}, {
 			label: ["Resistance", "(only on some LETTs)"],
 			//label: "Temperature",
@@ -21,29 +21,24 @@ var myChart = new Chart(document.getElementById("myChart"), {
 			hidden: true,
 			borderColor: '#665191', //'#36A2EB',
 			fill: false,
-			data: []
+			data: [{x:1, y:2}, {x:3, y:4}]
 		} ]
 	},
 	options: {
 		responsive: true,
-/*		scales: {
-			xAxes: [{
-			// type: 'linear', 
-			scaleLabel: {
-				display: true,
-				labelString: 'displacement [mm]',
+		plugins: {
+			legend: {
+				display: false
+			},
+		},
+
+		elements: {
+			point:{
+				radius: 5
 			}
-			}],
-			yAxes: [{
-			//type: 'linear', 
-			scaleLabel: {
-				display: true,
-				labelString: 'force [N]'
-			}
-			}]
-		}
-	}
- */
+		},
+		pointStyle: false,
+		
 		scales: {
     		x: {
       			//type: 'time',
