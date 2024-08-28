@@ -94,11 +94,13 @@ function rbAxisClicked() {
 	myChart.data.datasets[0].hidden = true
 	myChart.data.datasets[1].hidden = true
 	myChart.data.datasets[2].hidden = true
+	myChart.data.datasets[3].hidden = true
 
 	// show the selected
 	if (frcRadio.checked & displaceRadio.checked)	myChart.data.datasets[0].hidden = false
-	if (frcRadio.checked & timeRadio.checked)		myChart.data.datasets[1].hidden = false
+	if (frcRadio.checked & timeRadio.checked)	myChart.data.datasets[1].hidden = false
 	if (resRadio.checked & displaceRadio.checked)	myChart.data.datasets[2].hidden = false
+	if (resRadio.checked & timeRadio.checked)	myChart.data.datasets[3].hidden = false
 
 	// and showtime
 	myChart.update()
