@@ -235,7 +235,7 @@ function checkTestSpeed() {
 }
 
 function checkTestForce() {
-	console.log('force', testForce);
+	// console.log('force', testForce);
 	if (subtestType != subtestTypeCreep) return;
 	if (sensorType == 100) maxForce = 1000;
 	if (sensorType == 500) maxforce = 5000;
@@ -290,7 +290,7 @@ function makeStartString() {
 }
 
 function showMessage(s, c) {
-	console.log(s, c);
+	// console.log(s, c);
 	statusText.style.backgroundColor = c;
 	statusText.innerText = s;
 }
@@ -472,9 +472,8 @@ function clearData(override = false) {
 			return
 		}			
 	}
-	console.log('checkunsaved')
+
 	if (checkUnsavedData() & !override) return
-	console.log('clear data!')
 	myChart.config.data.datasets[0].data = [] // Force
 	myChart.config.data.datasets[1].data = [] // Resistance
 	myChart.config.data.datasets[2].data = [] // Temperature
@@ -609,6 +608,7 @@ function processIncoming(line) {
 		}
 
 		if (data[i].startsWith('C')) { // End of test
+			console.log(data[i])
 			testRunning = false;
 			testEndReason = parseInt(data[i].split('C')[1]);
 			showMessage('test finished:' + testEndReasons[testEndReason], goodWarning);
