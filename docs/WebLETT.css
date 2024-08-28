@@ -145,6 +145,7 @@ button[disabled]{
 .table2 {
   grid-area: table2;
   background-color:#daebe8;
+  vertical-align: text-bottom;
 }
 
 /* Style the graph */
