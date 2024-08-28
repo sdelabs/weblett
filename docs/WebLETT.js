@@ -474,7 +474,8 @@ function clearData(override = false) {
 	saveButton.disabled = true
 	unsavedData = false
 	// https://www.geeksforgeeks.org/how-to-change-text-label-orientation-on-x-axis-in-chart-js/
-	myChart.options.scales.y.title.text='New Label'
+	// myChart.options.scales.y.title.text='New Label'
+	startButton.style.backgroundColor = '#667292'
 }
 
 function processIncoming(line) {
