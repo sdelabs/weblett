@@ -364,9 +364,8 @@ function startStop() {
 			//
 			console.log('LETTString', LETTString);
 			sendToLETT(LETTString);
-		
 		}
-	} else {
+	} else { // test running: stop pressed
 		sendToLETT('C\n');
 		testRunning = false;
 		upButton.disabled = true;
