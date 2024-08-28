@@ -537,6 +537,7 @@ function processIncoming(line) {
 			dataPoint[posRes] = res
 			document.getElementById('resLabel').style.visibility='visible'
 			document.getElementById("res").innerHTML=res;
+			resRadio.disabled = false
 		}
 
 		if (data[i].startsWith('k')) { // k-type temperature
