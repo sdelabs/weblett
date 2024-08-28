@@ -372,6 +372,7 @@ function startStop() {
 		upButton.disabled = true;
 		downButton.disabled = true;
 		startButton.innerHTML = "START";
+		startButton.style.backgroundColor = 'LightRed'
 	}
 }
 
@@ -599,7 +600,7 @@ function processIncoming(line) {
 			downButton.disabled = false;
 			startButton.innerHTML = "START";
 			saveButton.disabled = false
-			saveButton..style.backgroundColor = good
+			saveButton.style.backgroundColor = good
 		}
 
 	}		
