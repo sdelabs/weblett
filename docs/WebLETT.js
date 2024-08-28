@@ -469,6 +469,7 @@ function clearData(override = false) {
 			console.log('delete')
 		} else {
 			console.log('return')
+			return
 		}			
 	}
 	if (checkUnsavedData() & !override) return
