@@ -469,6 +469,7 @@ function clearData(override = false) {
 	myChart.update('none')
 	dataList = []
 	clearButton.disabled = true
+	saveButton.disabled = true
 	unsavedData = false
 	// https://www.geeksforgeeks.org/how-to-change-text-label-orientation-on-x-axis-in-chart-js/
 	myChart.options.scales.y.title.text='New Label'
@@ -600,7 +601,8 @@ function processIncoming(line) {
 			downButton.disabled = false;
 			startButton.innerHTML = "START";
 			saveButton.disabled = false
-			saveButton.style.backgroundColor = good
+			clearButton.disabled = false
+			//saveButton.style.backgroundColor = good
 		}
 
 	}		
