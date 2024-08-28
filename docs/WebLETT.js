@@ -599,6 +599,7 @@ function processIncoming(line) {
 			downButton.disabled = false;
 			startButton.innerHTML = "START";
 			saveButton.disabled = false
+			saveButton..style.backgroundColor = good
 		}
 
 	}		
