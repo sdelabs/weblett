@@ -2,6 +2,7 @@
 table, th, td {
     /* border: 1px solid gainsboro; */
     border-collapse: collapse;
+    white-space: nowrap;
 }
   
 h2 { margin: 0px; }
