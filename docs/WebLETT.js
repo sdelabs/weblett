@@ -457,7 +457,7 @@ function saveData() {
 	  link.click();
 	  document.body.removeChild(link);
 
-	  startButton.style.backgroundColor = #667292;
+	  startButton.style.backgroundColor = '#667292'
 	  unsavedData = false
 	}
   }
