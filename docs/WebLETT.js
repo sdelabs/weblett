@@ -265,9 +265,10 @@ function checkTestCycles() {
 }
 
 function checkUnsavedData() {
+	if (debug) console.log('unsavedData', unsavedData)
 	if (unsavedData) {
 		startEnabled = false;
-		errorMessage = 'ERROR: there is unsaved data, press clear to erase';
+		errorMessage = 'ERROR: there is unsaved data, save or clear first';
 		clearButton.disabled = false
 		return true
 	} else {
@@ -455,6 +456,8 @@ function saveData() {
 	  document.body.appendChild(link);
 	  link.click();
 	  document.body.removeChild(link);
+
+	  startButton.style.backgroundColor = #667292;
 	  unsavedData = false
 	}
   }
