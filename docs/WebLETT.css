@@ -116,7 +116,7 @@ button[disabled]{
     'header header header header header header' 
     'table1 table2 graph graph graph graph' 
     'footer footer footer footer footer footer';
-  grid-column-gap: 10px; /* - if you want gap between the columns */
+  //grid-column-gap: 10px; /* - if you want gap between the columns */
 } 
 
 .table1,
