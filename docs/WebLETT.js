@@ -78,11 +78,11 @@ speedSlider.addEventListener('input', (event) => {
 });		
 */
 const speedList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 15, 16, 18, 20, 22, 25, 30, 35, 40, 45, 50, 60, 70, 75, 80, 90, 100, 110, 120, 125, 130, 140, 150, 160, 175, 180, 200, 220, 240, 250]
-console.log(speedList.length)
+// console.log(speedList.length)
 
 speedSlider.oninput = function() {
 	testSpeedIndex = parseInt(this.value)
-	console.log(this.value, speedList[testSpeedIndex])
+	// console.log(this.value, speedList[testSpeedIndex])
 	speedText.innerText = speedList[testSpeedIndex]
 	testSpeed  = speedList[testSpeedIndex]
 }
@@ -107,10 +107,10 @@ cyclesSlider.addEventListener('input', (event) => {
 });		
 */
 const cyclesList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 18, 20, 22, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 180, 200, 250, 500, 750, 1000]
-console.log(cyclesList.length)
+// console.log(cyclesList.length)
 cyclesSlider.oninput = function() {
 	testCyclesIndex = parseInt(this.value)
-	console.log(this.value, cyclesList[testCyclesIndex])
+	// console.log(this.value, cyclesList[testCyclesIndex])
 	cyclesText.innerText = cyclesList[testCyclesIndex]
 	testCycles = cyclesList[testCyclesIndex]
 }
