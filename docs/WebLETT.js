@@ -465,7 +465,7 @@ function saveData() {
 
 function clearData(override = false) {
 	if (override) {
-		if (confirm("delete unsaved data?") {
+		if (confirm("delete unsaved data?")) {
 			console.log('delete')
 		} else {
 			console.log('return')
