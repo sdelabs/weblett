@@ -464,6 +464,13 @@ function saveData() {
 }
 
 function clearData(override = false) {
+	if (override) {
+		if (confirm("delete unsaved data?") {
+			console.log('delete')
+		} else {
+			console.log('return')
+		}			
+	}
 	if (checkUnsavedData() & !override) return
 	myChart.config.data.datasets[0].data = [] // Force
 	myChart.config.data.datasets[1].data = [] // Resistance
