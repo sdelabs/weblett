@@ -85,7 +85,7 @@ function rbAxisClicked() {
 	if (debug) console.log("rBaxis Clicked")
 	if (frcRadio.checked) {	myChart.options.scales.y.title.text=frcRadio.value }
 	if (resRadio.checked) {	myChart.options.scales.y.title.text=resRadio.value }
-	if (tempRadio.checked) {myChart.options.scales.y.title.text=tempRadio.value}
+	// if (tempRadio.checked) {myChart.options.scales.y.title.text=tempRadio.value}
 
 	if (timeRadio.checked) { myChart.options.scales.x.title.text=timeRadio.value }
 	if (displaceRadio.checked) { myChart.options.scales.x.title.text=displaceRadio.value }
