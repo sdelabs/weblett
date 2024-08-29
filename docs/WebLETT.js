@@ -726,7 +726,7 @@ window.addEventListener("beforeunload", function (e) {
 
 if (navigator.userAgent.includes("Firefox")) {
 	console.log("Firefox detected")
-	firefoxWarning.style.visibility = "visible";
+	firefoxWarning.style.display = "initial";
 }
 
 console.log('WebLETT.js loaded');
