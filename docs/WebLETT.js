@@ -727,6 +727,7 @@ window.addEventListener("beforeunload", function (e) {
 if (navigator.userAgent.includes("Firefox")) {
 	console.log("Firefox detected")
 	firefoxWarning.style.display = "initial";
+	firefoxWarning.style.backgroundColor = "#AACCCB";
 }
 
 console.log('WebLETT.js loaded');
