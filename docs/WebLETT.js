@@ -723,4 +723,10 @@ window.addEventListener("beforeunload", function (e) {
 		return
 	}
 });
+
+if (navigator.userAgent.includes("Firefox")) {
+	console.log("Firefox detected")
+	firefoxWarning.style.visibility = "visible";
+}
+
 console.log('WebLETT.js loaded');
