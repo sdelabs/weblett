@@ -409,11 +409,11 @@ function saveData() {
 	testData[1] = ",,LETT2020 Version XXXX " // + SoftwareVersion
 	testData[2] = ""
  	testData[3] = ",,Test parameters"
-	testData[4] = ",,LETT number: " + LETTnumber + ", Sensor: " + sensorType + "kg"
-	testData[5] = ",,Test type: " + testTypeText + ", Speed: " + testSpeed
-	testData[6] = ",,Force limit: " + testForce + ", Displacement: " + testTarget + ", Cycles: ", testCycles
+	testData[4] = ",,LETT number: " + LETTnumber + ",, Sensor: " + sensorType + "kg"
+	testData[5] = ",,Test type: " + testTypeText + ",, Speed: " + testSpeed
+	testData[6] = ",,Force limit: " + testForce + ",, Displacement: " + testTarget + ",, Cycles: ", testCycles
 	testData[7] = ""
- 	testData[8] = ",,Started: " + testStarted + ", Final state: " + testEndReasons[testEndReason]
+ 	testData[8] = ",,Started: " + testStarted + ",, Final state: " + testEndReasons[testEndReason]
 
 	console.log(' testData' , testData, ' length' , testData.length)
 	
