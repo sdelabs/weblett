@@ -421,7 +421,7 @@ function saveData() {
   var filename = prompt("Please enter a filename", "dataset.csv");
 
   // Prepare the CSV content
-  var csvContent = "Time,Extension,Force,Resistance,Temperature\n";
+  var csvContent = "Time [ms],Extension [mm],Force [N],Resistance [Ohm],Temperature [°C]\n";
 
   // Iterate over the dataset and append each row to the CSV content
   testDataLinecount = 0
