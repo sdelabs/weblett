@@ -113,6 +113,7 @@ button[disabled]{
 /* The grid container */
 .grid-container {
   display: grid;
+  transition: 300ms;
   grid-template-areas: 
     'header header header header header header' 
     'table1 table2 graph graph graph graph' 
