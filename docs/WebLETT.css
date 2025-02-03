@@ -129,20 +129,20 @@ button[disabled]{
 /* Style stateTable */
 .stateTable {
   grid-area: stateTable;
-  background-color:#daebe8;
+  /* background-color:#daebe8; */
 }
 
 /* Style controlTable */
 .controlTable {
   grid-area: controlTable;
-  background-color:#daebe8;
+  /* background-color:#daebe8; */
   align-self: end;
 }
 
 /* Style the graph */
 .graph {
   grid-area: graph;
-  background-color:#daebe8;
+  /* background-color:#daebe8; */
   /* height: 300px; /* Should be removed. Only for demonstration */
 }
 
