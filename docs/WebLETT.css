@@ -157,9 +157,14 @@ button[disabled]{
 .grid-container {
   display: grid;
   grid-template-areas: 
-    'header header header header header header' 
+  /*  'header header header header header header' 
     'stateTable controlTable graph graph graph graph' 
-    'footer footer footer footer footer footer';
+    'footer footer footer footer footer footer'; */
+      'header header header header header header' 
+      'stateTable graph graph graph graph graph' 
+      'controlTable  graph graph graph graph graph' 
+      'footer footer footer footer footer footer';
+
   /* grid-column-gap: 10px; /* - if you want gap between the columns */
 } 
 
