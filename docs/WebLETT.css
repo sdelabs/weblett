@@ -157,6 +157,7 @@ button[disabled]{
 /* The grid container */
 .grid-container {
   display: grid;
+  background-color:#daebe8;
   grid-template-areas: 
   /*  'header header header header header header' 
     'stateTable controlTable graph graph graph graph' 
