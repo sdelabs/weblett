@@ -115,13 +115,13 @@ button[disabled]{
   display: grid;
   grid-template-areas: 
     'header header header header header header' 
-    'stateTable table2 graph graph graph graph' 
+    'stateTable controlTable graph graph graph graph' 
     'footer footer footer footer footer footer';
   /* grid-column-gap: 10px; /* - if you want gap between the columns */
 } 
 
 .stateTable,
-.table2 {
+.controlTable {
   padding: 10px;
   max-width:400px;
   max-height:220px; 
@@ -142,9 +142,9 @@ button[disabled]{
   background-color:#daebe8;
 }
 
-/* Style table2 */
-.table2 {
-  grid-area: table2;
+/* Style controlTable */
+.controlTable {
+  grid-area: controlTable;
   background-color:#daebe8;
 }
 
@@ -169,7 +169,7 @@ button[disabled]{
     grid-template-areas: 
       'header header header header header header' 
       'stateTable graph graph graph graph graph' 
-      'table2  graph graph graph graph graph' 
+      'controlTable  graph graph graph graph graph' 
       'footer footer footer footer footer footer';
   }
 }
@@ -178,7 +178,7 @@ button[disabled]{
   .grid-container  {
     grid-template-areas: 
       'header header header header header header' 
-      'stateTable stateTable stateTable table2 table2 table2' 
+      'stateTable stateTable stateTable controlTable controlTable controlTable' 
       'graph graph graph graph graph graph' 
       'footer footer footer footer footer footer';
   }
