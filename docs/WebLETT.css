@@ -115,12 +115,12 @@ button[disabled]{
   display: grid;
   grid-template-areas: 
     'header header header header header header' 
-    'table1 table2 graph graph graph graph' 
+    'stateTable table2 graph graph graph graph' 
     'footer footer footer footer footer footer';
   /* grid-column-gap: 10px; /* - if you want gap between the columns */
 } 
 
-.table1,
+.stateTable,
 .table2 {
   padding: 10px;
   max-width:400px;
@@ -136,9 +136,9 @@ button[disabled]{
 	/* outline: 1px dashed magenta; */
 }
 
-/* Style table1 */
-.table1 {
-  grid-area: table1;
+/* Style stateTable */
+.stateTable {
+  grid-area: stateTable;
   background-color:#daebe8;
 }
 
@@ -168,7 +168,7 @@ button[disabled]{
   .grid-container  {
     grid-template-areas: 
       'header header header header header header' 
-      'table1 graph graph graph graph graph' 
+      'stateTable graph graph graph graph graph' 
       'table2  graph graph graph graph graph' 
       'footer footer footer footer footer footer';
   }
@@ -178,7 +178,7 @@ button[disabled]{
   .grid-container  {
     grid-template-areas: 
       'header header header header header header' 
-      'table1 table1 table1 table2 table2 table2' 
+      'stateTable stateTable stateTable table2 table2 table2' 
       'graph graph graph graph graph graph' 
       'footer footer footer footer footer footer';
   }
