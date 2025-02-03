@@ -110,16 +110,6 @@ button[disabled]{
   text-align: left;
 }
 
-/* The grid container */
-.grid-container {
-  display: grid;
-  grid-template-areas: 
-    'header header header header header header' 
-    'stateTable controlTable graph graph graph graph' 
-    'footer footer footer footer footer footer';
-  /* grid-column-gap: 10px; /* - if you want gap between the columns */
-} 
-
 .stateTable,
 .controlTable {
   padding: 10px;
@@ -162,6 +152,16 @@ button[disabled]{
   /* padding: 10px; */
   text-align: center;
 }
+
+/* The grid container */
+.grid-container {
+  display: grid;
+  grid-template-areas: 
+    'header header header header header header' 
+    'stateTable controlTable graph graph graph graph' 
+    'footer footer footer footer footer footer';
+  /* grid-column-gap: 10px; /* - if you want gap between the columns */
+} 
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
 @media (min-width: 800px) {
