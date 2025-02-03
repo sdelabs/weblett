@@ -169,7 +169,7 @@ button[disabled]{
 } 
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-@media (min-width: 800px) {
+/* @media (min-width: 800px) {
   .grid-container  {
     grid-template-areas: 
       'header header header header header header' 
@@ -177,7 +177,7 @@ button[disabled]{
       'controlTable  graph graph graph graph graph' 
       'footer footer footer footer footer footer';
   }
-}
+} */
 
 @media (max-width: 800px) {
   .grid-container  {
