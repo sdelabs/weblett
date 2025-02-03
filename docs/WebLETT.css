@@ -136,6 +136,7 @@ button[disabled]{
 .controlTable {
   grid-area: controlTable;
   background-color:#daebe8;
+  align-self: end;
 }
 
 /* Style the graph */
