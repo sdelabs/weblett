@@ -6,7 +6,7 @@
     <link rel="icon" type="image/x-icon" href="weblett/favicon.ico">
     <title>LETT Webinterface</title>
 	<link rel="stylesheet" href="WebLETT.css">
-	<script src = "test.js"></script>
+	<!-- script src = "test.js"></script -->
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <!--script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script-->
@@ -25,7 +25,7 @@
     <div class="header">
       <h1 title="Jan 2026">WebLETT 2026.1.1</h1>
       <div id="firefoxWarning" style="color:Red; display:none"> 
-	<h2>You appear to use Firefox, wich doesn't allow access to the USB port!</h2>
+	<h2>You appear to use Firefox, which doesn't allow access to the USB port!</h2>
       </div>
     </div>
 	  
@@ -37,7 +37,7 @@
 	<table id="tableOne">
 	<tr>
 		<td colspan="2"><button id="connect-button" type="button" onclick=getReader()>🔌 CONNECT</button></td>
-		<td><button id="debug-button" type="button" onclick=toggleDebug() disabled>DEBUG</button></td>
+		<td><button id="debug-button" type="button" onclick=toggleDebug() >DEBUG</button></td>
 		<!--td><button id="test-button" type="button" onclick=testClicked() disabled>TEST</button></td-->
 		<!--td><button id="bt-button" type="button" onclick=listBLE() disabled>BLE</button></td-->
 		<td><button id="reset-button" type="button" onclick=reset() disabled>RESET</button></td>
@@ -131,12 +131,12 @@
 	<table>
 	<tr>
 	<td class="td-lt">
-		<div class="td-dk">X-Axis</div>
-		<label><input type="checkbox" id="frcRadio" name="Yaxis" value="Force [N]" onclick="rbAxisClicked()" checked>&nbsp;force</label><br>
-		<label><input type="checkbox" id="resRadio" name="Yaxis" value="Resistance [Ω]" onclick="rbAxisClicked()" disabled>&nbsp;resistance</label><br>
+		<div class="td-dk">Y-Axis</div>
+		<label><input type="radio" id="frcRadio" name="Yaxis" value="Force [N]" onclick="rbAxisClicked()" checked>&nbsp;force</label><br>
+		<label><input type="radio" id="resRadio" name="Yaxis" value="Resistance [Ω]" onclick="rbAxisClicked()" disabled>&nbsp;resistance</label><br>
 		<!-- label><input type="radio" id="tempRadio" name="Yaxis" value="Temperature [°C]" onclick="rbAxisClicked()" disabled>&nbsp;temperature</label><br-->
 
-		<div class="td-dk">Y-Axis</div>
+		<div class="td-dk">X-Axis</div>
 		<label><input type="radio" id="displaceRadio" name="Xaxis" value="Displacement [mm]" onclick="rbAxisClicked()" checked>&nbsp;displacement</label><br>
 		<label><input type="radio" id="timeRadio"  name="Xaxis" value="Time [s]" onclick="rbAxisClicked()" >&nbsp;time</label><br>
 		
