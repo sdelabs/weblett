@@ -1,5 +1,7 @@
-var myChart = new Chart(document.getElementById("myChart"), {
-	type: 'scatter',
+// Gebruik const voor variabelen die niet veranderen
+const ctx = document.getElementById("myChart");
+
+const myChart = new Chart(ctx, {	type: 'scatter',
 	data: {
 		datasets: [{
 			label: "Force vs Displacement",
@@ -90,17 +92,20 @@ function rbAxisClicked() {
 	if (timeRadio.checked) { myChart.options.scales.x.title.text=timeRadio.value }
 	if (displaceRadio.checked) { myChart.options.scales.x.title.text=displaceRadio.value }
 
-	// hide everything
-	myChart.data.datasets[0].hidden = true
-	myChart.data.datasets[1].hidden = true
-	myChart.data.datasets[2].hidden = true
-	myChart.data.datasets[3].hidden = true
+	// 1. Update de as-titels - compacte versie, maar geen derde optie
+    //const yTitle = frcRadio.checked ? frcRadio.value : resRadio.value;
+    //const xTitle = timeRadio.checked ? timeRadio.value : displaceRadio.value;
 
+	// 2. Reset alle datasets naar verborgen
+    myChart.data.datasets.forEach(dataset => {
+        dataset.hidden = true;
+    });
+	
 	// show the selected
-	if (frcRadio.checked & displaceRadio.checked)	myChart.data.datasets[0].hidden = false
-	if (frcRadio.checked & timeRadio.checked)	myChart.data.datasets[1].hidden = false
-	if (resRadio.checked & displaceRadio.checked)	myChart.data.datasets[2].hidden = false
-	if (resRadio.checked & timeRadio.checked)	myChart.data.datasets[3].hidden = false
+	if (frcRadio.checked && displaceRadio.checked)	myChart.data.datasets[0].hidden = false
+	if (frcRadio.checked && timeRadio.checked)	myChart.data.datasets[1].hidden = false
+	if (resRadio.checked && displaceRadio.checked)	myChart.data.datasets[2].hidden = false
+	if (resRadio.checked && timeRadio.checked)	myChart.data.datasets[3].hidden = false
 
 	// and showtime
 	myChart.update()
