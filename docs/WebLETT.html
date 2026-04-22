@@ -70,8 +70,10 @@
 
 	<td class="td-dk">subtest</td>
 	<td class="td-lt">  
-		<input type="radio" id="fail" name="test_sub" value="fail" onclick="failClicked()" title="stop on specimen fail">
-		 <label for="fail">fail</label><br>
+		<div title=="stop on specimen fail">
+			<input type="radio" id="fail" name="test_sub" value="fail" onclick="failClicked()">
+		 	<label for="fail">fail</label><br>
+		</div>
 		<input type="radio" id="relax" name="test_sub" value="relax" onclick="relaxClicked()"  title="move to position, monitor change in force (relaxation)">
 		 <label for="relax">relaxation</label><br>
 		<input type="radio" id="creep" name="test_sub" value="creep" onclick="creepClicked()"  title="move to force, keep force constant, monitor movement (creep)">
