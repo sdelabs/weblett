@@ -1,0 +1,36 @@
+/* --- Print-specifieke stijlen --- */
+@media print {
+    /* Verberg alle knoppen, sliders en navigatie */
+    button, 
+    .slidecontainer, 
+    .header, 
+    .footer,
+    input[type="radio"] {
+        display: none !important;
+    }
+
+    /* Zorg dat de tabel en grafiek de volle breedte gebruiken */
+    .grid-container {
+        display: block; /* Haal de grid-layout weg voor print */
+    }
+
+    .stateTable, .controlTable, .graph {
+        max-width: 100%;
+        width: 100%;
+        padding: 0;
+        margin-bottom: 20px;
+    }
+
+    /* Forceer achtergrondkleuren (browsers zetten dit vaak uit om inkt te sparen) */
+    .td-dk, .tdi-dk {
+        background-color: #8d9db6 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    /* Maak de grafiek mooi groot op de pagina */
+    canvas {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+}
