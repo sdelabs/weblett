@@ -70,16 +70,22 @@
 
 	<td class="td-dk">subtest</td>
 	<td class="td-lt">  
-		<div title=="stop on specimen fail">
+		<div title="stop on specimen fail">
 			<input type="radio" id="fail" name="test_sub" value="fail" onclick="failClicked()">
 		 	<label for="fail">fail</label><br>
 		</div>
-		<input type="radio" id="relax" name="test_sub" value="relax" onclick="relaxClicked()"  title="move to position, monitor change in force (relaxation)">
-		 <label for="relax">relaxation</label><br>
-		<input type="radio" id="creep" name="test_sub" value="creep" onclick="creepClicked()"  title="move to force, keep force constant, monitor movement (creep)">
-		 <label for="creep">creep</label><br>  
-		<input type="radio" id="cyclic" name="test_sub" value="cyclic" onclick="cyclicClicked()"  title="cyclic test: repeat motion N times">
-		 <label for="cyclic">cyclic</label>
+		<div title="move to position, monitor change in force (relaxation)">
+			<input type="radio" id="relax" name="test_sub" value="relax" onclick="relaxClicked()">
+		 	<label for="relax">relaxation</label><br>
+		</div>
+		<div title="move to force, keep force constant, monitor movement (creep)">
+			<input type="radio" id="creep" name="test_sub" value="creep" onclick="creepClicked()">
+		 	<label for="creep">creep</label><br>  
+		</div>
+		<div title="cyclic test: repeat motion N times">
+			<input type="radio" id="cyclic" name="test_sub" value="cyclic" onclick="cyclicClicked()">
+		 	<label for="cyclic">cyclic</label>
+		</div>
 	</td>
 	</tr><tr>
 		<td class="tdi-dk">incoming</td><td class="tdi-lt" colspan="3"><div id="info" style="font-size: 0.8em;">&nbsp;</div></td>
