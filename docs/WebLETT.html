@@ -59,12 +59,18 @@
 	</tr><tr>
 	<td class="td-dk" >testtype</td>
 	<td class="td-lt">
-		<input type="radio" id="tensile" name="test-type" value="tensile" >
-		 <label for="tensile">tensile</label><br>
-		<input type="radio" id="compression" name="test-type" value="compression">
-		 <label for="compression">compression</label><br>
-		<input type="radio" id="data" name="test-type" value="manual" >
-		 <label for="data">data collect</label><br>
+		<div title="extend (pull) the specimen">
+			<input type="radio" id="tensile" name="test-type" value="tensile" >
+		 	<label for="tensile">tensile</label><br>
+		</div>
+		<div  title="compress the specimen">
+			<input type="radio" id="compression" name="test-type" value="compression">
+		 	<label for="compression">compression</label><br>
+		</div>
+		<div title="repeatidly pull/push the specimen">
+			<input type="radio" id="data" name="test-type" value="manual" >
+		 	<label for="data">data collect</label><br>
+		</div><div>
 		&nbsp;
 	</td>
 
