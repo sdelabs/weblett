@@ -1,5 +1,5 @@
 // Gebruik const voor variabelen die niet veranderen
-const ctx = document.getElementById("myChart");
+const ctx = document.getElementById("myChartCanvas");
 
 const myChart = new Chart(ctx, {	
 	type: 'scatter',
