@@ -222,7 +222,7 @@ button[disabled]{
 }
 
 /* The grid container */
-/* OLD
+/* OLD GRIDSTUFF OLD
 .grid-container {
   background-color:#daebe8;
   grid-template-areas: 
@@ -232,21 +232,6 @@ button[disabled]{
       'footer footer footer footer footer footer';
 } 
 */
-
-/* --- 3a. Brede Layout (Desktop) --- */
-@media (min-width: 801px) {
-    .grid-container {
-		display: grid;
-        grid-template-columns: 380px 1fr;
-        grid-template-areas: 
-            "header       header"
-            "stateTable   graph"
-            "controlTable graph"
-            "footer       footer";
-    }
-    
-    .controlTable { align-self: end; }
-}
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
 /* @media (min-width: 800px) {
@@ -267,6 +252,31 @@ button[disabled]{
       'graph graph graph graph graph graph';
   }
 } */
+
+
+/* 1. Altijd een grid, op elk scherm */
+.grid-container {
+    display: grid; 
+    height: 100vh;
+    gap: 10px;
+    padding: 10px;
+    background-color: var(--color-bg-main);
+    overflow: hidden;
+}
+/* --- 3a. Brede Layout (Desktop) --- */
+@media (min-width: 801px) {
+    .grid-container {
+		display: grid;
+        grid-template-columns: 380px 1fr;
+        grid-template-areas: 
+            "header       header"
+            "stateTable   graph"
+            "controlTable graph"
+            "footer       footer";
+    }
+    
+    .controlTable { align-self: end; }
+}
 
 /* --- Smalle Layout (PDF ernaast / Scherm < 800px) --- */
 @media (max-width: 800px) {
