@@ -1,7 +1,8 @@
 // Gebruik const voor variabelen die niet veranderen
 const ctx = document.getElementById("myChart");
 
-const myChart = new Chart(ctx, {	type: 'scatter',
+const myChart = new Chart(ctx, {	
+	type: 'scatter',
 	data: {
 		datasets: [{
 			label: "Force vs Displacement",
@@ -36,6 +37,8 @@ const myChart = new Chart(ctx, {	type: 'scatter',
 	},
 	options: {
 		responsive: true,
+		maintainAspectRatio: false, 
+		resizeDeklay: 0,
 		plugins: {
 			legend: {
 				display: false
