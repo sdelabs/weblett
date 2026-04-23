@@ -222,20 +222,31 @@ button[disabled]{
 }
 
 /* The grid container */
+/* OLD
 .grid-container {
   display: grid;
   background-color:#daebe8;
   grid-template-areas: 
-  /*  'header header header header header header' 
-    'stateTable controlTable graph graph graph graph' 
-    'footer footer footer footer footer footer'; */
       'header header header header header header' 
       'stateTable graph graph graph graph graph' 
       'controlTable  graph graph graph graph graph' 
       'footer footer footer footer footer footer';
-
-  /* grid-column-gap: 10px; /* - if you want gap between the columns */
 } 
+*/
+
+/* --- 3a. Brede Layout (Desktop) --- */
+@media (min-width: 801px) {
+    .grid-container {
+        grid-template-columns: 380px 1fr;
+        grid-template-areas: 
+            "header       header"
+            "stateTable   graph"
+            "controlTable graph"
+            "footer       footer";
+    }
+    
+    .controlTable { align-self: end; }
+}
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
 /* @media (min-width: 800px) {
