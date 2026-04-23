@@ -139,7 +139,7 @@ h2 { margin: 0px; }
 
 .tdi-dk {
 	color:white; 
-	background-color: var(--color-i-dk) /* #87bdd8; */
+	background-color: var(--color-i-dk); /* #87bdd8; */
 	text-align:right; 
 	vertical-align:top;
 }
@@ -147,7 +147,7 @@ h2 { margin: 0px; }
 .tdi-lt {
 	min-width:55px;
 	color:black;
-	background-color: #b7d7e8;
+	background-color: var(--color-i-lt); /* #b7d7e8; */
 }
 
 /*
