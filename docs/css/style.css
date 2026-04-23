@@ -1,299 +1,65 @@
-/* --- 1. CSS VARIABELEN (Centraal beheer) --- */
-:root {
-    /* Sky Palette Kleuren */
-    --color-bg-main: #daebe8;
-    --color-header-footer: #d3d3d3;
-    --color-dk: #8d9db6;    /* Dark Blue/Grey */
-    --color-lt: #bccad6;    /* Light Grey/Blue */
-    --color-i-dk: #87bdd8;  /* Info Dark */
-    --color-i-lt: #b7d7e8;  /* Info Light */
-    --color-button: #667292;
-    --color-button-disabled: #bccad6;
-}
-
-/* --- 2. BASIS & RESET --- */
-* {
-    box-sizing: border-box;
-}
-
+/* 1. RESET - Forceer het venster */
 html, body {
     height: 100vh;
     width: 100vw;
     margin: 0;
-	padding: 0;
+    overflow: hidden; /* Dwingt alles binnen 1 scherm */
+    background-color: #daebe8;
     font-family: sans-serif;
-    background-color: var(--color-bg-main);
-    /* overflow: hidden; /* Voorkom scrollen van de hele pagina */
 }
 
-
-/* 3. Altijd een grid, op elk scherm */
+/* 2. HET GRID - De enige plek waar maten worden bepaald */
 .grid-container {
-    display: grid; 
+    display: grid;
     height: 100vh;
     width: 100vw;
-    gap: 10px;
     padding: 10px;
-    /* background-color: var(--color-bg-main);
-    overflow: hidden; */
-}
-/* --- 3a. Brede Layout (Desktop) --- */
-@media (min-width: 801px) {
-    .grid-container {
-        grid-template-columns: 380px 1fr;
-		grid-template-rows: auto 1fr 1fr 40px;
-        grid-template-areas: 
-            "header       header"
-            "stateTable   graph"
-            "controlTable graph"
-            "footer       footer";
-    }
+    gap: 10px;
+    box-sizing: border-box;
+    /* 4 rijen: Header, State, Control, Footer */
+    grid-template-rows: auto 1fr 1fr auto; 
+    grid-template-columns: 380px 1fr;
+    grid-template-areas: 
+        "header       header"
+        "stateTable   graph"
+        "controlTable graph"
+        "footer       footer";
 }
 
-/* --- Smalle Layout (PDF ernaast / Scherm < 800px) --- */
+/* 3. DE ELEMENTEN */
+.header { grid-area: header; background: #d3d3d3; padding: 5px; }
+.footer { grid-area: footer; background: #d3d3d3; text-align: center; height: 30px; }
+.stateTable { grid-area: stateTable; overflow-y: auto; }
+.controlTable { grid-area: controlTable; align-self: end; }
+
+/* 4. DE GRAFIEK (De 'magische' fix voor Chart.js) */
+.graph {
+    grid-area: graph;
+    position: relative; /* Essentieel */
+    height: 100%;       /* Vult exact de grid-cel */
+    width: 100%;
+    min-height: 0;      /* Breekt de feedback-loop */
+    min-width: 0;
+    background: white;
+}
+
+#chartCanvas {
+    position: absolute; /* Haalt canvas uit de flow */
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* 5. RESPONSIVE */
 @media (max-width: 800px) {
     .grid-container {
-        grid-template-columns: auto 1fr; /* was 1fr 1fr */
-        /* Alleen header, tabellen en grafiek. Geen footer-rij. */
-        grid-template-rows: auto auto 1fr; 
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto 1fr;
         grid-template-areas: 
             "header       header"
             "stateTable   controlTable"
             "graph        graph";
     }
-}
-
-/* --- 4. AREA STYLING --- */
-.header { 
-    grid-area: header; 
-    background-color: var(--color-header-footer); 
-    padding: 2px 10px; /* Een heel klein beetje ademruimte */
-    /* Geen vaste hoogte, laat de h1 de hoogte bepalen */
-}
-
-
-.stateTable,
-.controlTable {
-  padding: 10px;
-  max-width:400px;
-  max-height:220px; 
-  height:auto;
-  /* outline: 1px dashed magenta; */
-}
- 
-.graph {
-	grid-area: graph;
-	position: relative;
-	height: 400px; /* 100%; */
-	/* width: 100%; */ 
-	min-height: 0; 
-	min-width: 0;
-	overflow: hidden;
-	/* outline: 1px dashed magenta; */
-}
-
-#myChartCanvas {
-    /* Forceer het canvas om ALTIJD de container te volgen, ook omlaag */
-    display: block;
-    width: 100% !important;
-    height: 100% !important;
-}
-
-/* Style stateTable */
-.stateTable {
-  grid-area: stateTable;
-}
-
-/* Style controlTable */
-.controlTable {
-  grid-area: controlTable;
-  /* background-color:#daebe8; */
-  align-self: end;
-}
-
-.header h1 {
-    font-size: 1.4em;   /* Duidelijk een kop, maar bescheiden */
-    margin-top: 0.3em;  /* Compacte bovenkant */
-    margin-bottom: 0.3em; /* Compacte onderkant */
-    font-weight: bold;
-}
-
-h2 { margin: 0; }
-
-table {
-    border-collapse: collapse;
-    white-space: nowrap;
-	/*new*/
-	width: 100%;
-}
-
-/* Verticale streepje in de achtergrondkleur */
-.separator-right {
-    border-right: 2px solid var(--color-bg-main);
-}
-
-/* --- 6. INTERACTIE (Knoppen & Sliders) --- */
-button {
-    color: white;
-    background: var(--color-button);
-    border: none;
-    padding: 8px 16px;
-    cursor: pointer;
-}
-
-button:disabled {
-	background- var(--color-button-disabled); 
-	cursor: not-allowed; 
-}
-
-
-/* oorspronkelijke stylesheet */
-
-/* some general styles */ 
-/* table, th, td { */
-th, td {
-    border: 1px solid gainsboro;
-	padding: 6px;
-    /* border-collapse: collapse;
-    white-space: nowrap; */
-}
-  
-h2 { margin: 0px; }
-
-/* sliders - depend on webkit, make this better ! */
-
-.slidecontainer {
-  width: 199px; /* 100%; /* Width of the outside container */
-}
-
-.slider {
-  -webkit-appearance: none;
-  width: 150px; /* 100%; */
-  height: 10px;
-  background: #d3d3d3;
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
-}
-
-.slider:hover {
-  opacity: 1;
-}
-
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 12px;
-  height: 12px;
-  background: var(--color-button); /* #667292; */
-  cursor: pointer;
-}
-
-.slider:disabled::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 12px;
-  height: 12px;
-  background: var(--color-lt); /* #bccad6; #04AA6D; */
-  cursor: pointer;
-}
-
-.slider::-moz-range-thumb {
-  width: 12px;
-  height: 12px;
-  background: #04AA6D;
-  cursor: pointer;
-}
-
-/* W3schools color palettes - Sky Palettes */
-/* light background #cfe0e8 */
-
-.td-dk {
-	color: white; 
-	/* background-#00B8C8; */
-	background-color: var(--color-dk); /* #8d9db6; */
-	text-align:right; 
-	vertical-align:top;
-}
-
-.td-lt {
-	min-width:110px;
-	color:black;
-	/* background-color:#00D8E8; */
-	background-color: var(--color-lt); /* #bccad6; */
-}
-
-.tdi-dk {
-	color:white; 
-	background-color: var(--color-i-dk); /* #87bdd8; */
-	text-align:right; 
-	vertical-align:top;
-}
-
-.tdi-lt {
-	min-width:55px;
-	color:black;
-	background-color: var(--color-i-lt); /* #b7d7e8; */
-}
-
-
-* {
-  box-sizing: border-box;
-}
-
-/* Style the header OLD
-.header {
-  grid-area: header;
-  background-color: LightGrey;
-  padding: 10px;
-  text-align: left;
-}
-*/
-
-
-/* Style the footer */
-.footer {
-  grid-area: footer;
-  background-color: LightGrey;
-  /* padding: 10px; */
-  text-align: center;
-}
-
-/* The grid container */
-/* OLD GRIDSTUFF OLD
-.grid-container {
-  background-color:#daebe8;
-  grid-template-areas: 
-      'header header header header header header' 
-      'stateTable graph graph graph graph graph' 
-      'controlTable  graph graph graph graph graph' 
-      'footer footer footer footer footer footer';
-} 
-*/
-
-/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-/* @media (min-width: 800px) {
-  .grid-container  {
-    grid-template-areas: 
-      'header header header header header header' 
-      'stateTable graph graph graph graph graph' 
-      'controlTable  graph graph graph graph graph' 
-      'footer footer footer footer footer footer';
-  }
-} */
-
-/* @media (max-width: 799px) {
-  .grid-container  {	  
-    grid-template-areas: 
-      'header header header header header header' 
-      'stateTable stateTable stateTable controlTable controlTable controlTable' 
-      'graph graph graph graph graph graph';
-  }
-} */
-
-
-    .footer {
-        display: none; /* Schakel de footer volledig uit */
-    }
+    .footer { display: none; }
 }
