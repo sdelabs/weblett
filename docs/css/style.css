@@ -106,14 +106,6 @@ html, body {
   align-self: end;
 }
 
-/* Style the graph */
-.graph {
-  grid-area: graph;
-  /* background-color:#daebe8; */
-  /* height: 300px; /* Should be removed. Only for demonstration */
-}
-
-
 .header h1 {
     font-size: 1.4em;   /* Duidelijk een kop, maar bescheiden */
     margin-top: 0.3em;  /* Compacte bovenkant */
@@ -126,6 +118,8 @@ h2 { margin: 0; }
 table {
     border-collapse: collapse;
     white-space: nowrap;
+	/*new*/
+	width: 100%;
 }
 
 /* Verticale streepje in de achtergrondkleur */
@@ -135,23 +129,28 @@ table {
 
 /* --- 6. INTERACTIE (Knoppen & Sliders) --- */
 button {
-     white;
-    background- var(--color-button);
+    color: white;
+    background: var(--color-button);
     border: none;
     padding: 8px 16px;
     cursor: pointer;
 }
 
-button:disabled { background- var(--color-button-disabled); cursor: not-allowed; }
+button:disabled {
+	background- var(--color-button-disabled); 
+	cursor: not-allowed; 
+}
+
 
 /* oorspronkelijke stylesheet */
 
 /* some general styles */ 
 /* table, th, td { */
 th, td {
-    /* border: 1px solid gainsboro; */
-    border-collapse: collapse;
-    white-space: nowrap;
+    border: 1px solid gainsboro;
+	padding: 6px;
+    /* border-collapse: collapse;
+    white-space: nowrap; */
 }
   
 h2 { margin: 0px; }
@@ -232,18 +231,6 @@ h2 { margin: 0px; }
 	color:black;
 	background-color: var(--color-i-lt); /* #b7d7e8; */
 }
-
-/*
-button {
-	color:white;
-	background-color: var(--color-button); /* #667292; */
-}
-
-button:disabled,
-button[disabled]{
-  background-color: var(--color-lt); /* #bccad6; */
-}
-*/
 
 
 * {
