@@ -52,14 +52,14 @@ table {
 
 /* --- 6. INTERACTIE (Knoppen & Sliders) --- */
 button {
-    color: white;
-    background-color: var(--color-button);
+     white;
+    background- var(--color-button);
     border: none;
     padding: 8px 16px;
     cursor: pointer;
 }
 
-button:disabled { background-color: var(--color-button-disabled); cursor: not-allowed; }
+button:disabled { background- var(--color-button-disabled); cursor: not-allowed; }
 
 /* oorspronkelijke stylesheet */
 
@@ -123,8 +123,8 @@ h2 { margin: 0px; }
 /* light background #cfe0e8 */
 
 .td-dk {
-	color:white; 
-	/* background-color:#00B8C8; */
+	white; 
+	/* background-#00B8C8; */
 	background-color:#8d9db6;
 	text-align:right; 
 	vertical-align:top;
@@ -248,12 +248,29 @@ button[disabled]{
   }
 } */
 
-@media (max-width: 799px) {
-  .grid-container  {
+/* @media (max-width: 799px) {
+  .grid-container  {	  
     grid-template-areas: 
       'header header header header header header' 
       'stateTable stateTable stateTable controlTable controlTable controlTable' 
       'graph graph graph graph graph graph';
-      /* 'footer footer footer footer footer footer'; */
   }
+} */
+
+/* --- Smalle Layout (PDF ernaast / Scherm < 800px) --- */
+@media (max-width: 800px) {
+    .grid-container {
+        grid-template-columns: 1fr 1fr;
+        /* Alleen header, tabellen en grafiek. Geen footer-rij. */
+        grid-template-rows: auto auto 1fr; 
+        grid-template-areas: 
+            "header       header"
+            "stateTable   controlTable"
+            "graph        graph";
+        height: 100vh;
+    }
+
+    .footer {
+        display: none; /* Schakel de footer volledig uit */
+    }
 }
