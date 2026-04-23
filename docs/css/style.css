@@ -20,7 +20,7 @@ html, body {
     height: 100%;
     margin: 0;
     font-family: sans-serif;
-    overflow: hidden; /* Voorkom scrollen van de hele pagina */
+    /* overflow: hidden; /* Voorkom scrollen van de hele pagina */
     background-color: var(--color-bg-main);
 }
 
@@ -99,7 +99,7 @@ h2 { margin: 0px; }
   appearance: none;
   width: 12px;
   height: 12px;
-  background: #667292; /* #04AA6D; */
+  background: var(--color-button); /* #667292; */
   cursor: pointer;
 }
 
@@ -108,7 +108,7 @@ h2 { margin: 0px; }
   appearance: none;
   width: 12px;
   height: 12px;
-  background: #bccad6; /* #04AA6D; */
+  background: var(--color-lt); /* #bccad6; #04AA6D; */
   cursor: pointer;
 }
 
@@ -123,9 +123,9 @@ h2 { margin: 0px; }
 /* light background #cfe0e8 */
 
 .td-dk {
-	white; 
+	color: white; 
 	/* background-#00B8C8; */
-	background-color:#8d9db6;
+	background-color: var(--color-dk); /* #8d9db6; */
 	text-align:right; 
 	vertical-align:top;
 }
@@ -134,12 +134,12 @@ h2 { margin: 0px; }
 	min-width:110px;
 	color:black;
 	/* background-color:#00D8E8; */
-	background-color:#bccad6;
+	background-color: var(--color-lt); /* #bccad6; */
 }
 
 .tdi-dk {
 	color:white; 
-	background-color:#87bdd8;
+	background-color: var(--color-i-dk); /* #87bdd8; */
 	text-align:right; 
 	vertical-align:top;
 }
@@ -147,18 +147,18 @@ h2 { margin: 0px; }
 .tdi-lt {
 	min-width:55px;
 	color:black;
-	background-color:#b7d7e8;
+	background-color: var(--color-i-lt); /* #b7d7e8; */
 }
 
 /*
 button {
 	color:white;
-	background-color:#667292;
+	background-color: var(--color-button); /* #667292; */
 }
 
 button:disabled,
 button[disabled]{
-  background-color: #bccad6;
+  background-color: var(--color-lt); /* #bccad6; */
 }
 */
 
@@ -222,9 +222,8 @@ button[disabled]{
 }
 
 /* The grid container */
-/* OLD
+/* OLD GRIDSTUFF OLD
 .grid-container {
-  display: grid;
   background-color:#daebe8;
   grid-template-areas: 
       'header header header header header header' 
@@ -233,20 +232,6 @@ button[disabled]{
       'footer footer footer footer footer footer';
 } 
 */
-
-/* --- 3a. Brede Layout (Desktop) --- */
-@media (min-width: 801px) {
-    .grid-container {
-        grid-template-columns: 380px 1fr;
-        grid-template-areas: 
-            "header       header"
-            "stateTable   graph"
-            "controlTable graph"
-            "footer       footer";
-    }
-    
-    .controlTable { align-self: end; }
-}
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
 /* @media (min-width: 800px) {
@@ -268,10 +253,38 @@ button[disabled]{
   }
 } */
 
+
+/* 1. Altijd een grid, op elk scherm */
+.grid-container {
+    display: grid; 
+    height: 100vh;
+    width: 100vw;
+    gap: 10px;
+    padding: 10px;
+    background-color: var(--color-bg-main);
+    overflow: hidden;
+}
+/* --- 3a. Brede Layout (Desktop) --- */
+@media (min-width: 801px) {
+    .grid-container {
+		display: grid;
+        grid-template-columns: 380px 1fr;
+		/* grid-template-rows: auto 1fr auto; */
+        grid-template-areas: 
+            "header       header"
+            "stateTable   graph"
+            "controlTable graph"
+            "footer       footer";
+    }
+    
+    .controlTable { align-self: end; }
+}
+
 /* --- Smalle Layout (PDF ernaast / Scherm < 800px) --- */
 @media (max-width: 800px) {
     .grid-container {
-        grid-template-columns: 1fr 1fr;
+		display: grid;
+        grid-template-columns: auto 1fr; /* was 1fr 1fr */
         /* Alleen header, tabellen en grafiek. Geen footer-rij. */
         grid-template-rows: auto auto 1fr; 
         grid-template-areas: 
