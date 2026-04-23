@@ -123,7 +123,7 @@ h2 { margin: 0px; }
 /* light background #cfe0e8 */
 
 .td-dk {
-	white; 
+	color: WhiteSmoke; 
 	/* background-#00B8C8; */
 	background-color: var(--color-dk); /* #8d9db6; */
 	text-align:right; 
