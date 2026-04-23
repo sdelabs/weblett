@@ -99,7 +99,7 @@ h2 { margin: 0px; }
   appearance: none;
   width: 12px;
   height: 12px;
-  background: #667292; /* #04AA6D; */
+  background: var(--color-button); /* #667292; */
   cursor: pointer;
 }
 
@@ -139,7 +139,7 @@ h2 { margin: 0px; }
 
 .tdi-dk {
 	color:white; 
-	background-color:#87bdd8;
+	background-color: var(--color-i-dk) /* #87bdd8; */
 	text-align:right; 
 	vertical-align:top;
 }
@@ -147,13 +147,13 @@ h2 { margin: 0px; }
 .tdi-lt {
 	min-width:55px;
 	color:black;
-	background-color:#b7d7e8;
+	background-color:  var(--color-i-lt); /* #b7d7e8; */
 }
 
 /*
 button {
 	color:white;
-	background-color:#667292;
+	background-color: var(--color-button); /* #667292; */
 }
 
 button:disabled,
