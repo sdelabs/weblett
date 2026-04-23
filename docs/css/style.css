@@ -281,7 +281,7 @@ button[disabled]{
 /* --- Smalle Layout (PDF ernaast / Scherm < 800px) --- */
 @media (max-width: 800px) {
     .grid-container {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: auto 1fr; /* was 1fr 1fr */
         /* Alleen header, tabellen en grafiek. Geen footer-rij. */
         grid-template-rows: auto auto 1fr; 
         grid-template-areas: 
