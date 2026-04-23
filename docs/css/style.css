@@ -45,7 +45,10 @@ table {
     white-space: nowrap;
 }
 
-
+/* Verticale streepje in de achtergrondkleur */
+.separator-right {
+    border-right: 4px solid var(--color-bg-main);
+}
 
 /* --- 6. INTERACTIE (Knoppen & Sliders) --- */
 button {
