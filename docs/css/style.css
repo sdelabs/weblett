@@ -24,6 +24,20 @@ html, body {
     background-color: var(--color-bg-main);
 }
 
+.header { 
+    grid-area: header; 
+    background-color: var(--color-header-footer); 
+    padding: 2px 10px; /* Een heel klein beetje ademruimte */
+    /* Geen vaste hoogte, laat de h1 de hoogte bepalen */
+}
+
+.header h1 {
+    font-size: 1.4em;   /* Duidelijk een kop, maar bescheiden */
+    margin-top: 0.3em;  /* Compacte bovenkant */
+    margin-bottom: 0.3em; /* Compacte onderkant */
+    font-weight: bold;
+}
+
 h2 { margin: 0; }
 
 table {
@@ -150,13 +164,15 @@ button[disabled]{
   box-sizing: border-box;
 }
 
-/* Style the header */
+/* Style the header OLD
 .header {
   grid-area: header;
   background-color: LightGrey;
   padding: 10px;
   text-align: left;
 }
+*/
+
 
 .stateTable,
 .controlTable {
