@@ -36,7 +36,7 @@ html, body {
 .graph {
     grid-area: graph;
     position: relative; /* Essentieel */
-    height: 100%;       /* Vult exact de grid-cel */
+    height: 300px; /* 100%;       /* Vult exact de grid-cel */
     width: 100%;
     min-height: 0;      /* Breekt de feedback-loop */
     min-width: 0;
