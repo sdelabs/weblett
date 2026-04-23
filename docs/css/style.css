@@ -84,8 +84,8 @@ html, body {
 .graph {
 	grid-area: graph;
 	position: relative;
-	width: 100%;
-	height: 100%; 
+	height: 400px; /* 100%; */
+	/* width: 100%; */ 
 	min-height: 0; 
 	min-width: 0;
 	overflow: hidden;
@@ -95,9 +95,6 @@ html, body {
 #myChartCanvas {
     /* Forceer het canvas om ALTIJD de container te volgen, ook omlaag */
     display: block;
-    position: absolute; /* Haalt het canvas uit de flow zodat hij de container niet opduwt */
-    top: 0;
-    left: 0;
     width: 100% !important;
     height: 100% !important;
 }
