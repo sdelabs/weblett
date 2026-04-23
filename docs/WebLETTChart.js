@@ -38,7 +38,7 @@ const myChart = new Chart(ctx, {
 	options: {
 		responsive: true,
 		maintainAspectRatio: false, 
-		resizeDelay: 0,
+		resizeDelay: 10,
 		plugins: {
 			legend: {
 				display: false
