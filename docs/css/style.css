@@ -92,7 +92,7 @@ html, body {
 	/* outline: 1px dashed magenta; */
 }
 
-#myChart {
+#myChartCanvas {
     /* Forceer het canvas om ALTIJD de container te volgen, ook omlaag */
     display: block;
     position: absolute; /* Haalt het canvas uit de flow zodat hij de container niet opduwt */
