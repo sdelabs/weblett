@@ -1,5 +1,41 @@
+/* --- 1. CSS VARIABELEN (Centraal beheer) --- */
+:root {
+    /* Sky Palette Kleuren */
+    --color-bg-main: #daebe8;
+    --color-header-footer: #d3d3d3;
+    --color-dk: #8d9db6;    /* Dark Blue/Grey */
+    --color-lt: #bccad6;    /* Light Grey/Blue */
+    --color-i-dk: #87bdd8;  /* Info Dark */
+    --color-i-lt: #b7d7e8;  /* Info Light */
+    --color-button: #667292;
+    --color-button-disabled: #bccad6;
+}
+
+/* --- 2. BASIS & RESET --- */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: sans-serif;
+    overflow: hidden; /* Voorkom scrollen van de hele pagina */
+    background-color: var(--color-bg-main);
+}
+
+h2 { margin: 0; }
+
+table {
+    border-collapse: collapse;
+    white-space: nowrap;
+}
+
+/* oorspronkelijke stylesheet */
+
 /* some general styles */ 
-table, th, td {
+/* table, th, td { */
+th, td {
     /* border: 1px solid gainsboro; */
     border-collapse: collapse;
     white-space: nowrap;
