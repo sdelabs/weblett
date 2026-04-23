@@ -258,6 +258,7 @@ button[disabled]{
 .grid-container {
     display: grid; 
     height: 100vh;
+    width: 100vh;
     gap: 10px;
     padding: 10px;
     background-color: var(--color-bg-main);
@@ -268,6 +269,7 @@ button[disabled]{
     .grid-container {
 		display: grid;
         grid-template-columns: 380px 1fr;
+		grid-template-rows: auto 1fr auto;
         grid-template-areas: 
             "header       header"
             "stateTable   graph"
