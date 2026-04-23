@@ -248,12 +248,12 @@ button[disabled]{
   }
 } */
 
-@media (max-width: 800px) {
+@media (max-width: 799px) {
   .grid-container  {
     grid-template-areas: 
       'header header header header header header' 
       'stateTable stateTable stateTable controlTable controlTable controlTable' 
-      'graph graph graph graph graph graph' 
-      'footer footer footer footer footer footer';
+      'graph graph graph graph graph graph';
+      /* 'footer footer footer footer footer footer'; */
   }
 }
