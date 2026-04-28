@@ -126,7 +126,7 @@ h2 { margin: 0px; }
 }
 
 .td-lt {
-	min-width:110px;
+	/* min-width:110px; */ 
 	color:black;
 	background-color: var(--color-lt); /* #bccad6; */
 }
