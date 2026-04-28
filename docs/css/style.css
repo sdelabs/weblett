@@ -76,12 +76,12 @@ h2 { margin: 0px; }
 /* sliders - depend on webkit, make this better ! */
 
 .slidecontainer {
-  width: 199px; /* 100%; /* Width of the outside container */
+  width: 175px; /* 199px; /* Width of the outside container */
 }
 
 .slider {
   -webkit-appearance: none;
-  width: 150px; /* 100%; */
+  width: 125px; /* 150; */
   height: 10px;
   background: #d3d3d3;
   outline: none;
