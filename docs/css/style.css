@@ -52,14 +52,14 @@ table {
 
 /* --- 6. INTERACTIE (Knoppen & Sliders) --- */
 button {
-     white;
-    background- var(--color-button);
+	color: white; 
+    background: var(--color-button);
     border: none;
     padding: 8px 16px;
     cursor: pointer;
 }
 
-button:disabled { background- var(--color-button-disabled); cursor: not-allowed; }
+button:disabled { background: var(--color-button-disabled); cursor: not-allowed; }
 
 /* some general styles */ 
 /* table, th, td { */
