@@ -79,7 +79,7 @@ h2 { margin: 0px; }
 
 .slider {
   -webkit-appearance: none;
-  width: 125px; /* 150; */
+  width: 135px; /* 150; */
   height: 10px;
   background: #d3d3d3;
   outline: none;
