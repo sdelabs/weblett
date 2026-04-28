@@ -61,8 +61,6 @@ button {
 
 button:disabled { background- var(--color-button-disabled); cursor: not-allowed; }
 
-/* oorspronkelijke stylesheet */
-
 /* some general styles */ 
 /* table, th, td { */
 th, td {
@@ -120,11 +118,8 @@ h2 { margin: 0px; }
 }
 
 /* W3schools color palettes - Sky Palettes */
-/* light background #cfe0e8 */
-
 .td-dk {
 	color: white; 
-	/* background-#00B8C8; */
 	background-color: var(--color-dk); /* #8d9db6; */
 	text-align:right; 
 	vertical-align:top;
@@ -133,7 +128,6 @@ h2 { margin: 0px; }
 .td-lt {
 	min-width:110px;
 	color:black;
-	/* background-color:#00D8E8; */
 	background-color: var(--color-lt); /* #bccad6; */
 }
 
@@ -149,33 +143,6 @@ h2 { margin: 0px; }
 	color:black;
 	background-color: var(--color-i-lt); /* #b7d7e8; */
 }
-
-/*
-button {
-	color:white;
-	background-color: var(--color-button); /* #667292; */
-}
-
-button:disabled,
-button[disabled]{
-  background-color: var(--color-lt); /* #bccad6; */
-}
-*/
-
-
-* {
-  box-sizing: border-box;
-}
-
-/* Style the header OLD
-.header {
-  grid-area: header;
-  background-color: LightGrey;
-  padding: 10px;
-  text-align: left;
-}
-*/
-
 
 .stateTable,
 .controlTable {
@@ -222,38 +189,6 @@ button[disabled]{
 }
 
 /* The grid container */
-/* OLD GRIDSTUFF OLD
-.grid-container {
-  background-color:#daebe8;
-  grid-template-areas: 
-      'header header header header header header' 
-      'stateTable graph graph graph graph graph' 
-      'controlTable  graph graph graph graph graph' 
-      'footer footer footer footer footer footer';
-} 
-*/
-
-/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-/* @media (min-width: 800px) {
-  .grid-container  {
-    grid-template-areas: 
-      'header header header header header header' 
-      'stateTable graph graph graph graph graph' 
-      'controlTable  graph graph graph graph graph' 
-      'footer footer footer footer footer footer';
-  }
-} */
-
-/* @media (max-width: 799px) {
-  .grid-container  {	  
-    grid-template-areas: 
-      'header header header header header header' 
-      'stateTable stateTable stateTable controlTable controlTable controlTable' 
-      'graph graph graph graph graph graph';
-  }
-} */
-
-
 /* 1. Altijd een grid, op elk scherm */
 .grid-container {
     display: grid; 
