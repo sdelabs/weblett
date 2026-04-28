@@ -292,6 +292,7 @@ button[disabled]{
             "stateTable   controlTable"
             "graph        graph";
         height: 100vh;
+		overflow: auto; /* maak scrollen weer mogelijk */
     }
 
     .footer {
