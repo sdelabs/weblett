@@ -185,7 +185,7 @@ h2 { margin: 0px; }
 }
 
 .myChartCanvas {
-	height: 300px;
+	min-height: 300px;
 	/* position: relative; */
 }
 
