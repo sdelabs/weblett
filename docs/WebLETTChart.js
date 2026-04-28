@@ -36,7 +36,7 @@ const myChart = new Chart(ctx, {
 		} ]
 	},
 	options: {
-		responsive: false,
+		responsive: true,
 		maintainAspectRatio: false, 
 		resizeDelay: 10,
 		plugins: {
