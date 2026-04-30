@@ -13,6 +13,7 @@ const targetSlider = document.getElementById('target-slide');
 const forceSlider = document.getElementById('force-slide');
 const cyclesSlider = document.getElementById('cycle-slide');
 const statusText = document.getElementById('status-text');
+// Test Type contains two bits: test and subtest, assembled in a syngle 16bit value.
 const testTypeTensile = 01; // bit 0
 const testTypeCompression = 02; // bit 1
 const testTypeData = 8; // bit 3
@@ -20,6 +21,7 @@ const subtestTypeFail = 16; // bit 4
 const subtestTypeCreep = 32; // bit 5
 const subtestTypeRelax = 64; // bit 6
 const subtestTypeCyclic = 128; // bit 7
+//
 // positions of datamembers in results
 const posTim = 0
 const posPos = 1
@@ -77,6 +79,7 @@ speedSlider.addEventListener('input', (event) => {
 	speedText.innerText = testSpeed
 });		
 */
+// Give speedslider a non-linear behaviour. 
 const speedList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 15, 16, 18, 20, 22, 25, 30, 35, 40, 45, 50, 60, 70, 75, 80, 90, 100, 110, 120, 125, 130, 140, 150, 160, 175, 180, 200, 220, 240, 250]
 // console.log(speedList.length)
 
@@ -230,6 +233,7 @@ function NewcheckTestType() {
         if (mainTypeEl.id === 'tensile') { testType = testTypeTensile; testTypeText = "Tensile"; }
         if (mainTypeEl.id === 'compression') { testType = testTypeCompression; testTypeText = "Compression"; }
         if (mainTypeEl.id === 'data') { testType = testTypeData; testTypeText = "Data"; }
+		console.log('testType', testType, 'testTypeText', testTypeText);
     }
 
     // 2. Zoek de geselecteerde sub-test (fail, creep, relax, cyclic)
@@ -243,9 +247,10 @@ function NewcheckTestType() {
             'relax': subtestTypeRelax,
             'cyclic': subtestTypeCyclic
         };
-        
+
         subtestType = subMap[subTypeEl.id];
         testTypeText += ` (${subTypeEl.id.charAt(0).toUpperCase() + subTypeEl.id.slice(1)})`;
+        console.log('subtestType', subtestType, 'testTypeText', testTypeText);
     }
 
     // Foutcontrole (precies zoals je het al had)
