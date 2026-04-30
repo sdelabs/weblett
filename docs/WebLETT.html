@@ -69,19 +69,19 @@
 	<td class="td-dk">subtest</td>
 	<td class="td-lt">  
 		<div title="stop on specimen fail">
-			<input type="radio" id="fail" name="test_sub" value="fail" onclick="failClicked()">
+			<input type="radio" id="fail" name="test_sub" value="fail" onchange="failClicked()">
 		 	<label for="fail">fail</label><br>
 		</div>
 		<div title="move to position, monitor change in force (relaxation)">
-			<input type="radio" id="relax" name="test_sub" value="relax" onclick="relaxClicked()">
+			<input type="radio" id="relax" name="test_sub" value="relax" onchange="updateParams('relax')">
 		 	<label for="relax">relaxation</label><br>
 		</div>
 		<div title="move to force, keep force constant, monitor movement (creep)">
-			<input type="radio" id="creep" name="test_sub" value="creep" onclick="creepClicked()">
+			<input type="radio" id="creep" name="test_sub" value="creep" onchange="creepClicked()">
 		 	<label for="creep">creep</label><br>  
 		</div>
 		<div title="cyclic test: repeat motion N times">
-			<input type="radio" id="cyclic" name="test_sub" value="cyclic" onclick="cyclicClicked()">
+			<input type="radio" id="cyclic" name="test_sub" value="cyclic" onchange="cyclicClicked()">
 		 	<label for="cyclic">cyclic</label>
 		</div>
 	</td>
