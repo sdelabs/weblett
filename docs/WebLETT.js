@@ -122,66 +122,19 @@ cyclesSlider.oninput = function() {
 function setControlState(speed, target, force, cycles) {
 	console.log('setControlState', speed, target, force, cycles);
     speedSlider.disabled = !speed;
-    speedText.style.color = speed ? "black" : "lightgrey";
+    speedText.style.opacity = speed ? 1 : 0.3;
     targetSlider.disabled = !target;
     targetText.style.color = target ? "black" : "lightgrey";
     forceSlider.disabled = !force;
-    forceText.style.color = speed ? "black" : "lightgrey";
+    forceText.style.color = force ? "black" : "lightgrey";
     cyclesSlider.disabled = !cycles;
-    cyclesText.style.color = target ? "black" : "lightgrey";    
+    cyclesText.style.color = cycles ? "black" : "lightgrey";    
 }
-
 // parameters: (enable the) speedSlider, targetSlider, forceSlider, cyclesSlider
 function failClicked()  { setControlState(true, false, false, false); }
 function creepClicked() { setControlState(true, false, true, false); }
 function relaxClicked() { setControlState(true, true, false, false); }
 function cyclicClicked() { setControlState(true, true, false, true); }
-
-/* 
-function failClicked() {
-	speedSlider.disabled = false
-	speedText.style.color = "black"
-	targetSlider.disabled = true
-	targetText.style.color = "lightgrey"
-	forceSlider.disabled = true
-	forceText.style.color = "lightgrey"
-	cyclesSlider.disabled = true
-	cyclesText.style.color = "lightgrey"
-}
-
-function creepClicked() {
-	speedSlider.disabled = false;
-	speedText.style.color = "black"
-	targetSlider.disabled = true;
-	targetText.style.color = "lightgrey"
-	forceSlider.disabled = false;
-	forceText.style.color = "black"
-	cyclesSlider.disabled = true;
-	cyclesText.style.color = "lightgrey"
-}
-
-function relaxClicked() {
-	speedSlider.disabled = false;
-	speedText.style.color = "black"
-	targetSlider.disabled = false;
-	targetText.style.color = "black"
-	forceSlider.disabled = true;
-	forceText.style.color = "lightgrey"
-	cyclesSlider.disabled = true;
-	cyclesText.style.color = "lightgrey"
-}
-
-function cyclicClicked() {
-	speedSlider.disabled = false;
-	speedText.style.color = "black"
-	targetSlider.disabled = false;
-	targetText.style.color = "black"
-	forceSlider.disabled = true;
-	forceText.style.color = "lightgrey"
-	cyclesSlider.disabled = false;
-	cyclesText.style.color = "black"
-}
-*/
 
 function sensorClicked(s) {
 	if (s == '100') {
