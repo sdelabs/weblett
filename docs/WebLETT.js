@@ -120,6 +120,7 @@ cyclesSlider.oninput = function() {
 
 // A cleaner solution for setting the sliders. 
 function setControlState(speed, target, force, cycles) {
+	console.log('setControlState', speed, target, force, cycles);
     speedSlider.disabled = !speed;
     speedText.style.color = speed ? "black" : "lightgrey";
     targetSlider.disabled = !target;
