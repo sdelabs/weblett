@@ -124,7 +124,7 @@ function setControlState(speed, target, force, cycles) {
     speedSlider.disabled = !speed;
     speedText.style.opacity = speed ? 1 : 0.3;
     targetSlider.disabled = !target;
-    targetText.style.color = target ? "black" : "lightgrey";
+    targetText.style.opacity = target ? 1 : 0.3;
     forceSlider.disabled = !force;
     forceText.style.color = force ? "black" : "lightgrey";
     cyclesSlider.disabled = !cycles;
