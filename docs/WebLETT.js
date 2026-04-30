@@ -142,6 +142,7 @@ function updateParams(modeName) {
     cyclesText.style.opacity = p.cycles ? "1" : "0.3";
 }
 
+/*
 function setControlState(speed, target, force, cycles) {
 	console.log('setControlState', speed, target, force, cycles);
     speedSlider.disabled = !speed;
@@ -158,6 +159,7 @@ function failClicked()  { setControlState(true, false, false, false); }
 function creepClicked() { setControlState(true, false, true, false); }
 function relaxClicked() { setControlState(true, true, false, false); }
 function cyclicClicked() { setControlState(true, true, false, true); }
+*/
 
 function sensorClicked(s) {
 	if (s == '100') {
