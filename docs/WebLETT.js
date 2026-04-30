@@ -172,7 +172,7 @@ function sensorClicked(s) {
 	sendToLETT(LETTString)
 }
 
-function checkTestType() {
+function OLDcheckTestType() {
 	testType = 0;
 	if (document.getElementById('tensile').checked) {
 		// console.log('tensile');
@@ -215,6 +215,44 @@ function checkTestType() {
 	}
 	if (subtestType == 0) startEnabled = false;
 	if (!startEnabled) errorMessage = "ERROR: check (sub)test type!";
+}
+
+function checkTestType() {
+    testType = 0;
+    testTypeText = "";
+
+    // 1. Zoek de geselecteerde 'hoofd' test (tensile, compression, data)
+    // We zoeken naar de input met name="testType" die 'checked' is
+    const mainTypeEl = document.querySelector('input[name="testType"]:checked');
+    
+    if (mainTypeEl) {
+        // We gebruiken de 'id' van het element om de waarde te bepalen
+        if (mainTypeEl.id === 'tensile') { testType = testTypeTensile; testTypeText = "Tensile"; }
+        if (mainTypeEl.id === 'compression') { testType = testTypeCompression; testTypeText = "Compression"; }
+        if (mainTypeEl.id === 'data') { testType = testTypeData; testTypeText = "Data"; }
+    }
+
+    // 2. Zoek de geselecteerde sub-test (fail, creep, relax, cyclic)
+    const subTypeEl = document.querySelector('input[name="subtestType"]:checked');
+    
+    if (subTypeEl) {
+        // We mappen de ID direct aan de variabelen
+        const subMap = {
+            'fail': subtestTypeFail,
+            'creep': subtestTypeCreep,
+            'relax': subtestTypeRelax,
+            'cyclic': subtestTypeCyclic
+        };
+        
+        subtestType = subMap[subTypeEl.id];
+        testTypeText += ` (${subTypeEl.id.charAt(0).toUpperCase() + subTypeEl.id.slice(1)})`;
+    }
+
+    // Foutcontrole (precies zoals je het al had)
+    let startEnabled = (testType !== 0 && subtestType !== 0);
+    if (!startEnabled) errorMessage = "ERROR: check (sub)test type!";
+    
+    return startEnabled;
 }
 
 function checkSensorType() {
