@@ -172,7 +172,7 @@ function sensorClicked(s) {
 	sendToLETT(LETTString)
 }
 
-function OLDcheckTestType() {
+function checkTestType() {
 	testType = 0;
 	if (document.getElementById('tensile').checked) {
 		// console.log('tensile');
@@ -217,7 +217,7 @@ function OLDcheckTestType() {
 	if (!startEnabled) errorMessage = "ERROR: check (sub)test type!";
 }
 
-function checkTestType() {
+function NewcheckTestType() {
     testType = 0;
     testTypeText = "";
 
