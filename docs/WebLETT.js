@@ -117,7 +117,26 @@ cyclesSlider.oninput = function() {
 	cyclesText.innerText = cyclesList[testCyclesIndex]
 	testCycles = cyclesList[testCyclesIndex]
 }
-		
+
+// A cleaner solution for setting the sliders. 
+function setControlState(speed, target, force, cycles) {
+    speedSlider.disabled = !speed;
+    speedText.style.color = speed ? "black" : "lightgrey";
+    targetSlider.disabled = !target;
+    targetText.style.color = target ? "black" : "lightgrey";
+    forceSlider.disabled = !speed;
+    forceText.style.color = speed ? "black" : "lightgrey";
+    cyclesSlider.disabled = !target;
+    cyclesText.style.color = target ? "black" : "lightgrey";    
+}
+
+// parameters: (enable the) speedSlider, targetSlider, forceSlider, cyclesSlider
+function failClicked()  { setControlState(true, false, false, false); }
+function creepClicked() { setControlState(true, false, true, false); }
+function relaxClicked() { setControlState(true, true, false, false); }
+function cyclicClicked() { setControlState(true, true, false, true); }
+
+/* 
 function failClicked() {
 	speedSlider.disabled = false
 	speedText.style.color = "black"
@@ -161,6 +180,7 @@ function cyclicClicked() {
 	cyclesSlider.disabled = false;
 	cyclesText.style.color = "black"
 }
+*/
 
 function sensorClicked(s) {
 	if (s == '100') {
