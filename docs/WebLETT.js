@@ -119,6 +119,29 @@ cyclesSlider.oninput = function() {
 }
 
 // A cleaner solution for setting the sliders. 
+const modes = {
+    fail:  { speed: true, target: false, force: false,  cycles: false },
+    creep:  { speed: true, target: false,  force: true, cycles: false },
+    relax:  { speed: true, target: true,  force: false, cycles: false },
+    cyclic:  { speed: true, target: true,  force: false, cycles: true }
+};
+
+function updateParams(modeName) {
+    const p = modes[modeName];
+    
+    // De sliders en labels zitten in de 'param' groep
+    speedSlider.disabled  = !p.speed;
+    targetSlider.disabled = !p.target;
+    forceSlider.disabled  = !p.force;
+    cyclesSlider.disabled = !p.cycles;
+
+    // visuele feedback (flets maken)
+    speedText.style.opacity  = p.speed  ? "1" : "0.3";
+    targetText.style.opacity = p.target ? "1" : "0.3";
+    forceText.style.opacity  = p.force  ? "1" : "0.3";
+    cyclesText.style.opacity = p.cycles ? "1" : "0.3";
+}
+
 function setControlState(speed, target, force, cycles) {
 	console.log('setControlState', speed, target, force, cycles);
     speedSlider.disabled = !speed;
