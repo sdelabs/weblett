@@ -23,10 +23,10 @@ function getParameterCookies() {
 	subtestType  = getCookie("LETTsubtest")
 	if (subtestType == "") subtestType = subtestTypeFail 
 	if (debug) console.log('LETTsubtest', subtestType)
-	if (subtestType == subtestTypeFail) { document.getElementById('fail').checked = true; failClicked() } 
-	if (subtestType == subtestTypeRelax) { document.getElementById('relax').checked = true; relaxClicked() } 
-	if (subtestType == subtestTypeCreep) { document.getElementById('creep').checked = true; creepClicked() }
-	if (subtestType == subtestTypeCyclic) { document.getElementById('cyclic').checked = true; cyclicClicked() }
+	if (subtestType == subtestTypeFail) { document.getElementById('fail').checked = true; updateParams('fail') } 
+	if (subtestType == subtestTypeRelax) { document.getElementById('relax').checked = true; updateParams('relax') } 
+	if (subtestType == subtestTypeCreep) { document.getElementById('creep').checked = true; updateParams('creep') }
+	if (subtestType == subtestTypeCyclic) { document.getElementById('cyclic').checked = true; updateParams('cyclic') }
 
 	testSpeed  = getCookie("LETTspeed")
 	testSpeedIndex  = getCookie("LETTspeedIndex")
