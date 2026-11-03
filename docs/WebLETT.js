@@ -432,7 +432,12 @@ function saveData() {
   console.log(' testData' , testData, ' length' , testData.length)
   dataList.forEach(function(data) {
 	if (debug) console.log('data', data)
-	var row = Object.values(data).join(";") // Join the values with semicolons
+	// US - International
+	// var row = Object.values(data).join(";") // Join the values with semicolons
+	// NL-nl - met komma in plaats van decimale punt
+	var row = Object.values(data)
+  		.map(value => typeof value === 'number' ? value.toLocaleString('nl-NL', { useGrouping: false }) : value)
+  		.join(";");
 	if (testDataLinecount < testData.length) {
 		csvContent += row + testData[testDataLinecount] + "\n"
 		testDataLinecount += 1
