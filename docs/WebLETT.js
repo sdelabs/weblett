@@ -108,12 +108,12 @@ forceSlider.addEventListener('input', (event) => {
 // nl-NL is for Dutch installs of Excel (not neccesaraly Dutch Language !)
 // en-US is for non Dutch
 let isDutch = true;
-const toggleCell = document.getElementById('dataToggle');
-toggleCell.addEventListener('click', () => {
+const toggleLocale = document.getElementById('toggleLocale');
+toggleLocale.addEventListener('click', () => {
     // 1. Draai de status om
     currentLocale = (currentLocale === 'nl-NL') ? 'en-US' : 'nl-NL';
     // 2. Pas de tekst in de cell aan
-	toggleCell.textContent = (currentLocale === 'nl-NL') ? 'data (NL)' : 'data (US)';
+	toggleLocale.textContent = (currentLocale === 'nl-NL') ? 'data (NL)' : 'data (US)';
 });
 
 /*
