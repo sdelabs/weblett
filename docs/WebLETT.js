@@ -108,7 +108,7 @@ forceSlider.addEventListener('input', (event) => {
 // nl-NL is for Dutch installs of Excel (not neccesaraly Dutch Language !)
 // en-US is for non Dutch
 let isDutch = true;
-const toggleLocale = document.getElementById('toggleLocale');
+const toggleLocale = document.getElementById('toggle-locale');
 toggleLocale.addEventListener('click', () => {
     // 1. Draai de status om
     currentLocale = (currentLocale === 'nl-NL') ? 'en-US' : 'nl-NL';
