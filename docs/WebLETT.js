@@ -42,6 +42,7 @@ var testType = 0
 var testTypeText = ""
 var subtestType = 0
 var LETTnumber
+var SoftwareVersion
 var LETTtime = -1
 var starTime = -1
 var testRunning = false
@@ -497,7 +498,8 @@ function processIncoming(line) {
 	var data = line.split(';')
 	for (i = 0; i<data.length; i++) {
 		//console.log(data[i]);
-		
+		/////////////////////////////////////////////////////////////////////////////////
+		// Here's the 'normal data' as sent during measurements or when the LETT is idle.
 		// standard data package (force, position, time, resistance, temperature
 		if (data[i].startsWith('p')) { // position
 			//console.log('p', data[i].split('p'))
@@ -554,16 +556,19 @@ function processIncoming(line) {
 			dataPoint[posNum] = num
 			document.getElementById("cycl").innerHTML=num;
 		}
-		
+		/////////////////////////////////////////////////////////////////////////////////		
+		// Here's the 'administrative data' as sent during initialisation.
+		// standard data package (LETT number, software version, installed loadcell,
+		// presence of ADC and/or K-Type temperature sensor
 		//if (data[i].startsWith('V')) { // LETT number
-		if (data[i].indexOf('V') != -1) { // LETT number
+		if (data[i].indexOf('V') != -1) { // LETT number (OBSOLETE - OLD PROTOCOL VERSION)
 			if(debug) console.log('V', data[i].split('V')[1]);
 			n = parseInt(data[i].split('V')[1]);
 			document.getElementById("num").innerHTML="LETT " + n;
 		}				
 
 		// configuration info (
-		if (data[i].startsWith('L')) { // Loadcell / Sensor installed
+		if (data[i].startsWith('L')) { // Loadcell / Sensor installed (OBSOLETE - OLD PROTOCOL VERSION)
 			s = parseInt(data[i].split('L')[1]);
 			if (s==1) {
 				sensorType = 100;
@@ -577,18 +582,24 @@ function processIncoming(line) {
 
 		if (data[i].startsWith('W')) { // Versionstring new style
 			v = data[i].split('W')[1].substr(0);
-			document.getElementById('swver').innerText = 'V' + v;
+			document.getElementById('swver').innerText = 'V' + v
+			SoftwareVersion = v
 		}
 
 		if (data[i].startsWith('X')) { // LETT number (new style)
 			n = parseInt(data[i].split('X')[1]);
 			document.getElementById("num").innerHTML="LETT " + n;
+			LETTnumber = n;
 		}
 
-		if (data[i].startsWith('Y')) { // Hardware config (fourpoint / K-Type)
-			s = parseInt(data[i].split('Y')[1]);
-		}
-
+		//if (data[i].startsWith('Y')) { // Hardware config (fourpoint / K-Type)
+		//	s = parseInt(data[i].split('Y')[1]);
+		//}
+		
+		//////////////////////////////////////////////////////////////////////
+		// Hardware config (bitwise)
+		// 0001 - 100 kg installed, 0010 - 500 kg installed
+		// 0100 - ADS1115 installed, 1000 - MPC (K-type) installed.		
 		if (data[i].startsWith('Y')) { // Hardware config (fourpoint / K-Type)
 			h = parseInt(data[i].split('Y')[1]);
 			if (h &  1) {
