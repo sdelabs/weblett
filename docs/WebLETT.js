@@ -70,6 +70,7 @@ const testEndReasons = [
 "Specimen Fail", 
 "Force Overload" ];
 
+currentLocale = 'nl-NL'
 var dataList = []
 var dataPoint = []
 var testData = []
@@ -102,6 +103,18 @@ forceSlider.addEventListener('input', (event) => {
 	testForce = Math.floor(10 ** (parseInt(event.target.value)/100))
 	forceText.innerText = testForce
 });		
+
+// Toggle the locale for data saving
+// nl-NL is for Dutch installs of Excel (not neccesaraly Dutch Language !)
+// en-US is for non Dutch
+let isDutch = true;
+const toggleCell = document.getElementById('dataToggle');
+toggleCell.addEventListener('click', () => {
+    // 1. Draai de status om
+    currentLocale = (currentLocale === 'nl-NL') ? 'en-US' : 'nl-NL';
+    // 2. Pas de tekst in de cell aan
+	toggleCell.textContent = (currentLocale === 'nl-NL') ? 'data (NL)' : 'data (US)';
+});
 
 /*
 cyclesSlider.addEventListener('input', (event) => {
@@ -435,8 +448,9 @@ function saveData() {
 	// US - International
 	// var row = Object.values(data).join(";") // Join the values with semicolons
 	// NL-nl - met komma in plaats van decimale punt
+	currentLocale = isDutch ? 'nl-NL' : 'en-US';
 	var row = Object.values(data)
-  		.map(value => typeof value === 'number' ? value.toLocaleString('nl-NL', { useGrouping: false }) : value)
+  		.map(value => typeof value === 'number' ? value.toLocaleString(currentLocale, { useGrouping: false }) : value)
   		.join(";");
 	if (testDataLinecount < testData.length) {
 		csvContent += row + testData[testDataLinecount] + "\n"
