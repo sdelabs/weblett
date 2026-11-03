@@ -37,12 +37,13 @@ const neutral = 'LightGray'
 const badWarning = 'lightSalmon'
 const bad = 'red'
 
+const WebLETTversion = 261103
 var debug = false
 var testType = 0
 var testTypeText = ""
 var subtestType = 0
 var LETTnumber
-var SoftwareVersion
+var LETTSoftwareVersion
 var LETTtime = -1
 var starTime = -1
 var testRunning = false
@@ -409,7 +410,7 @@ function saveData() {
 					
 	Started 1 Feb 2022 16:16		Final state: Finished normally		
 */
-	testData[1] = ";;LETT2020 Version XXXX " // + SoftwareVersion
+	testData[1] = ";;LETT2020 Version " + LETTSoftwareVersion
 	testData[2] = ""
  	testData[3] = ";;Test parameters"
 	testData[4] = ";;LETT number: " + LETTnumber + ";; Sensor: " + sensorType + "kg"
@@ -582,9 +583,9 @@ function processIncoming(line) {
 
 		if (data[i].startsWith('W')) { // Versionstring new style
 			v = data[i].split('W')[1].substr(0);
-			document.getElementById('swver').innerText = 'V' + v
-			SoftwareVersion = v
-			if (debug) console.log('LETT Software V', SoftwareVersion)
+			document.getElementById('swver').innerText = ' V' + v
+			LETTSoftwareVersion = v
+			if (debug) console.log('LETT Software V', LETTSoftwareVersion)
 		}
 
 		if (data[i].startsWith('X')) { // LETT number (new style)
