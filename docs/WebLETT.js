@@ -443,12 +443,12 @@ function saveData() {
   // Iterate over the dataset and append each row to the CSV content
   testDataLinecount = 0
   console.log(' testData' , testData, ' length' , testData.length)
+  if (debug) console.log('current locale', currentLocale)
   dataList.forEach(function(data) {
 	if (debug) console.log('data', data)
 	// US - International
 	// var row = Object.values(data).join(";") // Join the values with semicolons
 	// NL-nl - met komma in plaats van decimale punt
-	currentLocale = isDutch ? 'nl-NL' : 'en-US';
 	var row = Object.values(data)
   		.map(value => typeof value === 'number' ? value.toLocaleString(currentLocale, { useGrouping: false }) : value)
   		.join(";");
