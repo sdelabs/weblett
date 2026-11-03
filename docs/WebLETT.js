@@ -584,12 +584,14 @@ function processIncoming(line) {
 			v = data[i].split('W')[1].substr(0);
 			document.getElementById('swver').innerText = 'V' + v
 			SoftwareVersion = v
+			if (debug) console.log('LETT Software V', SoftwareVersion)
 		}
 
 		if (data[i].startsWith('X')) { // LETT number (new style)
 			n = parseInt(data[i].split('X')[1]);
 			document.getElementById("num").innerHTML="LETT " + n;
 			LETTnumber = n;
+			if (debug) console.log('LETTnumber', LETTnumber)
 		}
 
 		//if (data[i].startsWith('Y')) { // Hardware config (fourpoint / K-Type)
