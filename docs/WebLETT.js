@@ -13,6 +13,7 @@ const targetSlider = document.getElementById('target-slide');
 const forceSlider = document.getElementById('force-slide');
 const cyclesSlider = document.getElementById('cycle-slide');
 const statusText = document.getElementById('status-text');
+const freeText = document.getElementById('free-text');
 // Test Type contains two bits: test and subtest, assembled in a syngle 16bit value.
 const testTypeTensile = 01; // bit 0
 const testTypeCompression = 02; // bit 1
@@ -431,6 +432,8 @@ function saveData() {
 	testData[6] = ";;Force limit: " + testForce + ";;; Displacement: " + testTarget + ";; Cycles: " + testCycles
 	testData[7] = ""
  	testData[8] = ";;Started: " + testStarted + ";;; Final state: " + testEndReasons[testEndReason]
+	testData[9] = ""
+ 	testData[8] = ";;Comment: " + freeText.value
 
 	console.log(' testData' , testData, ' length' , testData.length)
 	
