@@ -255,7 +255,7 @@ function checkTestForce() {
 	// console.log('force', testForce);
 	if (subtestType != subtestTypeCreep) return;
 	if (sensorType == 100) maxForce = 1000;
-	if (sensorType == 500) maxforce = 5000;
+	if (sensorType == 500) maxForce = 5000;
 	if (sensorType == 500 && testType == testTypeCompression) maxForce  = 2000;
 
 	if (testForce<1 || testForce > maxForce) {
