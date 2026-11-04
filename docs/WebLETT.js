@@ -414,7 +414,7 @@ function addDataPoint(dp) {
 
 function saveData() {
 /* 	assemble testdata
-	LETT2020 version February 2021 maintained by Adrie Kooijman				
+	LETT version February 2021 maintained by Adrie Kooijman				
 					
 	Test parameters				
 	LETT number: 5		Sensor: 100 kg		
@@ -423,7 +423,7 @@ function saveData() {
 					
 	Started 1 Feb 2022 16:16		Final state: Finished normally		
 */
-	testData[1] = ";;LETT2020 Version " + LETTSoftwareVersion
+	testData[1] = ";;LETT Version " + LETTSoftwareVersion
 	testData[2] = ""
  	testData[3] = ";;Test parameters"
 	testData[4] = ";;LETT number: " + LETTnumber + ";;; Sensor: " + sensorType + "kg"
