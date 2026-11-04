@@ -119,13 +119,14 @@
 		<td colspan="4">&nbsp;</td>
 	</tr><tr>
 		<td class="td-dk separator-right" colspan="2" style="text-align:center">LETT Control</td>
-		<td class="td-dk" title="click to change the data (csv) style from dutch (nl-NL) to US (en-US) format so your version of Excel can open it." 
+		<td class="td-dk" title="click to toggle the output data style from dutch (nl-NL) to US (en-US) format so your version of Excel can open it.&#10;
+			Dutch laptops should be ok with NL - (regardless of the language selected), Others should work with US" 
 			id="toggle-locale" colspan="2" style="text-align:center">data (NL)</td>
 	</tr><tr>
-		<td><button id="start-button" type="button" onclick="startStop()" disabled>START</button></td>
+		<td><button id="start-button" type="button" title="check settings and start the test" onclick="startStop()" disabled>START</button></td>
 		<td style="text-align:right"><button id="up-button" type="button" onmousedown="gripperUp()" onmouseup="gripperStop()" disabled>UP</button>
 		  <button id="down-button" type="button" onmousedown="gripperDown()" onmouseup="gripperStop()" disabled>DOWN</button></td>
-		<td style="text-align:right"><button id="save-button" type="button" onclick="saveData()" disabled>SAVE</button></td>
+		<td style="text-align:right"><button id="save-button" type="button" title="For Dutch (TU) laptops: use NL style data, for international laptops: US style should work" onclick="saveData()" disabled>SAVE</button></td>
 		<td><button id="clear-button" type="button" onclick="clearData(true)" disabled>CLEAR</button></td>
 	</tr>
 	</table>
