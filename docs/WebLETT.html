@@ -100,10 +100,10 @@
 		<td class="td-dk">settings</td>
 
 		<td class="td-lt" style="font-size:0.85em; line-height: 1.25em; text-align:right">
-			<div>speed [mm/min] <span id="speedText">&nbsp;</span></div>
-			<div>target pos [mm] <span id="targetText" >&nbsp;</span></div>
-			<div>target force [N] <span id="forceText">&nbsp;</span></div>
-			<div>cycles <span id="cyclesText">&nbsp;</span></div>
+			<div title = "set speed between 5 and 240">speed [mm/min] <span id="speedText">&nbsp;</span></div>
+			<div title = "relaxation test: set initial extension">target pos [mm] <span id="targetText" >&nbsp;</span></div>
+			<div title = "creep test: set initial force">target force [N] <span id="forceText">&nbsp;</span></div>
+			<div title = "cyclic test: set number of cycles">cycles <span id="cyclesText">&nbsp;</span></div>
 		</td>
 		
 		<td class="td-lt" colspan="2">
@@ -128,6 +128,9 @@
 		  <button id="down-button" type="button" onmousedown="gripperDown()" onmouseup="gripperStop()" disabled>DOWN</button></td>
 		<td style="text-align:right"><button id="save-button" type="button" title="For Dutch (TU) laptops: use NL style data, for international laptops: US style should work" onclick="saveData()" disabled>SAVE</button></td>
 		<td><button id="clear-button" type="button" onclick="clearData(true)" disabled>CLEAR</button></td>
+	</tr><tr>
+		<td>&nbsp;</td>
+		<td>dataformat is csv, different for dutch (TU) and nondutch laptops</td>
 	</tr>
 	</table>
     </div>
