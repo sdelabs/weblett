@@ -15,8 +15,8 @@ const cyclesSlider = document.getElementById('cycle-slide');
 const statusText = document.getElementById('status-text');
 const freeText = document.getElementById('free-text');
 // Test Type contains two bits: test and subtest, assembled in a syngle 16bit value.
-const testTypeTensile = 01; // bit 0
-const testTypeCompression = 02; // bit 1
+const testTypeTensile = 1; // bit 0
+const testTypeCompression = 2; // bit 1
 const testTypeData = 8; // bit 3
 const subtestTypeFail = 16; // bit 4
 const subtestTypeCreep = 32; // bit 5
@@ -46,7 +46,7 @@ var subtestType = 0
 var LETTnumber
 var LETTSoftwareVersion
 var LETTtime = -1
-var starTime = -1
+// var starTime = -1
 var testRunning = false
 var unsavedData = false
 var samples = 0
@@ -59,6 +59,9 @@ var LETTString
 var LETTmoving = false
 var BLEconnected = false
 var USBconnected = false
+
+let startEnabled = false;
+let errorMessage = 'ERROR: Message undefined!';
 
 var testEndReason = 0
 const testEndReasons = [
@@ -254,6 +257,7 @@ function checkTestSpeed() {
 
 function checkTestForce() {
 	// console.log('force', testForce);
+	var maxForce = -1; 
 	if (subtestType != subtestTypeCreep) return;
 	if (sensorType == 100) maxForce = 1000;
 	if (sensorType == 500) maxForce = 5000;
@@ -433,7 +437,7 @@ function saveData() {
 	testData[7] = ""
  	testData[8] = ";;Started: " + testStarted + ";;; Final state: " + testEndReasons[testEndReason]
 	testData[9] = ""
- 	testData[8] = ";;Comment: " + freeText.value
+ 	testData[10] = ";;Comment: " + freeText.value
 
 	console.log(' testData' , testData, ' length' , testData.length)
 	
@@ -499,7 +503,7 @@ function clearData(override = false) {
 		}			
 	}
 
-	if (checkUnsavedData() & !override) return
+	if (checkUnsavedData() && !override) return
 	myChart.config.data.datasets[0].data = [] // Force
 	myChart.config.data.datasets[1].data = [] // Resistance
 	myChart.config.data.datasets[2].data = [] // Temperature
