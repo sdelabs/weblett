@@ -171,7 +171,7 @@ h2 { margin: 0px; }
 .controlTable {
   grid-area: controlTable;
   /* background-color:#daebe8; */
-  align-self: end;
+  /* align-self: end; */
 }
 
 /* Style the graph */
