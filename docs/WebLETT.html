@@ -53,15 +53,15 @@
 	<td class="td-lt">
 		<div title="extend (pull) the specimen">
 			<input type="radio" id="tensile" name="test-type" value="tensile" >
-		 	<label for="tensile">tensile</label><br>
+		 	<label for="tensile">tensile</label><!--br-->
 		</div>
 		<div  title="compress the specimen">
 			<input type="radio" id="compression" name="test-type" value="compression">
-		 	<label for="compression">compression</label><br>
+		 	<label for="compression">compression</label><!--br-->
 		</div>
 		<div title="collect data, (optional) manual control of the motor">
 			<input type="radio" id="data" name="test-type" value="manual" >
-		 	<label for="data">data collect</label><br>
+		 	<label for="data">data collect</label><!--br-->
 		</div>
 		&nbsp;
 	</td>
@@ -69,19 +69,19 @@
 	<td class="td-dk">subtest</td>
 	<td class="td-lt">  
 		<div title="stop on specimen fail">
-			<input type="radio" id="fail" name="test_sub" value="fail" onchange="updateParams('fail')">
+			<input type="radio" id="fail" name="test-sub" value="fail" onchange="updateParams('fail')">
 		 	<label for="fail">fail</label><br>
 		</div>
 		<div title="move to position, monitor change in force (relaxation)">
-			<input type="radio" id="relax" name="test_sub" value="relax" onchange="updateParams('relax')">
+			<input type="radio" id="relax" name="test-sub" value="relax" onchange="updateParams('relax')">
 		 	<label for="relax">relaxation</label><br>
 		</div>
 		<div title="move to force, keep force constant, monitor movement (creep)">
-			<input type="radio" id="creep" name="test_sub" value="creep" onchange="updateParams('creep')">
+			<input type="radio" id="creep" name="test-sub" value="creep" onchange="updateParams('creep')">
 		 	<label for="creep">creep</label><br>  
 		</div>
 		<div title="cyclic test: repeat motion N times">
-			<input type="radio" id="cyclic" name="test_sub" value="cyclic" onchange="updateParams('cyclic')">
+			<input type="radio" id="cyclic" name="test-sub" value="cyclic" onchange="updateParams('cyclic')">
 		 	<label for="cyclic">cyclic</label>
 		</div>
 	</td>
@@ -130,7 +130,7 @@
 		<td><button id="clear-button" type="button" onclick="clearData(true)" disabled>CLEAR</button></td>
 	</tr><tr>
 		<td class="td-dk separator-right" title="Free text to describe the test in the result-file.">comment</td>
-  		<td colspan=3><input class="td-lt" style="width: 100%;" type="text" id="free-text" placeholder="will be shown in result file"></td>
+  		<td colspan="3"><input class="td-lt" style="width: 100%;" type="text" id="free-text" placeholder="will be shown in result file"></td>
 	</tr>
 	</table>
     </div>
