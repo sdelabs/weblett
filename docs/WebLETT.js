@@ -489,9 +489,97 @@ function saveData() {
 
 	  startButton.style.backgroundColor = '#667292'
 	  unsavedData = false
+
+	  // Testing purpose, also save XLSX data
+	 saveDataXLSX()
 	}
   }
 }
+
+// <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+function saveDataXSLX() {
+	// First Assemble the metadata
+	// TODO: make this a separate function.
+	testData[1] = ";;LETT Version " + LETTSoftwareVersion
+	testData[2] = ""
+ 	testData[3] = ";;Test parameters"
+	testData[4] = ";;LETT number: " + LETTnumber + ";;; Sensor: " + sensorType + "kg"
+	testData[5] = ";;Test type: " + testTypeText + ";;; Speed: " + testSpeed
+	testData[6] = ";;Force limit: " + testForce + ";;; Displacement: " + testTarget + ";; Cycles: " + testCycles
+	testData[7] = ""
+ 	testData[8] = ";;Started: " + testStarted + ";;; Final state: " + testEndReasons[testEndReason]
+	testData[9] = ""
+ 	testData[10] = ";;Comment: " + freeText.value
+	console.log(' testData' , testData, ' length' , testData.length)
+
+    // 1. Vraag de bestandsnaam op (pas extensie standaard aan naar .xlsx)
+    var filename = prompt("Please enter a filename", "LETTdata.xlsx");
+    if (!filename) return; // Geannuleerd door gebruiker
+
+    // Zorg ervoor dat het bestand eindigt op .xlsx
+    if (!filename.toLowerCase().endsWith('.xlsx')) {
+        filename += '.xlsx';
+    }
+
+    // 2. Bouw de rijen op als een Array van Arrays (aoa)
+    var rows = [];
+
+    // Kolomkopteksten toevoegen
+    rows.push([
+        "Time [ms]", 
+        "Extension [mm]", 
+        "Force [N]", 
+        "Resistance [Ohm]", 
+        "Temperature [°C]"
+    ]);
+
+    // 3. Data toevoegen
+    var testDataLinecount = 0;
+    
+    dataList.forEach(function(data) {
+        // Haal de numerieke/ruwe waarden uit het data object (ZONDER toLocaleString!)
+        var rowValues = Object.values(data);
+
+        // Als er nog metadata-regels zijn uit testData, voeg deze toe in de kolommen erachter
+        if (testDataLinecount < testData.length) {
+            var metaText = testData[testDataLinecount] || "";
+            
+            // testData bevat oorspronkelijk puntkomma's als pseudo-kolommen (;;),
+            // dus die splitsen we netjes over losse Excel-cellen:
+            var metaCells = metaText.split(";"); 
+            
+            // Combineer de datakolommen met de metadata-kolommen
+            rowValues = rowValues.concat(metaCells);
+            testDataLinecount++;
+        }
+
+        rows.push(rowValues);
+    });
+
+    // 4. Maak het Excel werkblad en werkmap aan via SheetJS
+    var worksheet = XLSX.utils.aoa_to_sheet(rows);
+    var workbook = XLSX.utils.book_new();
+    
+    // Voeg het tabblad toe aan de werkmap (naam: "TestData")
+    XLSX.utils.book_append_sheet(workbook, worksheet, "TestData");
+
+    // 5. Exporteer en start de download automatisch
+    XLSX.writeFile(workbook, filename);
+
+    // Update de UI status
+    if (typeof startButton !== 'undefined' && startButton) {
+        startButton.style.backgroundColor = '#667292';
+    }
+    unsavedData = false;
+}
+
+/*
+### Belangrijkste veranderingen & voordelen:
+
+1. **Geen `toLocaleString` meer:** Laat de nummers in `dataList` gewoon `numbers` blijven (`12.34`). SheetJS slaat ze op als echte getallen in het `.xlsx`-formaat. Excel toont ze bij de gebruiker automatisch met het juiste scheidingsteken (komma in NL, punt in US).
+2. **Geen handmatige links/Blobs meer:** `XLSX.writeFile(workbook, filename)` vervangt al je code rondom `new Blob()`, `URL.createObjectURL` en `navigator.msSaveOrOpenBlob`. SheetJS regelt het opslaan voor alle browsers (ook IE/Edge).
+3. **Metadata netjes in kolommen:** `testData` bevatte string-constructies met `;`. Door `.split(";")` toe te passen, worden deze eigenschappen in losse kolommen (naast je metingen) geplaatst in plaats van dat ze als één lange tekststring op elkaar geplakt worden.
+*/
 
 function clearData(override = false) {
 	if (override) {
