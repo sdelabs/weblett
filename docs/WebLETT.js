@@ -21,7 +21,7 @@ const testTypeData = 8; // bit 3
 const subtestTypeFail = 16; // bit 4
 const subtestTypeCreep = 32; // bit 5
 const subtestTypeRelax = 64; // bit 6
-const subtestTypeCyclic = 128; // bit 7
+const subtestType = 128; // bit 7
 //
 // positions of datamembers in results
 const posTim = 0
@@ -141,7 +141,7 @@ const modes = {
     fail:  { speed: true, target: false, force: false,  cycles: false },
     creep:  { speed: true, target: false,  force: true, cycles: false },
     relax:  { speed: true, target: true,  force: false, cycles: false },
-    cyclic:  { speed: true, target: true,  force: false, cycles: true }
+    :  { speed: true, target: true,  force: false, cycles: true }
 };
 
 function updateParams(modeName) {
@@ -176,7 +176,7 @@ function setControlState(speed, target, force, cycles) {
 function failClicked()  { setControlState(true, false, false, false); }
 function creepClicked() { setControlState(true, false, true, false); }
 function relaxClicked() { setControlState(true, true, false, false); }
-function cyclicClicked() { setControlState(true, true, false, true); }
+function Clicked() { setControlState(true, true, false, true); }
 */
 
 function sensorClicked(s) {
@@ -228,10 +228,10 @@ function checkTestType() {
 		subtestType = subtestTypeRelax;
 		testTypeText += " (Relax)"
 	}
-	if (document.getElementById('cyclic').checked) {
-		// console.log('cyclic');
-		subtestType = subtestTypeCyclic;
-		testTypeText += " (Cyclic)"
+	if (document.getElementById('').checked) {
+		// console.log('');
+		subtestType = subtestType;
+		testTypeText += " ()"
 	}
 	if (subtestType == 0) startEnabled = false;
 	if (!startEnabled) errorMessage = "ERROR: check (sub)test type!";
@@ -270,7 +270,7 @@ function checkTestForce() {
 }
 
 function checkTestTarget() {
-	if (subtestType != subtestTypeRelax && subtestType != subtestTypeCyclic) return;
+	if (subtestType != subtestTypeRelax && subtestType != subtestType) return;
 	// console.log('goto', testTarget);
 	if (testTarget<0 || testTarget>100) {
 		startEnabled = false; 
@@ -279,7 +279,7 @@ function checkTestTarget() {
 }
 
 function checkTestCycles() {
-	if (subtestType != subtestTypeCyclic) return;
+	if (subtestType != subtestType) return;
 	if (testCycles<0 || testCycles>1000) {
 		startEnabled = false;
 		errorMessage = 'ERROR: # cycles out of range';
@@ -369,7 +369,7 @@ function startStop() {
 			showMessage('test running', goodWarning);
 			testStarted = Date().toLocaleString()
 			document.getElementById('smplLabel').style.visibility='visible'
-			if (subtestType==subtestTypeCyclic) {
+			if (subtestType==subtestType) {
 				console.log('**** visible')
 				document.getElementById('cycLabel').style.visibility='visible'
 				document.getElementById('cycl').style.visibility='visible'
@@ -422,20 +422,23 @@ function saveDataXSLX() {
 	// First Assemble the metadata
 	// TODO: make this a separate function.
 	sep = ","
-	testData[1] = sep + sep + "LETT number:" + LETTnumber   + ""
-	testData[2] = sep + sep + "SW Version " + LETTSoftwareVersion
-	testData[3] = ""
- 	testData[4] = sep + sep + "Test parameters"
-	testData[5] = sep + sep + "Sensor: " + sensorType + "kg"
-	testData[6] = sep + sep + "Test type:"   + testTypeText
-	testData[7] = sep + sep + "Speed: " + testSpeed
-	testData[8] = sep + sep + "Force limit:" + testForce
-	testData[9] = sep + sep + "Displacement: " + testTarget
-	testData[10] = sep + sep + "Cycles: " + testCycles
-	testData[11] = ""
- 	testData[12] = sep + sep + "Test started: " + testStarted 
-	testData[13] = sep + sep + "Final state: " + testEndReasons[testEndReason]
- 	testData[14] =sep + sep + "Comment: " + freeText.value
+	i=0
+	testData = []
+	testData[i++] = ""
+	testData[i++] = sep + sep + "LETT number:" + LETTnumber   + ""
+	testData[i++] = sep + sep + "SW Version " + LETTSoftwareVersion
+	testData[i++] = ""
+ 	testData[i++] = sep + sep + "Test parameters"
+	testData[i++] = sep + sep + "Sensor: " + sensorType + "kg"
+	testData[i++] = sep + sep + "Test type:"   + testTypeText
+	testData[i++] = sep + sep + "Speed: " + testSpeed
+	testData[i++] = sep + sep + "Force limit:" + testForce
+	testData[i++] = sep + sep + "Displacement: " + testTarget
+	testData[i++] = sep + sep + "Cycles: " + testCycles
+	testData[i++] = ""
+ 	testData[i++] = sep + sep + "Test started: " + testStarted 
+	testData[i++] = sep + sep + "Final state: " + testEndReasons[testEndReason]
+ 	testData[i++] =sep + sep + "Comment: " + freeText.value
 	console.log(' testData' , testData, ' length' , testData.length)
 
     // 1. Vraag de bestandsnaam op (pas extensie standaard aan naar .xlsx)
@@ -464,7 +467,7 @@ function saveDataXSLX() {
     var testDataLinecount = 0;
     
     dataList.forEach(function(data) {
-        // Haal de numerieke/ruwe waarden uit het data object (ZONDER toLocaleString!)
+        // Haal de numerieke/ruwe waarden uit het data object
         var rowValues = Object.values(data);
 
         // Als er nog metadata-regels zijn uit testData, voeg deze toe in de kolommen erachter
@@ -512,16 +515,7 @@ function saveDataXSLX() {
 */
 
 function saveData() {
-/* 	assemble testdata
-	LETT version February 2021 maintained by Adrie Kooijman				
-					
-	Test parameters				
-	LETT number: 5		Sensor: 100 kg		
-	Test type: cyclic		Speed: 5 mm/min		
-	Force limit: 0		Distance: 1		Cycles: 4
-					
-	Started 1 Feb 2022 16:16		Final state: Finished normally		
-*/
+	// assemble testdata
 	testData[1] = ";;LETT Version " + LETTSoftwareVersion
 	testData[2] = ""
  	testData[3] = ";;Test parameters"
