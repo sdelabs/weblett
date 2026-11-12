@@ -467,7 +467,10 @@ function saveDataXSLX() {
             
             // testData bevat oorspronkelijk puntkomma's als pseudo-kolommen (;;),
             // dus die splitsen we netjes over losse Excel-cellen:
-            var metaCells = metaText.split(";"); 
+            // var metaCells = metaText.split(";"); 
+			// Be sure empty cells are empty and don't contain an empty string
+			// Longer text will be cut of otherwise.
+			var metaCells = metaText.split(";").map(cell => cell === "" ? null : cell);
             
             // Combineer de datakolommen met de metadata-kolommen
             rowValues = rowValues.concat(metaCells);
