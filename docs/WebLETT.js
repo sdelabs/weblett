@@ -430,10 +430,10 @@ function saveDataXSLX() {
 	testData[6] = sep + sep + "Test type:"   + testTypeText
 	testData[7] = sep + sep + "Speed: " + testSpeed
 	testData[8] = sep + sep + "Force limit:" + testForce
-	testData[9] = sep + sep + "Displacement: " + testTarget + sep + sep + "Cycles: " + testCycles
+	testData[9] = sep + sep + "Displacement: " + testTarget
 	testData[10] = sep + sep + "Cycles: " + testCycles
 	testData[11] = ""
- 	testData[12] = sep + sep + "Started: " + testStarted 
+ 	testData[12] = sep + sep + "Test started: " + testStarted 
 	testData[13] = sep + sep + "Final state: " + testEndReasons[testEndReason]
  	testData[14] =sep + sep + "Comment: " + freeText.value
 	console.log(' testData' , testData, ' length' , testData.length)
@@ -456,7 +456,8 @@ function saveDataXSLX() {
         "Extension [mm]", 
         "Force [N]", 
         "Resistance [Ohm]", 
-        "Temperature [°C]"
+        "Temperature [°C]",
+		"Cycles"
     ]);
 
     // 3. Data toevoegen
