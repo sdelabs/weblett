@@ -429,9 +429,9 @@ function saveDataXSLX() {
 	testData[5] = sep + sep + "Test type:"   + testTypeText + sep + " Speed: " + testSpeed
 	testData[6] = sep + sep + "Force limit:" + testForce    + sep + " Displacement: " + testTarget + sep + sep + "Cycles: " + testCycles
 	testData[7] = ""
- 	testData[8] = sep + sep + "Started: " + testStarted + ";;; 
+ 	testData[8] = sep + sep + "Started: " + testStarted 
 	testData[9] = sep + sep + "Final state: " + testEndReasons[testEndReason]
- 	testData[10] = sep + sep + "Comment: " + freeText.value
+ 	testData[10] =sep + sep + "Comment: " + freeText.value
 	console.log(' testData' , testData, ' length' , testData.length)
 
     // 1. Vraag de bestandsnaam op (pas extensie standaard aan naar .xlsx)
