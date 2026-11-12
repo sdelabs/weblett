@@ -417,85 +417,6 @@ function addDataPoint(dp) {
 	dataList.push([].concat(dp))
 }
 
-function saveData() {
-/* 	assemble testdata
-	LETT version February 2021 maintained by Adrie Kooijman				
-					
-	Test parameters				
-	LETT number: 5		Sensor: 100 kg		
-	Test type: cyclic		Speed: 5 mm/min		
-	Force limit: 0		Distance: 1		Cycles: 4
-					
-	Started 1 Feb 2022 16:16		Final state: Finished normally		
-*/
-	testData[1] = ";;LETT Version " + LETTSoftwareVersion
-	testData[2] = ""
- 	testData[3] = ";;Test parameters"
-	testData[4] = ";;LETT number: " + LETTnumber + ";;; Sensor: " + sensorType + "kg"
-	testData[5] = ";;Test type: " + testTypeText + ";;; Speed: " + testSpeed
-	testData[6] = ";;Force limit: " + testForce + ";;; Displacement: " + testTarget + ";; Cycles: " + testCycles
-	testData[7] = ""
- 	testData[8] = ";;Started: " + testStarted + ";;; Final state: " + testEndReasons[testEndReason]
-	testData[9] = ""
- 	testData[10] = ";;Comment: " + freeText.value
-
-	console.log(' testData' , testData, ' length' , testData.length)
-	
-  // Prompt the user for a filename
-  var filename = prompt("Please enter a filename", "dataset.csv");
-
-  // Prepare the CSV content
-  var csvContent = "Time [ms];Extension [mm];Force [N];Resistance [Ohm];Temperature [°C]\n";
-
-  // Iterate over the dataset and append each row to the CSV content
-  testDataLinecount = 0
-  console.log(' testData' , testData, ' length' , testData.length)
-  if (debug) console.log('current locale', currentLocale)
-  dataList.forEach(function(data) {
-	if (debug) console.log('data', data)
-	// US - International
-	// var row = Object.values(data).join(";") // Join the values with semicolons
-	// NL-nl - met komma in plaats van decimale punt
-	var row = Object.values(data)
-  		.map(value => typeof value === 'number' ? value.toLocaleString(currentLocale, { useGrouping: false }) : value)
-  		.join(";");
-	if (testDataLinecount < testData.length) {
-		csvContent += row + testData[testDataLinecount] + "\n"
-		testDataLinecount += 1
-	} else {
-		csvContent += row + "\n"
-	}
-  })
-
-  // Create a blob with the CSV content
-  var blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
-
-  // Check if the browser supports the 'msSaveOrOpenBlob' method (for IE)
-  if (navigator.msSaveOrOpenBlob) {
-	navigator.msSaveOrOpenBlob(blob, filename);
-  } else {
-	// Create a temporary link element
-	var link = document.createElement("a");
-	if (link.download !== undefined) {
-	  // Set the download attribute and the object URL to the link
-	  link.setAttribute("href", URL.createObjectURL(blob));
-	  link.setAttribute("download", filename);
-
-	  // Simulate a click on the link to trigger the download
-	  link.style.visibility = "hidden";
-	  document.body.appendChild(link);
-	  link.click();
-	  document.body.removeChild(link);
-
-	  startButton.style.backgroundColor = '#667292'
-	  unsavedData = false
-
-	  // Testing purpose, also save XLSX data
-	 saveDataXLSX()
-	}
-  }
-}
-
 // <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
 function saveDataXSLX() {
 	// First Assemble the metadata
@@ -580,6 +501,85 @@ function saveDataXSLX() {
 2. **Geen handmatige links/Blobs meer:** `XLSX.writeFile(workbook, filename)` vervangt al je code rondom `new Blob()`, `URL.createObjectURL` en `navigator.msSaveOrOpenBlob`. SheetJS regelt het opslaan voor alle browsers (ook IE/Edge).
 3. **Metadata netjes in kolommen:** `testData` bevatte string-constructies met `;`. Door `.split(";")` toe te passen, worden deze eigenschappen in losse kolommen (naast je metingen) geplaatst in plaats van dat ze als één lange tekststring op elkaar geplakt worden.
 */
+
+function saveData() {
+/* 	assemble testdata
+	LETT version February 2021 maintained by Adrie Kooijman				
+					
+	Test parameters				
+	LETT number: 5		Sensor: 100 kg		
+	Test type: cyclic		Speed: 5 mm/min		
+	Force limit: 0		Distance: 1		Cycles: 4
+					
+	Started 1 Feb 2022 16:16		Final state: Finished normally		
+*/
+	testData[1] = ";;LETT Version " + LETTSoftwareVersion
+	testData[2] = ""
+ 	testData[3] = ";;Test parameters"
+	testData[4] = ";;LETT number: " + LETTnumber + ";;; Sensor: " + sensorType + "kg"
+	testData[5] = ";;Test type: " + testTypeText + ";;; Speed: " + testSpeed
+	testData[6] = ";;Force limit: " + testForce + ";;; Displacement: " + testTarget + ";; Cycles: " + testCycles
+	testData[7] = ""
+ 	testData[8] = ";;Started: " + testStarted + ";;; Final state: " + testEndReasons[testEndReason]
+	testData[9] = ""
+ 	testData[10] = ";;Comment: " + freeText.value
+
+	console.log(' testData' , testData, ' length' , testData.length)
+	
+  // Prompt the user for a filename
+  var filename = prompt("Please enter a filename", "dataset.csv");
+
+  // Prepare the CSV content
+  var csvContent = "Time [ms];Extension [mm];Force [N];Resistance [Ohm];Temperature [°C]\n";
+
+  // Iterate over the dataset and append each row to the CSV content
+  testDataLinecount = 0
+  console.log(' testData' , testData, ' length' , testData.length)
+  if (debug) console.log('current locale', currentLocale)
+  dataList.forEach(function(data) {
+	if (debug) console.log('data', data)
+	// US - International
+	// var row = Object.values(data).join(";") // Join the values with semicolons
+	// NL-nl - met komma in plaats van decimale punt
+	var row = Object.values(data)
+  		.map(value => typeof value === 'number' ? value.toLocaleString(currentLocale, { useGrouping: false }) : value)
+  		.join(";");
+	if (testDataLinecount < testData.length) {
+		csvContent += row + testData[testDataLinecount] + "\n"
+		testDataLinecount += 1
+	} else {
+		csvContent += row + "\n"
+	}
+  })
+
+  // Create a blob with the CSV content
+  var blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+
+  // Check if the browser supports the 'msSaveOrOpenBlob' method (for IE)
+  if (navigator.msSaveOrOpenBlob) {
+	navigator.msSaveOrOpenBlob(blob, filename);
+  } else {
+	// Create a temporary link element
+	var link = document.createElement("a");
+	if (link.download !== undefined) {
+	  // Set the download attribute and the object URL to the link
+	  link.setAttribute("href", URL.createObjectURL(blob));
+	  link.setAttribute("download", filename);
+
+	  // Simulate a click on the link to trigger the download
+	  link.style.visibility = "hidden";
+	  document.body.appendChild(link);
+	  link.click();
+	  document.body.removeChild(link);
+
+	  startButton.style.backgroundColor = '#667292'
+	  unsavedData = false
+
+	  // Testing purpose, also save XLSX data
+	 saveDataXLSX()
+	}
+  }
+}
 
 function clearData(override = false) {
 	if (override) {
