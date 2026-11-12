@@ -421,16 +421,17 @@ function addDataPoint(dp) {
 function saveDataXSLX() {
 	// First Assemble the metadata
 	// TODO: make this a separate function.
-	testData[1] = ";;LETT Version " + LETTSoftwareVersion
+	sep = ","
+	testData[1] = sep + sep + "LETT Version " + LETTSoftwareVersion
 	testData[2] = ""
- 	testData[3] = ";;Test parameters"
-	testData[4] = ";;LETT number: " + LETTnumber + ";;; Sensor: " + sensorType + "kg"
-	testData[5] = ";;Test type: " + testTypeText + ";;; Speed: " + testSpeed
-	testData[6] = ";;Force limit: " + testForce + ";;; Displacement: " + testTarget + ";; Cycles: " + testCycles
+ 	testData[3] = sep + sep + "Test parameters"
+	testData[4] = sep + sep + "LETT number:" + LETTnumber   + sep + " Sensor: " + sensorType + "kg"
+	testData[5] = sep + sep + "Test type:"   + testTypeText + sep + " Speed: " + testSpeed
+	testData[6] = sep + sep + "Force limit:" + testForce    + sep + " Displacement: " + testTarget + sep + sep + "Cycles: " + testCycles
 	testData[7] = ""
- 	testData[8] = ";;Started: " + testStarted + ";;; Final state: " + testEndReasons[testEndReason]
-	testData[9] = ""
- 	testData[10] = ";;Comment: " + freeText.value
+ 	testData[8] = sep + sep + "Started: " + testStarted + ";;; 
+	testData[9] = sep + sep + "Final state: " + testEndReasons[testEndReason]
+ 	testData[10] = sep + sep + "Comment: " + freeText.value
 	console.log(' testData' , testData, ' length' , testData.length)
 
     // 1. Vraag de bestandsnaam op (pas extensie standaard aan naar .xlsx)
@@ -470,7 +471,7 @@ function saveDataXSLX() {
             // var metaCells = metaText.split(";"); 
 			// Be sure empty cells are empty and don't contain an empty string
 			// Longer text will be cut of otherwise.
-			var metaCells = metaText.split(";").map(cell => cell === "" ? null : cell);
+			var metaCells = metaText.split(sep).map(cell => cell === "" ? null : cell);
             
             // Combineer de datakolommen met de metadata-kolommen
             rowValues = rowValues.concat(metaCells);
