@@ -21,7 +21,7 @@ const testTypeData = 8; // bit 3
 const subtestTypeFail = 16; // bit 4
 const subtestTypeCreep = 32; // bit 5
 const subtestTypeRelax = 64; // bit 6
-const subtestType = 128; // bit 7
+const subtestTypeCyclic = 128; // bit 7
 //
 // positions of datamembers in results
 const posTim = 0
@@ -228,9 +228,9 @@ function checkTestType() {
 		subtestType = subtestTypeRelax;
 		testTypeText += " (Relax)"
 	}
-	if (document.getElementById('').checked) {
+	if (document.getElementById('cyclic').checked) {
 		// console.log('');
-		subtestType = subtestType;
+		subtestType = subtestTypeCyclic;
 		testTypeText += " ()"
 	}
 	if (subtestType == 0) startEnabled = false;
@@ -279,7 +279,7 @@ function checkTestTarget() {
 }
 
 function checkTestCycles() {
-	if (subtestType != subtestType) return;
+	if (subtestType != ) return;
 	if (testCycles<0 || testCycles>1000) {
 		startEnabled = false;
 		errorMessage = 'ERROR: # cycles out of range';
@@ -369,7 +369,7 @@ function startStop() {
 			showMessage('test running', goodWarning);
 			testStarted = Date().toLocaleString()
 			document.getElementById('smplLabel').style.visibility='visible'
-			if (subtestType==subtestType) {
+			if (subtestType==subtestTypeCyclic) {
 				console.log('**** visible')
 				document.getElementById('cycLabel').style.visibility='visible'
 				document.getElementById('cycl').style.visibility='visible'
