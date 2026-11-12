@@ -422,16 +422,20 @@ function saveDataXSLX() {
 	// First Assemble the metadata
 	// TODO: make this a separate function.
 	sep = ","
-	testData[1] = sep + sep + "LETT Version " + LETTSoftwareVersion
-	testData[2] = ""
- 	testData[3] = sep + sep + "Test parameters"
-	testData[4] = sep + sep + "LETT number:" + LETTnumber   + sep + " Sensor: " + sensorType + "kg"
-	testData[5] = sep + sep + "Test type:"   + testTypeText + sep + " Speed: " + testSpeed
-	testData[6] = sep + sep + "Force limit:" + testForce    + sep + " Displacement: " + testTarget + sep + sep + "Cycles: " + testCycles
-	testData[7] = ""
- 	testData[8] = sep + sep + "Started: " + testStarted 
-	testData[9] = sep + sep + "Final state: " + testEndReasons[testEndReason]
- 	testData[10] =sep + sep + "Comment: " + freeText.value
+	testData[1] = sep + sep + "LETT number:" + LETTnumber   + ""
+	testData[2] = sep + sep + "SW Version " + LETTSoftwareVersion
+	testData[3] = ""
+ 	testData[4] = sep + sep + "Test parameters"
+	testData[5] = sep + sep + "Sensor: " + sensorType + "kg"
+	testData[6] = sep + sep + "Test type:"   + testTypeText
+	testData[7] = sep + sep + "Speed: " + testSpeed
+	testData[8] = sep + sep + "Force limit:" + testForce
+	testData[9] = sep + sep + "Displacement: " + testTarget + sep + sep + "Cycles: " + testCycles
+	testData[10] = sep + sep + "Cycles: " + testCycles
+	testData[11] = ""
+ 	testData[12] = sep + sep + "Started: " + testStarted 
+	testData[13] = sep + sep + "Final state: " + testEndReasons[testEndReason]
+ 	testData[14] =sep + sep + "Comment: " + freeText.value
 	console.log(' testData' , testData, ' length' , testData.length)
 
     // 1. Vraag de bestandsnaam op (pas extensie standaard aan naar .xlsx)
