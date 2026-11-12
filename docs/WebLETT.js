@@ -576,7 +576,7 @@ function saveData() {
 	  unsavedData = false
 
 	  // Testing purpose, also save XLSX data
-	 saveDataXLSX()
+	 saveDataXSLX()
 	}
   }
 }
