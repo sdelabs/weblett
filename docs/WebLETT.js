@@ -843,7 +843,7 @@ async function getReader() {
 		
 }
 
-console.log('load eventlistener')
+if (debug) console.log('eventlistener beforeunload')
 window.addEventListener("beforeunload", function (e) {
 	console.log('unloadevent')
 	if (unsavedData) {
