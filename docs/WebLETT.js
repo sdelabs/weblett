@@ -11,7 +11,7 @@ const clearButton = document.getElementById('clear-button');
 const speedSlider = document.getElementById('speed-slide');
 const targetSlider = document.getElementById('target-slide');
 const forceSlider = document.getElementById('force-slide');
-const cyclesSlider = document.getElementById('cycle-slide');
+const cyclesSlider = document.getElementById('cycle-input');
 const statusText = document.getElementById('status-text');
 const freeText = document.getElementById('free-text');
 // Test Type contains two bits: test and subtest, assembled in a syngle 16bit value.
