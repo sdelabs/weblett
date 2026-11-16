@@ -348,7 +348,8 @@ function getFilename(defaultName, extension) {
 }
 
 function assembleMetaData() {
-    const sep = ","
+    // const sep = ","
+	const sep = (currentLocale === 'nl-NL') ? ';' : ','
     let i = 0
     testData = []
     testData[i++] = ""
