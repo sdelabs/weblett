@@ -279,7 +279,7 @@ function checkTestTarget() {
 }
 
 function checkTestCycles() {
-	if (subtestType != ) return;
+	if (subtestType != cyclic) return;
 	if (testCycles<0 || testCycles>1000) {
 		startEnabled = false;
 		errorMessage = 'ERROR: # cycles out of range';
