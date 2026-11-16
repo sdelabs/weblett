@@ -49,11 +49,11 @@ function getParameterCookies() {
 	targetText.innerText = testTarget
 	
 	testCycles = getCookie("LETTcycles")
-	testCyclesIndex = getCookie("LETTcyclesIndex")
+	// testCyclesIndex = getCookie("LETTcyclesIndex")
 	if (testCycles == "") testCycles = 8
 	if (debug) console.log('cycles', testCycles)
-	cyclesSlider.value = testCyclesIndex
-	cyclesText.innerText = testCycles
+	// cyclesSlider.value = testCyclesIndex
+	// cyclesText.innerText = testCycles
 	
 }
 
