@@ -9,7 +9,7 @@ function saveParameterCookies() {
 	setCookie("LETTforce", testForce)
 	setCookie("LETTtarget", testTarget)
 	setCookie("LETTcycles", testCycles)	
-	setCookie("LETTcyclesIndex", testCyclesIndex)	
+	// setCookie("LETTcyclesIndex", testCyclesIndex)	
 }
 
 function getParameterCookies() {
@@ -52,7 +52,7 @@ function getParameterCookies() {
 	// testCyclesIndex = getCookie("LETTcyclesIndex")
 	if (testCycles == "") testCycles = 8
 	if (debug) console.log('cycles', testCycles)
-	// cyclesSlider.value = testCyclesIndex
+	cyclesSlider.value = testCycles
 	// cyclesText.innerText = testCycles
 	
 }
