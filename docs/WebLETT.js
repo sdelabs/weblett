@@ -157,7 +157,7 @@ function updateParams(modeName) {
     speedText.style.opacity  = p.speed  ? "1" : "0.3";
     targetText.style.opacity = p.target ? "1" : "0.3";
     forceText.style.opacity  = p.force  ? "1" : "0.3";
-    cyclesText.style.opacity = p.cycles ? "1" : "0.3";
+    // cyclesText.style.opacity = p.cycles ? "1" : "0.3";
 }
 
 /*
@@ -170,7 +170,7 @@ function setControlState(speed, target, force, cycles) {
     forceSlider.disabled = !force;
     forceText.style.color = force ? "black" : "lightgrey";
     cyclesSlider.disabled = !cycles;
-    cyclesText.style.color = cycles ? "black" : "lightgrey";    
+	cyclesText.style.color = cycles ? "black" : "lightgrey";    
 }
 // parameters: (enable the) speedSlider, targetSlider, forceSlider, cyclesSlider
 function failClicked()  { setControlState(true, false, false, false); }
