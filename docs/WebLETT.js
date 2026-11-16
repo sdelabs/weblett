@@ -338,37 +338,50 @@ function addDataPoint(dp) {
 	dataList.push([].concat(dp))
 }
 
+function getFilename(defaultName, extension) {
+    let filename = prompt("Please enter a filename", defaultName)
+    if (!filename) return null
+    if (!filename.toLowerCase().endsWith(extension)) {
+        filename += extension
+    }
+    return filename
+}
+
+function assembleMetaData() {
+    const sep = ","
+    let i = 0
+    testData = []
+    testData[i++] = ""
+    testData[i++] = sep + sep + "LETT number:" + LETTnumber
+    testData[i++] = sep + sep + "SW Version " + LETTSoftwareVersion
+    testData[i++] = ""
+    testData[i++] = sep + sep + "Test parameters"
+    testData[i++] = sep + sep + "Sensor: " + sensorType + "kg"
+    testData[i++] = sep + sep + "Test type: " + testTypeText
+    testData[i++] = sep + sep + "Speed: " + testSpeed
+    testData[i++] = sep + sep + "Force limit: " + testForce
+    testData[i++] = sep + sep + "Displacement: " + testTarget
+    testData[i++] = sep + sep + "Cycles: " + testCycles
+    testData[i++] = ""
+    testData[i++] = sep + sep + "Test started: " + testStarted
+    testData[i++] = sep + sep + "Final state: " + testEndReasons[testEndReason]
+    testData[i++] = sep + sep + "Comment: " + freeText.value
+    console.debug('testData', testData, 'length', testData.length)
+}
+
 // <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
 function saveDataXSLX() {
-	// First Assemble the metadata - TODO: make this a separate function.
-	sep = ","
-	i=0
-	testData = []
-	testData[i++] = ""
-	testData[i++] = sep + sep + "LETT number:" + LETTnumber   + ""
-	testData[i++] = sep + sep + "SW Version " + LETTSoftwareVersion
-	testData[i++] = ""
- 	testData[i++] = sep + sep + "Test parameters"
-	testData[i++] = sep + sep + "Sensor: " + sensorType + "kg"
-	testData[i++] = sep + sep + "Test type:"   + testTypeText
-	testData[i++] = sep + sep + "Speed: " + testSpeed
-	testData[i++] = sep + sep + "Force limit:" + testForce
-	testData[i++] = sep + sep + "Displacement: " + testTarget
-	testData[i++] = sep + sep + "Cycles: " + testCycles
-	testData[i++] = ""
- 	testData[i++] = sep + sep + "Test started: " + testStarted 
-	testData[i++] = sep + sep + "Final state: " + testEndReasons[testEndReason]
- 	testData[i++] =sep + sep + "Comment: " + freeText.value
-	console.debug(' testData' , testData, ' length' , testData.length)
-
+	assembleMetaData()
+	const filename = getFilename("LETTdata", ".xlsx")
+	if (!filename) return
     // 1. Vraag de bestandsnaam op (pas extensie standaard aan naar .xlsx)
-    var filename = prompt("Please enter a filename", "LETTdata.xlsx");
-    if (!filename) return; // Geannuleerd door gebruiker
+    //var filename = prompt("Please enter a filename", "LETTdata.xlsx");
+    //if (!filename) return; // Geannuleerd door gebruiker
 
     // Zorg ervoor dat het bestand eindigt op .xlsx
-    if (!filename.toLowerCase().endsWith('.xlsx')) {
-        filename += '.xlsx';
-    }
+    //if (!filename.toLowerCase().endsWith('.xlsx')) {
+    //    filename += '.xlsx';
+    //}
 
     // 2. Bouw de rijen op als een Array van Arrays (aoa)
     var rows = [];
@@ -435,22 +448,13 @@ function saveDataXSLX() {
 */
 
 function saveData() {
-	// assemble testdata
-	testData[1] = ";;LETT Version " + LETTSoftwareVersion
-	testData[2] = ""
- 	testData[3] = ";;Test parameters"
-	testData[4] = ";;LETT number: " + LETTnumber + ";;; Sensor: " + sensorType + "kg"
-	testData[5] = ";;Test type: " + testTypeText + ";;; Speed: " + testSpeed
-	testData[6] = ";;Force limit: " + testForce + ";;; Displacement: " + testTarget + ";; Cycles: " + testCycles
-	testData[7] = ""
- 	testData[8] = ";;Started: " + testStarted + ";;; Final state: " + testEndReasons[testEndReason]
-	testData[9] = ""
- 	testData[10] = ";;Comment: " + freeText.value
+  // Metadata bevat de meetparameters
+  assembleMetaData()
+  const filename = getFilename("LETTdata", ".csv")
+  if (!filename) return
 
-	console.debug(' testData' , testData, ' length' , testData.length)
-	
   // Prompt the user for a filename
-  var filename = prompt("Please enter a filename", "dataset.csv");
+  //var filename = prompt("Please enter a filename", "dataset.csv");
 
   // Prepare the CSV content
   var csvContent = "Time [ms];Extension [mm];Force [N];Resistance [Ohm];Temperature [°C]\n";
