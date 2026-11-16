@@ -4,3 +4,4 @@
 *  Logica: Hier lees je `.checked` of `.value` uit van de DOM en roep je functies aan in `chart-logic.js`.
 *  (To be filled later)
 */
+console.log('UI-Handlers loaded')
