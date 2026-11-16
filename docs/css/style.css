@@ -115,8 +115,15 @@ th, td {
   cursor: pointer;
 }
 
-input[type="number"] {
+// spinners for parameter input
+.param-input {
     background-color: lightgray;
+}
+
+.param-input:disabled {
+    background-color: lightgray;
+    opacity: 0.4;
+    cursor: not-allowed;
 }
 
 /* W3schools color palettes - Sky Palettes */
