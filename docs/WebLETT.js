@@ -51,7 +51,7 @@ var testRunning = false
 var unsavedData = false
 var samples = 0
 var testSpeed = -1, testForce = -1, testTarget = -1, testCycles = -1
-var testSpeedIndex = -1, testCyclesIndex = -1
+var testSpeedIndex = -1 //, testCyclesIndex = -1
 var testStarted = ""
 var sensorType
 var testValid = false
