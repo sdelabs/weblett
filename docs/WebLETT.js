@@ -141,7 +141,7 @@ const modes = {
     fail:  { speed: true, target: false, force: false,  cycles: false },
     creep:  { speed: true, target: false,  force: true, cycles: false },
     relax:  { speed: true, target: true,  force: false, cycles: false },
-    cyclic:  { speed: true, target: true,  force: false, cycles: true }
+    :  { speed: true, target: true,  force: false, cycles: true }
 };
 
 function updateParams(modeName) {
@@ -228,9 +228,9 @@ function checkTestType() {
 		subtestType = subtestTypeRelax;
 		testTypeText += " (Relax)"
 	}
-	if (document.getElementById('cyclic').checked) {
+	if (document.getElementById('').checked) {
 		// console.log('');
-		subtestType = subtestTypeCyclic;
+		subtestType = subtestType;
 		testTypeText += " ()"
 	}
 	if (subtestType == 0) startEnabled = false;
@@ -279,7 +279,7 @@ function checkTestTarget() {
 }
 
 function checkTestCycles() {
-	if (subtestType != cyclic) return;
+	if (subtestType != subtestTypeCyclic) return;
 	if (testCycles<0 || testCycles>1000) {
 		startEnabled = false;
 		errorMessage = 'ERROR: # cycles out of range';
