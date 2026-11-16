@@ -16,4 +16,4 @@ const cyclesSlider = document.getElementById('cycle-input');
 const statusText = document.getElementById('status-text');
 const freeText = document.getElementById('free-text');
 
-console.log('UI-Defs loaded')
+console.info('UI-Defs loaded')
