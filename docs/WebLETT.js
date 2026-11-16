@@ -413,6 +413,7 @@ function saveDataXSLX() {
             // var metaCells = metaText.split(";"); 
 			// Be sure empty cells are empty and don't contain an empty string
 			// Longer text will be cut of otherwise.
+			const sep = (currentLocale === 'nl-NL') ? ';' : ','
 			var metaCells = metaText.split(sep).map(cell => cell === "" ? null : cell);
             
             // Combineer de datakolommen met de metadata-kolommen
