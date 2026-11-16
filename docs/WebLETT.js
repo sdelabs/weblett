@@ -141,7 +141,7 @@ const modes = {
     fail:  { speed: true, target: false, force: false,  cycles: false },
     creep:  { speed: true, target: false,  force: true, cycles: false },
     relax:  { speed: true, target: true,  force: false, cycles: false },
-    :  { speed: true, target: true,  force: false, cycles: true }
+    cyclic:  { speed: true, target: true,  force: false, cycles: true }
 };
 
 function updateParams(modeName) {
