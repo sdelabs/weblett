@@ -47,7 +47,7 @@ forceSlider.addEventListener('input', (event) => {
 // Toggle the locale for data saving
 // nl-NL is for Dutch installs of Excel (not neccesaraly Dutch Language !)
 // en-US is for non Dutch
-let isDutch = true;
+// let isDutch = true;
 const toggleLocale = document.getElementById('toggle-locale');
 toggleLocale.addEventListener('click', () => {
     // 1. Draai de status om
@@ -355,8 +355,7 @@ function addDataPoint(dp) {
 
 // <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
 function saveDataXSLX() {
-	// First Assemble the metadata
-	// TODO: make this a separate function.
+	// First Assemble the metadata - TODO: make this a separate function.
 	sep = ","
 	i=0
 	testData = []
@@ -375,7 +374,7 @@ function saveDataXSLX() {
  	testData[i++] = sep + sep + "Test started: " + testStarted 
 	testData[i++] = sep + sep + "Final state: " + testEndReasons[testEndReason]
  	testData[i++] =sep + sep + "Comment: " + freeText.value
-	console.log(' testData' , testData, ' length' , testData.length)
+	console.debug(' testData' , testData, ' length' , testData.length)
 
     // 1. Vraag de bestandsnaam op (pas extensie standaard aan naar .xlsx)
     var filename = prompt("Please enter a filename", "LETTdata.xlsx");
@@ -463,7 +462,7 @@ function saveData() {
 	testData[9] = ""
  	testData[10] = ";;Comment: " + freeText.value
 
-	console.log(' testData' , testData, ' length' , testData.length)
+	console.debug(' testData' , testData, ' length' , testData.length)
 	
   // Prompt the user for a filename
   var filename = prompt("Please enter a filename", "dataset.csv");
@@ -473,7 +472,6 @@ function saveData() {
 
   // Iterate over the dataset and append each row to the CSV content
   testDataLinecount = 0
-  console.log(' testData' , testData, ' length' , testData.length)
   if (debug) console.log('current locale', currentLocale)
   dataList.forEach(function(data) {
 	if (debug) console.log('data', data)
