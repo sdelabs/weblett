@@ -14,13 +14,7 @@ currentLocale = 'nl-NL'
 var dataList = []
 var dataPoint = []
 var testData = []
-/*
-speedSlider.addEventListener('input', (event) => {
-	//console.log('speed event', event.target.value)
-	testSpeed = parseInt(event.target.value)
-	speedText.innerText = testSpeed
-});		
-*/
+
 // Give speedslider a non-linear behaviour. 
 const speedList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 15, 16, 18, 20, 22, 25, 30, 35, 40, 45, 50, 60, 70, 75, 80, 90, 100, 110, 120, 125, 130, 140, 150, 160, 175, 180, 200, 220, 240, 250]
 // console.log(speedList.length)
@@ -56,15 +50,6 @@ toggleLocale.addEventListener('click', () => {
 	toggleLocale.textContent = (currentLocale === 'nl-NL') ? 'data (NL)' : 'data (US)';
 });
 
-/*
-cyclesSlider.addEventListener('input', (event) => {
-	//console.log('cycle event', event.target.value)
-	testCycles = Math.floor(Math.exp(parseInt(event.target.value)/100))
-	cyclesText.innerText = testCycles
-});		
-*/
-// const cyclesList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 18, 20, 22, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 180, 200, 250, 500, 750, 1000]
-// console.log(cyclesList.length)
 cyclesSlider.oninput = function() {
 	testCycles = parseInt(this.value)
 	// console.log(this.value, cyclesList[testCyclesIndex])
@@ -645,11 +630,7 @@ function processIncoming(line) {
 			LETTnumber = n;
 			if (debug) console.log('LETTnumber', LETTnumber)
 		}
-
-		//if (data[i].startsWith('Y')) { // Hardware config (fourpoint / K-Type)
-		//	s = parseInt(data[i].split('Y')[1]);
-		//}
-		
+	
 		//////////////////////////////////////////////////////////////////////
 		// Hardware config (bitwise)
 		// 0001 - 100 kg installed, 0010 - 500 kg installed
