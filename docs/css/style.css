@@ -115,6 +115,10 @@ th, td {
   cursor: pointer;
 }
 
+input[type="number"] {
+    background-color: lightgray;
+}
+
 /* W3schools color palettes - Sky Palettes */
 .td-dk {
 	color: white; 
