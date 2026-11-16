@@ -113,3 +113,5 @@ function rbAxisClicked() {
 	// and showtime
 	myChart.update()
 }
+
+console.log('WebLETTCharts.js loaded')
