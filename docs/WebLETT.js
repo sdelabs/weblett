@@ -1,27 +1,4 @@
 var debug = false
-var testType = 0
-var testTypeText = ""
-var subtestType = 0
-var LETTnumber
-var LETTSoftwareVersion
-var LETTtime = -1
-// var starTime = -1
-var testRunning = false
-var unsavedData = false
-var samples = 0
-var testSpeed = -1, testForce = -1, testTarget = -1, testCycles = -1
-var testSpeedIndex = -1 //, testCyclesIndex = -1
-var testStarted = ""
-var sensorType
-var testValid = false
-var LETTString
-var LETTmoving = false
-var BLEconnected = false
-var USBconnected = false
-
-let startEnabled = false;
-let errorMessage = 'ERROR: Message undefined!';
-
 var testEndReason = 0
 const testEndReasons = [
 "Undefined", 
@@ -229,7 +206,7 @@ function checkTestForce() {
 }
 
 function checkTestTarget() {
-	if (subtestType != subtestTypeRelax && subtestType != subtestType) return;
+	if (subtestType != subtestTypeRelax && subtestType != subtestTypeCyclic) return;
 	// console.log('goto', testTarget);
 	if (testTarget<0 || testTarget>100) {
 		startEnabled = false; 
