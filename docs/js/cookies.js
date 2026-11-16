@@ -105,3 +105,5 @@ function clearAllCookies() {
 // and read existing cookies
 document.cookie = 'a; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 getParameterCookies()
+
+console.info('cookies.js loaded')
