@@ -127,13 +127,13 @@ cyclesSlider.addEventListener('input', (event) => {
 	cyclesText.innerText = testCycles
 });		
 */
-const cyclesList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 18, 20, 22, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 180, 200, 250, 500, 750, 1000]
+// const cyclesList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 18, 20, 22, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 180, 200, 250, 500, 750, 1000]
 // console.log(cyclesList.length)
 cyclesSlider.oninput = function() {
-	testCyclesIndex = parseInt(this.value)
+	testCycles = parseInt(this.value)
 	// console.log(this.value, cyclesList[testCyclesIndex])
-	cyclesText.innerText = cyclesList[testCyclesIndex]
-	testCycles = cyclesList[testCyclesIndex]
+	// cyclesText.innerText = cyclesList[testCyclesIndex]
+	// testCycles = cyclesList[testCyclesIndex]
 }
 
 // A cleaner solution for setting the sliders. 
