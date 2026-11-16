@@ -228,7 +228,7 @@ function checkTestType() {
 		subtestType = subtestTypeRelax;
 		testTypeText += " (Relax)"
 	}
-	if (document.getElementById('').checked) {
+	if (document.getElementById('cyclic').checked) {
 		// console.log('');
 		subtestType = subtestType;
 		testTypeText += " ()"
