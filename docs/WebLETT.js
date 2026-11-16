@@ -1,19 +1,3 @@
-// from original file - for testing purpuses
-//const ledDimmer = document.getElementById('led-dimmer');
-//const ledDimmerValue = document.querySelector('label span');
-const connectButton = document.getElementById('connect-button');
-const startButton = document.getElementById('start-button');
-const upButton = document.getElementById('up-button');
-const downButton = document.getElementById('down-button');
-const testButton = document.getElementById('test-button');
-const saveButton = document.getElementById('save-button');
-const clearButton = document.getElementById('clear-button');
-const speedSlider = document.getElementById('speed-slide');
-const targetSlider = document.getElementById('target-slide');
-const forceSlider = document.getElementById('force-slide');
-const cyclesSlider = document.getElementById('cycle-input');
-const statusText = document.getElementById('status-text');
-const freeText = document.getElementById('free-text');
 // Test Type contains two bits: test and subtest, assembled in a syngle 16bit value.
 const testTypeTensile = 1; // bit 0
 const testTypeCompression = 2; // bit 1
