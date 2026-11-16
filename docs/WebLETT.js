@@ -478,9 +478,9 @@ function saveData() {
   var blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
 
   // Check if the browser supports the 'msSaveOrOpenBlob' method (for IE)
-  if (navigator.msSaveOrOpenBlob) {
-	navigator.msSaveOrOpenBlob(blob, filename);
-  } else {
+  // if (navigator.msSaveOrOpenBlob) {
+  //	navigator.msSaveOrOpenBlob(blob, filename);
+  // } else {
 	// Create a temporary link element
 	var link = document.createElement("a");
 	if (link.download !== undefined) {
@@ -500,7 +500,7 @@ function saveData() {
 	  // Testing purpose, also save XLSX data
 	 saveDataXSLX()
 	}
-  }
+  // }
 }
 
 function clearData(override = false) {
