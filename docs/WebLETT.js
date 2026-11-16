@@ -230,8 +230,8 @@ function checkTestType() {
 	}
 	if (document.getElementById('cyclic').checked) {
 		// console.log('');
-		subtestType = subtestType;
-		testTypeText += " ()"
+		subtestType = subtestTypeCyclic;
+		testTypeText += " (Cyclic)"
 	}
 	if (subtestType == 0) startEnabled = false;
 	if (!startEnabled) errorMessage = "ERROR: check (sub)test type!";
