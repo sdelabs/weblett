@@ -8,7 +8,8 @@ const testEndReasons = [
 "Maximum steps reached", 
 "Timeout", 
 "Specimen Fail", 
-"Force Overload" ];
+"Force Overload",
+"Ruler Timeout at Start" ];
 
 currentLocale = 'nl-NL'
 var dataList = []
