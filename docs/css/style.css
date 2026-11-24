@@ -161,7 +161,11 @@ th, td {
 	height:auto;
 	/* outline: 1px dashed magenta; */
 }
- 
+
+#tableGraph {
+    width: 100%;
+}
+
 /* added to the other (duplicate?) graph
 .graph {
   padding: 10px;
