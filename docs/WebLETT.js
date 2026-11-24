@@ -348,6 +348,23 @@ function getFilename(defaultName, extension) {
     return filename
 }
 
+function tareDisplacement() {
+	if (tareDisplacementValue == 0) {
+		tareDisplacementValue = dataPoint[posPos]
+	} else {
+		tareDisplacementValue = 0
+	}
+	if (debug) console.log('tare Displacement ', tareDisplacementValue)
+}
+
+function tareForce() {
+	if (tareForceValue == 0) {
+		tareForceValue = dataPoint[posFor]
+	} else {
+		tareForceValue = 0
+	}
+	if (debug) console.log('tare Force ', tareForceValue)
+}
 
 function assembleMetaData() {
     // const sep = ","
