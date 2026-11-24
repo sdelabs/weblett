@@ -571,7 +571,7 @@ function processIncoming(line) {
 			//console.log('p', data[i].split('p'))
 			pos = parseFloat(data[i].split('p')[1])
 			dataPoint[posPos] = pos
-			document.getElementById("pos").innerHTML=pos - tareDisplacementValue
+			document.getElementById("pos").innerHTML=(pos - tareDisplacementValue).toFixed(2)
 			//myChart.config.data.datasets[0].data[samples%100].x=pos
 		}
 
@@ -579,7 +579,7 @@ function processIncoming(line) {
 			if (debug) console.log('f', data[i].split('f'))
 			force = parseFloat(data[i].split('f')[1])
 			dataPoint[posFor] = force
-			document.getElementById("frc").innerHTML=force - tareForceValue
+			document.getElementById("frc").innerHTML=(force - tareForceValue).toFixed(2)
 			//myChart.config.data.datasets[0].data[samples%100].y=force
 		}
 
