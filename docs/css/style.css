@@ -116,8 +116,8 @@ th, td {
 }
 
 // spinners for parameter input
-input.spinner {
-    background-color: lightgray;
+.spinner {
+    background-color: lightgray !important;
 }
 
 .spinner:disabled {
