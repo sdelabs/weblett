@@ -348,6 +348,7 @@ function getFilename(defaultName, extension) {
     return filename
 }
 
+
 function assembleMetaData() {
     // const sep = ","
 	const sep = (currentLocale === 'nl-NL') ? ';' : ','
@@ -549,7 +550,7 @@ function processIncoming(line) {
 			//console.log('p', data[i].split('p'))
 			pos = parseFloat(data[i].split('p')[1])
 			dataPoint[posPos] = pos
-			document.getElementById("pos").innerHTML=pos
+			document.getElementById("pos").innerHTML=pos - tarePositionValue
 			//myChart.config.data.datasets[0].data[samples%100].x=pos
 		}
 
@@ -557,7 +558,7 @@ function processIncoming(line) {
 			if (debug) console.log('f', data[i].split('f'))
 			force = parseFloat(data[i].split('f')[1])
 			dataPoint[posFor] = force
-			document.getElementById("frc").innerHTML=force
+			document.getElementById("frc").innerHTML=force - tareForceValue
 			//myChart.config.data.datasets[0].data[samples%100].y=force
 		}
 
