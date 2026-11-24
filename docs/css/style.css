@@ -125,9 +125,18 @@ th, td {
     cursor: not-allowed;
 }
 
+/* Chrome, Edge, Safari, Opera */
+.spinner::-webkit-outer-spin-button,
 .spinner::-webkit-inner-spin-button {
-    background-color: lightgray;
-    opacity: 1;
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"].spinner {
+    -moz-appearance: textfield;
+    appearance: textfield;
 }
 
 /* W3schools color palettes - Sky Palettes */
