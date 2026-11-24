@@ -219,7 +219,7 @@ th, td {
     /* overflow: hidden; */
 }
 /* --- 3a. Brede Layout (Desktop) --- */
-@media (min-width: 801px) {
+@media (min-width: 1001px) {
     .grid-container {
         grid-template-columns: 380px 1fr;
 		/* grid-template-rows: auto 1fr auto; */
@@ -236,7 +236,7 @@ th, td {
 }
 
 /* --- Smalle Layout (PDF ernaast / Scherm < 800px) --- */
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
     .grid-container {
 		/* display: grid; */
         grid-template-columns: auto 1fr; /* was 1fr 1fr */
