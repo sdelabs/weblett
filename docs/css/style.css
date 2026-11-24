@@ -125,6 +125,11 @@ th, td {
     cursor: not-allowed;
 }
 
+.spinner::-webkit-inner-spin-button {
+    background-color: lightgray;
+    opacity: 1;
+}
+
 /* W3schools color palettes - Sky Palettes */
 .td-dk {
 	color: white; 
