@@ -25,6 +25,6 @@ let startEnabled = false;
 let errorMessage = 'ERROR: Message undefined!';
 
 var tareForceValue = 0
-var tarePositionValue = 0
+var tareDisplacementValue = 0
 
 console.info('state.js loaded')
