@@ -297,6 +297,8 @@ function startStop() {
 				document.getElementById('cycl').style.visibility='visible'
 			}
 			clearData()
+			tareForceValue = 0
+			tareDisplacementValue = 0
 			dataPoint = []
 			testRunning = true;
 			//startTime = LETTtime;
