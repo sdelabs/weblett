@@ -223,11 +223,13 @@ th, td {
     .grid-container {
         grid-template-columns: 380px 1fr;
 		/* grid-template-rows: auto 1fr auto; */
+		grid-template-rows: auto auto auto auto 1fr; */
         grid-template-areas: 
             "header       header"
             "stateTable   graph"
             "controlTable graph"
-            "footer       footer";
+            "footer       footer"
+			".			  .";
     }
     
     /* .controlTable { align-self: end; } */
