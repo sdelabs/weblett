@@ -390,7 +390,7 @@ function assembleMetaData() {
 }
 
 // <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
-function saveDataXSLX() {
+function saveData() {
 	assembleMetaData()
 	const filename = getFilename("LETTdata", ".xlsx")
 	if (!filename) return
@@ -458,6 +458,8 @@ function saveDataXSLX() {
         startButton.style.backgroundColor = '#667292';
     }
     unsavedData = false;
+	// Testing purpose, also save XLSX data
+	saveDataCSV(filename.split(" ")[0]+'.csv')
 }
 
 /*
@@ -468,10 +470,12 @@ function saveDataXSLX() {
 3. **Metadata netjes in kolommen:** `testData` bevatte string-constructies met `;`. Door `.split(";")` toe te passen, worden deze eigenschappen in losse kolommen (naast je metingen) geplaatst in plaats van dat ze als één lange tekststring op elkaar geplakt worden.
 */
 
-function saveData() {
+function saveDataCSV(filename) {
+if (debug) console.log('SaveDataCVS ', filename
   // Metadata bevat de meetparameters
   assembleMetaData()
-  const filename = getFilename("LETTdata", ".csv")
+  // const filename = getFilename("LETTdata", ".csv")
+  
   if (!filename) return
 
   // Prompt the user for a filename
@@ -522,8 +526,6 @@ function saveData() {
 	  startButton.style.backgroundColor = '#667292'
 	  unsavedData = false
 
-	  // Testing purpose, also save XLSX data
-	 saveDataXSLX()
 	}
   // }
 }
@@ -567,7 +569,7 @@ function processIncoming(line) {
 			//console.log('p', data[i].split('p'))
 			pos = parseFloat(data[i].split('p')[1])
 			dataPoint[posPos] = pos
-			document.getElementById("pos").innerHTML=pos - tarePositionValue
+			document.getElementById("pos").innerHTML=pos - tareDisplacementValue
 			//myChart.config.data.datasets[0].data[samples%100].x=pos
 		}
 
