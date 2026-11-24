@@ -471,7 +471,7 @@ function saveData() {
 */
 
 function saveDataCSV(filename) {
-if (debug) console.log('SaveDataCVS ', filename
+if (debug) console.info('SaveDataCVS ', filename)
   // Metadata bevat de meetparameters
   assembleMetaData()
   // const filename = getFilename("LETTdata", ".csv")
