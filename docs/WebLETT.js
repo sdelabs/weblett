@@ -461,7 +461,7 @@ function saveData() {
     }
     unsavedData = false;
 	// Testing purpose, also save XLSX data
-	saveDataCSV(filename.split(" ")[0]+'.csv')
+	saveDataCSV(filename.split(".")[0]+'.csv')
 }
 
 /*
