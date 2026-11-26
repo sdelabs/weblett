@@ -117,6 +117,7 @@ th, td {
 
 .spinner {
     background-color: lightgray;
+	border: none;
 }
 
 .spinner:disabled {
