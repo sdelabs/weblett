@@ -117,10 +117,10 @@ th, td {
 
 .spinner {
     background-color: lightgray;
-	width: 50px;
+	width: 30px;
+	margin-left: 5px;
 	border: none;
     outline: none;
-	margin-left: 10px;
 }
 
 .spinner:disabled {
