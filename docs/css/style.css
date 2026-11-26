@@ -120,6 +120,7 @@ th, td {
 	width: 50px;
 	border: none;
     outline: none;
+	margin-left: 10px;
 }
 
 .spinner:disabled {
